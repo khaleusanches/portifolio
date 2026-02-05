@@ -4,7 +4,12 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // Define 'baskerville' como o nome da classe utilitária
+        baskerville: ['"Libre Baskerville"', 'serif'],
+      },
+    },
   },
   plugins: [],
 }

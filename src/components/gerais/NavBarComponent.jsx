@@ -2,7 +2,7 @@ import icon from "../../assets/k-icon.png"
 function NavBarComponent(){
     return(
         <div>
-            <nav className="flex justify-center items-center w-full h-16 mb-8">
+            <nav className="flex justify-center items-center w-full h-[7vh] mb-8">
                 <ul className="flex items-center justify-between w-full mt-8">
                     <li className="ml-8"><img src={icon} alt="Ícone" className="w-16 border-2 border-white rounded-full"/></li>
                     <div className="flex space-x-8">
