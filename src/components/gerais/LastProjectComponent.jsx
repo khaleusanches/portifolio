@@ -15,8 +15,8 @@ function LastProjectComponent({ link, title, language, onMouseEnter, onMouseLeav
 
     return (
         <div
-            className={`scale-95 mt-4 transition-all duration-300 cursor-pointer relative ${
-                isHovered ? "translate-y-4 scale-100" : ""
+            className={`scale-95 mt-4 transition-all w-[17vw] m-auto duration-300 cursor-pointer relative ${
+                isHovered ? "translate-y-4 scale-105" : ""
             }`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
