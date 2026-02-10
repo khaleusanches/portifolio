@@ -4,9 +4,9 @@ import CatalogListComponent from "../../components/PortifolioPageComponents/Cata
 function PortifolioPage() {
     return (
         <div className="h-screen bg-gradient-to-b from-black to-gray-800 text-white">
-            <NavBarComponent/>
-            <CatalogListComponent/>
-            
+            <NavBarComponent active="portifolio"/>
+            <CatalogListComponent margin="mt-[160px]"/>
+
         </div>
     )
 }

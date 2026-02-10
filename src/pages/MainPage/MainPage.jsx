@@ -3,7 +3,7 @@ import BannerComponent from "../../components/MainPageComponents/BannerComponent
 function MainPage() {
     return(
         <div className="h-screen bg-gradient-to-b from-black to-gray-800 text-white">
-            <NavBarComponent/>
+            <NavBarComponent active="home"/>
             <BannerComponent/>
         </div>
     )
