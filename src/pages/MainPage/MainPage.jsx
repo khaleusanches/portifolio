@@ -1,3 +1,5 @@
+import ButtonOpenChat from "../../components/gerais/ButtonOpenChat";
+import ChatBot from "../../components/gerais/ChatBot";
 import NavBarComponent from "../../components/gerais/NavBarComponent";
 import BannerComponent from "../../components/MainPageComponents/BannerComponent";
 function MainPage() {
@@ -5,6 +7,8 @@ function MainPage() {
         <div className="h-screen bg-gradient-to-b from-black to-gray-800 text-white">
             <NavBarComponent active="home"/>
             <BannerComponent/>
+            <ChatBot/>
+            <ButtonOpenChat/>
         </div>
     )
 }
