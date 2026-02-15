@@ -1,4 +1,3 @@
-import { div } from "motion/react-client";
 import { useState, useRef, useEffect } from "react";
 
 function ChatBot() {
@@ -16,18 +15,44 @@ function ChatBot() {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
-
+    async function sendMessage(userMessage){
+        try {
+            setIsLoading(true);
+            const response = await fetch("http://192.168.0.162:5000/api/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Erro da API: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            const botResponse = {
+                sender: "Khaléu Sanches Mancini",
+                text: data.response
+            };
+            setMessages(prevMessages => [...prevMessages, botResponse]);
+        } catch (error) {
+            console.error("Erro ao enviar mensagem:", error);
+            const errorResponse = {
+                sender: "Khaléu Sanches Mancini",
+                text: "Desculpe, ocorreu um erro. Tente novamente mais tarde."
+            };
+            setMessages(prevMessages => [...prevMessages, errorResponse]);
+        } finally {
+            setIsLoading(false);
+        }
+    }
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
         if (messages[messages.length - 1].sender === "User") {
             setTimeout(() => {
-                const botResponse = {
-                    sender: "Khaléu Sanches Mancini",
-                    text: "Claro! Tenho experiência em desenvolvimento de software, especialmente em C# e React. Já trabalhei em diversos projetos, desde aplicações web até sistemas mais complexos. Se você tiver alguma dúvida específica ou quiser saber mais sobre um projeto em particular, fique à vontade para perguntar!"
-                };
-                setMessages(prevMessages => [...prevMessages, botResponse]);
-                setIsLoading(false);
-            }, 5000);
+                sendMessage(messages[messages.length - 1].text)
+            }, 1000);
         }
     }, [messages]);
 
@@ -51,11 +76,11 @@ function ChatBot() {
     };
     return(
         <div id="chatbot" className="hidden flex-row-reverse items-end w-[58vw] fixed bottom-12 right-12">
-            <div className="w-[40vw] h-[50vh] bg-gray-800 rounded-lg shadow-lg p-4">
+            <div className="w-[40vw] h-[60vh] bg-gray-800 rounded-lg shadow-lg p-4">
                 <div>
                     <h2 className="text-xl font-bold mb-2">Khaléu Sanches Mancini</h2>
                     <div className="flex flex-col space-y-3">
-                        <div className="bg-gray-700 p-3 rounded-lg text-sm h-[32.5vh] overflow-y-auto">
+                        <div className="bg-gray-700 p-3 rounded-lg text-sm h-[42.5vh] overflow-y-auto">
                             {messages.map((message, index) => (
                                 <div key={index} className={`mb-2 ${message.sender === "User" ? "flex flex-col items-end" : "text-left"}`}>
                                     <p className="font-bold mb-1">{message.sender}</p>
