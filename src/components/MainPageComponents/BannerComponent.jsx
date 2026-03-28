@@ -45,7 +45,7 @@ function BannerComponent() {
                 <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] mt-16 w-[62.5vw]">
                     <h1 className="mb-2 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-8xl font-['Libre_Baskerville']">Software Engineers</h1>
                     <h1 className="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-4xl" >We build scalable and efficient web applications</h1>
-                    <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="border-2 border-b-8 border-white rounded-[16px] p-4 hover:bg-white hover:border-gray-800 hover:text-gray-800 block w-[12vw]">Entre em Contato</a>
+                    <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="border-2 border-b-8 border-white font-bold rounded-[16px] p-4 hover:bg-white hover:border-gray-800 hover:text-gray-800 block w-[12.5vw]">Entre em Contato</a>
                 </div>
                 <div className="w-full flex justify-end">
 
