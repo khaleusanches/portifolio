@@ -8,6 +8,7 @@ import PortifolioPage from './pages/PortifolioPage/PortifolioPage.jsx'
 import AboutPage from './pages/AboutPage/AboutPage.jsx'
 import PageTransition from './components/PageTransition.jsx'
 import { AnimatePresence } from 'framer-motion'
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage.jsx'
 
 function Layout() {
   return (
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <AboutPage/>
+      },
+      {
+        path: "/project/:nameProject",
+        element: <ProjectsPage/>
       }
     ]
   }

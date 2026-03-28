@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function LastProjectComponent({ link, title, language, onMouseEnter, onMouseLeave }) {
+function LastProjectComponent({ project, link, title, language, onMouseEnter, onMouseLeave }) {
+    const navigate = useNavigate()
     const [isHovered, setIsHovered] = useState(false);
 
     const handleMouseEnter = () => {
@@ -14,7 +16,7 @@ function LastProjectComponent({ link, title, language, onMouseEnter, onMouseLeav
     };
 
     return (
-        <div
+        <div onClick={() => navigate(`/project/${project}`)}
             className={`mt-4 transition-all w-[17vw] m-auto duration-300 cursor-pointer relative ${
                 isHovered ? "translate-y-4 scale-100" : "scale-95"
             }`}

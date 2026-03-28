@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import icon from "../../assets/k-icon.png"
 import LastProjectComponent from "../gerais/LastProjectComponent";
-
+import OlimpicLinkImg from "../../../public/Olimpiclink.png"
+import LaunaERP from "../../../public/launa.png"
+import SystemERP from "../../../public/ERPSystem.png"
 function BannerComponent() {
     const scrollRef = useRef(null);
     const [isHovering, setIsHovering] = useState(false);
@@ -31,17 +33,19 @@ function BannerComponent() {
             <p className="-rotate-90 relative left-[70px] text-2xl w-[15vw] h-0 ml-[-11vw]">Últimos Trabalhos</p>
             <div className="h-full shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px] relative left-0">
                 <div ref={scrollRef} className="h-full max-h-full overflow-auto no-scrollbar lg:w-[18vw] md:w-0">
-                    <LastProjectComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão e crescimento de finaças e bem-estar" language="LYNDUS" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
-                    <LastProjectComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Fsonora_kids_cover.png&w=1536&q=100" title="SaaS para gestão e crescimento de finaças e bem-estar" language="SONORA KIDS" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
+                    <LastProjectComponent project="OlimpicLink" link={OlimpicLinkImg} title="Rede Social para esportistas da região de Diadema" language="Kotlin | Java | Python | SQL Server" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
+                    <LastProjectComponent project="Launa" link={LaunaERP} title="Software de Gestão Empresarial Privada" language="C# | Python | SQL Server" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
+                    <LastProjectComponent project="SystemERP" link={SystemERP} title="Website ERP - Para gerenciar tudo de uma empresa" language="React | C# | Python | SQL Server" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
+
                     <LastProjectComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão e crescimento de finaças e bem-estar" language="LYNDUS" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
                     <LastProjectComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Fsonora_kids_cover.png&w=1536&q=100" title="SaaS para gestão e crescimento de finaças e bem-estar" language="SONORA KIDS" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
                 </div>
             </div>
             <div className="w-[70vw] flex items-center justify-between flex-col">
-                <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] mt-16 w-[60vw]">
-                    <h1 className="mb-2 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-8xl font-['Libre_Baskerville']">Software Engineer</h1>
-                    <h1 className="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-4xl" >I build scalable and efficient web applications</h1>
-                    <button className="border-2 border-b-8 border-white rounded-[16px] p-4 hover:bg-white hover:border-gray-800 hover:text-gray-800">MY SERVICES</button>
+                <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] mt-16 w-[62.5vw]">
+                    <h1 className="mb-2 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-8xl font-['Libre_Baskerville']">Software Engineers</h1>
+                    <h1 className="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-4xl" >We build scalable and efficient web applications</h1>
+                    <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="border-2 border-b-8 border-white rounded-[16px] p-4 hover:bg-white hover:border-gray-800 hover:text-gray-800 block w-[12vw]">Entre em Contato</a>
                 </div>
                 <div className="w-full flex justify-end">
 

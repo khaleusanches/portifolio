@@ -1,5 +1,8 @@
 import { useRef } from 'react'
 import ItemCatalogComponent from "../gerais/ItemCatalogComponent"
+import OlimpicLinkImg from "../../../public/Olimpiclink.png"
+import LaunaERP from "../../../public/launa.png"
+import SystemERP from "../../../public/ERPSystem.png"
 
 function CatalogListComponent({margin}){
     const scrollContainerRef = useRef(null)
@@ -34,15 +37,15 @@ function CatalogListComponent({margin}){
                     <span className="absolute w-full h-full bg-gray-700 -left-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:left-0 duration-500"></span>
                     <span className="absolute w-full h-full bg-gray-700 -right-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:right-0 duration-500"></span>
                 </button>
-                <ItemCatalogComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão e crescimento" language="LYNDUS"
+                <ItemCatalogComponent link={OlimpicLinkImg} title="Rede Social para esportistas da região de Diadema"  language="Kotlin | Java | Python | SQL Server"
                 />
                 <ItemCatalogComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão e crescimento" language="LYNDUS"
                 />
-                <ItemCatalogComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão de finanças e bem-estar" language="LYNDUS"
+                <ItemCatalogComponent link={OlimpicLinkImg} title="Rede Social para a região de Diadema"  language="Kotlin | Java | Python | SQL Server"
                 />
-                <ItemCatalogComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão" language="LYNDUS"
+                <ItemCatalogComponent link={LaunaERP} title="Software de Gestão Empresarial Privada" language="C# | Python | SQL Server"
                 />
-                <ItemCatalogComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão  " language="LYNDUS"
+                <ItemCatalogComponent link={SystemERP} title="Website ERP - Para gerenciar tudo de uma empresa" language="React | C# | Python | SQL Server"
                 />
                 <ItemCatalogComponent link="https://cristophermartins.com/_vercel/image?url=%2Fimages%2Fportfolio%2Flyndus_cover.png&w=1536&q=100" title="SaaS para gestão  " language="LYNDUS"
                 />
