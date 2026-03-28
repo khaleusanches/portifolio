@@ -8,6 +8,7 @@ export default {
       fontFamily: {
         // Define 'baskerville' como o nome da classe utilitária
         baskerville: ['"Libre Baskerville"', 'serif'],
+        alice: ['"Alice BC"', 'serif']
       },
     },
   },

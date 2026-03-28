@@ -1,15 +1,8 @@
-import ServicesCard from "./ServicesCard"
-import erp from '../../../public/erp-icon.png'
-import n8n from '../../../public/n8n-icon.svg'
-import mobile from '../../../public/mobile-icon.png'
-import consul from '../../../public/consul-icon.png'
-import styled from 'styled-components';
-
-function ServicesComponent(){
+function AboutComponent(){
     return(
-        <div id="services" className="w-screen h-[100vh] mt-8 p-8 bg-gray-100">
+        <div id="about" className="w-screen h-[110vh] p-8 pt-0 bg-gray-100">
             <div className="flex justify-between items-center ">
-                <h3 className="text-black text-3xl ml-[5vw] font-['Libre_Baskerville'] ">Serviços</h3>
+                <h3 className="text-black text-3xl ml-[5vw] mb-2 font-['Libre_Baskerville'] ">Sobre nós</h3>
                 <div class="share flex mr-[5vw] space-x-2">
                     <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" class="bi bi-twitter" viewBox="0 0 16 16">
@@ -28,13 +21,17 @@ function ServicesComponent(){
                     </a>
                 </div>
             </div>
-            <div className="flex justify-around mt-8">
-                <ServicesCard title="Desenvolvimento de ERP Personalizado" info="Soluções completas para gerenciar estoque, vendas, compras, financeiro e funcionários em uma única plataforma, aumentando produtividade e controle do seu negócio." button="Solicite Orçamento" img={erp}/>
-                <ServicesCard title="Automação de Processos" info="Reduza tarefas manuais e otimize sua rotina com sistemas inteligentes que automatizam processos e reduzem erros operacionais." button="Descubra Soluções" img={n8n}/>
-                <ServicesCard title="Aplicativos Mobile" info="Criação de apps intuitivos para Android e iOS, conectando clientes e colaboradores de forma prática e moderna." button="Conheça nossos apps" img={mobile}/>
-                <ServicesCard title="Consultoria e Planejamento de Sistemas" info="Analisamos seu negócio e sugerimos soluções digitais sob medida para transformar gestão, vendas e operação em alta performance." button="Agende uma reunião" img={consul}/>
+            <div className="flex">
+                <p className="text-black ml-[5vw] text-lg w-[40vw] text-justify">
+                    Somos espezializados no desenvolvimento de sistemas e soluções digitais que ajudam empresas a otimizar processos, aumentar a produtividade e expandir seus negócios. Com expertise em softwares personalizados, ERPs, CRMs, automações, integrações e até soluções para redes sociais, transformamos ideias em tecnologia que gera resultados reais.
+                    <br/> <br/>
+                    Nosso <strong>Engenheiro de Software</strong> domina tecnologias como Kotlin, C#, Java, SQL Server e MongoDB, garantindo soluções robustas, escaláveis e seguras. Cada projeto é desenvolvido sob medida, pensando na melhor experiência para o usuário e no crescimento do seu negócio.
+                    <br/> <br/>
+                    Acreditamos que tecnologia deve simplificar, não complicar. Por isso, trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e entregando sistemas que realmente fazem a diferença. Se você procura inovação, eficiência e confiabilidade, estamos prontos para transformar sua ideia em realidade.
+                </p>
             </div>
         </div>
     )
 }
-export default ServicesComponent
+
+export default AboutComponent

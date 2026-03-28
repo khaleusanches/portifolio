@@ -76,11 +76,11 @@ function ChatBot() {
     };
     return(
         <div id="chatbot" className="hidden flex-row-reverse items-end w-[58vw] fixed bottom-12 right-12">
-            <div className="w-[40vw] h-[62vh] bg-gray-800 rounded-lg shadow-lg p-4">
-                <div>
+            <div className="w-[40vw] h-[62vh] bg-gray-800 rounded-lg shadow-lg p-4 no-scrollbar">
+                <div className="">
                     <h2 className="text-xl font-bold mb-2">Khaléu Sanches Mancini</h2>
                     <div className="flex flex-col space-y-3">
-                        <div className="bg-gray-700 p-3 rounded-lg text-sm h-[42.5vh] overflow-y-auto">
+                        <div className="bg-gray-700 p-3 rounded-lg text-sm h-[42.5vh] overflow-y-auto no-scrollbar">
                             {messages.map((message, index) => (
                                 <div key={index} className={`mb-2 ${message.sender === "User" ? "flex flex-col items-end" : "text-left"}`}>
                                     <p className="font-bold mb-1">{message.sender}</p>
@@ -95,9 +95,9 @@ function ChatBot() {
                     </div>
                 </div>
             </div>
-            <div id="Sugestoes" className="w-[15vw] h-[40vh] bg-gray-800 rounded-lg shadow-lg p-4 mr-4">
+            <div id="Sugestoes" className="w-[15vw] h-[40vh] bg-gray-800 rounded-lg no-scrollbar shadow-lg p-4 mr-4">
                 <p className="text-xl font-bold mb-2">Sugestões</p>
-                <div className="bg-gray-700 p-3 rounded-lg text-sm flex flex-col space-y-2 mt-2">
+                <div className="bg-gray-700 p-3 rounded-lg text-sm flex flex-col space-y-2 mt-2 no-scrollbar">
                     {sugestions.map((sugestion, index) => (
                         <p key={index} className="bg-gray-600 rounded-lg px-2 py-[2px] hover:bg-gray-500 cursor-pointer" onClick={() => {
                             setIsLoading(true);

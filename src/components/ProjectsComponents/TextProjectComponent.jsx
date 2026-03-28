@@ -39,13 +39,13 @@ function TextProjectComponent({nameProject}){
     )
 }
     return(
-        <div className="w-[35vw] flex flex-col justify-between overflow-auto h-full bg-gradient-to-b from-black to-gray-800 text-white">
-            <div>
+        <div className="w-[35vw] flex flex-col justify-between no-scrollbar h-full bg-gradient-to-b from-black to-gray-800 text-white">
+            <div className="no-scrollbar">
                 <h2 className="text-4xl font-bold tracking-tight text-heading md:text-3xl p-8 pb-4 font-['Libre_Baskerville']">{project.title}</h2>
                 <hr className="border-gray-400 mx-4"/>
                 <p className="p-8 text-md text-justify  whitespace-pre-line">{formatText(project.text)}</p>
             </div>
-            <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-center hover:bg-green-600 w-[20vw] py-3 m-auto mb-4 rounded-full font-bold">
+            <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="overflow-hidden bg-green-500 text-center hover:bg-green-600 w-[20vw] pb-4 pt-2 m-auto mt-4 mb-4 rounded-full font-bold">
                 Solicitar orçamento
             </a>
         </div>

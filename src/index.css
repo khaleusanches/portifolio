@@ -7,11 +7,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
 }
 #root{
   background-color: #111827;
+  scroll-behavior: smooth;
+
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -19,4 +22,32 @@
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Container que terá scroll */
+body {
+  scrollbar-width: thin; /* para compatibilidade com Firefox */
+  scrollbar-color: #fe5800 #1f2937; /* Firefox: thumb / track */
+}
+
+/* Chrome, Edge, Safari */
+body::-webkit-scrollbar {
+  width: 10px; /* largura da barra */
+}
+
+body::-webkit-scrollbar-track {
+  background: #1f2937; /* cor do fundo da barra */
+  border-radius: 5px; /* arredondamento do track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #fe5800; /* cor da parte que se move */
+  border-radius: 5px; /* arredondamento do thumb */
+  border: 2px solid #1f2937; /* espaço entre thumb e track */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #fe5800; /* cor ao passar o mouse */
 }
