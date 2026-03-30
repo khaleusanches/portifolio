@@ -29,10 +29,10 @@ function ServicesComponent(){
                 </div>
             </div>
             <div className="block m-auto mt-8 w-[70vw] md:w-[95vw] md:m-0 md:flex overflow-hidden justify-around md:mt-8">
-                <ServicesCard title="Desenvolvimento de ERP Personalizado" info="Soluções completas para gerenciar estoque, vendas, compras, financeiro e funcionários em uma única plataforma, aumentando produtividade e controle do seu negócio." button="Solicite Orçamento" img={erp}/>
-                <ServicesCard title="Automação de Processos" info="Reduza tarefas manuais e otimize sua rotina com sistemas inteligentes que automatizam processos e reduzem erros operacionais." button="Descubra Soluções" img={n8n}/>
-                <ServicesCard title="Aplicativos Mobile" info="Criação de apps intuitivos para Android e iOS, conectando clientes e colaboradores de forma prática e moderna." button="Conheça nossos apps" img={mobile}/>
-                <ServicesCard title="Consultoria e Planejamento de Sistemas" info="Analisamos seu negócio e sugerimos soluções digitais sob medida para transformar gestão, vendas e operação em alta performance." button="Agende uma reunião" img={consul}/>
+                <ServicesCard type="website" title="Desenvolvimento de WebSites Personalizados" info="Soluções completas para gerenciar estoque, vendas, compras, financeiro e funcionários em uma única plataforma, aumentando produtividade e controle do seu negócio." button="Solicite Orçamento" img={erp}/>
+                <ServicesCard type="automacao" title="Automação de Processos" info="Reduza tarefas manuais e otimize sua rotina com sistemas inteligentes que automatizam processos e reduzem erros operacionais." button="Descubra Soluções" img={n8n}/>
+                <ServicesCard type="mobile" title="Aplicativos Mobile" info="Criação de apps intuitivos para Android e iOS, conectando clientes e colaboradores de forma prática e moderna." button="Conheça nossos apps" img={mobile}/>
+                <ServicesCard type="consul" title="Consultoria e Planejamento de Sistemas" info="Analisamos seu negócio e sugerimos soluções digitais sob medida para transformar gestão, vendas e operação em alta performance." button="Agende uma reunião" img={consul}/>
             </div>
         </div>
     )

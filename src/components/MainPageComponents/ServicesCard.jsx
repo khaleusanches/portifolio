@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import ServicesInfosComponent from '../gerais/ServicesInfosComponent';
 
-const ServicesCard = ({title, info, button, img}) => {
+const ServicesCard = ({type, title, info, button, img}) => {
+
   return (
     <StyledWrapper>
       <div className="card mb-8">
         <div className="img">
           <img src={img} alt="" className='w-full p-2' />
         </div>
-        <span>{title}</span>
+        <span className='h-[6vw] md:h-[4vw] overflow-hidden'>{title}</span>
         <p className="info">{info}</p>
-
-        <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className='button'>{button}</a>
+        <ServicesInfosComponent button={button} type={type}/>
       </div>
     </StyledWrapper>
   );
@@ -36,7 +37,6 @@ const StyledWrapper = styled.div`
     color: white;
     text-align: center;
     display: block;
-    height: 6vw;
     font-size: 1em;
   }
 
@@ -47,6 +47,7 @@ const StyledWrapper = styled.div`
     text-align: center;
     font-size: 0.79em;
     margin: 1em;
+    margin-bottom: 1.8em;
   }
 
   .card .img {
@@ -77,6 +78,7 @@ const StyledWrapper = styled.div`
     padding: 0.8em 1.7em;
     display: block;
     margin: auto;
+    margin-bottom: 1.8em;
     border-radius: 25px;
     border: none;
     font-weight: bold;
