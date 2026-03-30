@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ServicesCard = ({title, info, button, img}) => {
   return (
     <StyledWrapper>
-      <div className="card">
+      <div className="card mb-8">
         <div className="img">
           <img src={img} alt="" className='w-full p-2' />
         </div>
@@ -36,7 +36,7 @@ const StyledWrapper = styled.div`
     color: white;
     text-align: center;
     display: block;
-    height: 4vw;
+    height: 6vw;
     font-size: 1em;
   }
 

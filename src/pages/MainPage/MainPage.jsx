@@ -15,8 +15,8 @@ function MainPage() {
             <ServicesComponent/>
             <AboutComponent/>
             <RodapeComponent/>
-            <ChatBot/>
-            <ButtonOpenChat/>
+            {/* <ChatBot/>
+            <ButtonOpenChat/> */}
         </div>
     )
 }

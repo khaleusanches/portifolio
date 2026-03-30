@@ -17,7 +17,7 @@ function LastProjectComponent({ project, link, title, language, onMouseEnter, on
 
     return (
         <div onClick={() => navigate(`/project/${project}`)}
-            className={`mt-4 transition-all w-[17vw] m-auto duration-300 cursor-pointer relative ${
+            className={`flex-shrink-0 md:flex-shrink mt-4 transition-all w-[50vw] md:w-[17vw] m-auto duration-300 cursor-pointer relative ${
                 isHovered ? "translate-y-4 scale-100" : "scale-95"
             }`}
             onMouseEnter={handleMouseEnter}

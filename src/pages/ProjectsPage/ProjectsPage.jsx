@@ -8,7 +8,7 @@ function ProjectsPage(){
     const { nameProject } = useParams()
     return(
         <div className="w-full h-screen overflow-x-auto">
-            <div className="flex h-full">
+            <div className="block md:flex h-full">
                 <TextProjectComponent nameProject={nameProject}/>
                 <ImagesProjectComponent nameProject={nameProject}/>
             </div>

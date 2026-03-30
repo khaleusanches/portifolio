@@ -7,9 +7,9 @@ import styled from 'styled-components';
 
 function ServicesComponent(){
     return(
-        <div id="services" className="w-screen h-[100vh] mt-8 p-8 bg-gray-100">
+        <div id="services" className="w-screen overflow-hidden mt-8 p-8 bg-gray-100">
             <div className="flex justify-between items-center ">
-                <h3 className="text-black text-3xl ml-[5vw] font-['Libre_Baskerville'] ">Serviços</h3>
+                <h3 className="text-black text-3xl ml-[5vw] font-['Libre_Baskerville'] overflow-hidden">Serviços</h3>
                 <div class="share flex mr-[5vw] space-x-2">
                     <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" class="bi bi-twitter" viewBox="0 0 16 16">
@@ -28,7 +28,7 @@ function ServicesComponent(){
                     </a>
                 </div>
             </div>
-            <div className="flex justify-around mt-8">
+            <div className="block m-auto mt-8 w-[70vw] md:w-[95vw] md:m-0 md:flex overflow-hidden justify-around md:mt-8">
                 <ServicesCard title="Desenvolvimento de ERP Personalizado" info="Soluções completas para gerenciar estoque, vendas, compras, financeiro e funcionários em uma única plataforma, aumentando produtividade e controle do seu negócio." button="Solicite Orçamento" img={erp}/>
                 <ServicesCard title="Automação de Processos" info="Reduza tarefas manuais e otimize sua rotina com sistemas inteligentes que automatizam processos e reduzem erros operacionais." button="Descubra Soluções" img={n8n}/>
                 <ServicesCard title="Aplicativos Mobile" info="Criação de apps intuitivos para Android e iOS, conectando clientes e colaboradores de forma prática e moderna." button="Conheça nossos apps" img={mobile}/>

@@ -38,10 +38,10 @@ function ImagesProjectComponent({nameProject}){
         })
     ),[])
     return(
-        <div className="w-[70vw] overflow-auto h-full">
+        <div className="w-full md:w-[70vw] overflow-hidden md:overflow-auto md:h-full">
             {images.map(image => (
                 <div>
-                    <img src={image} className="w-[45vw] h-[59vh] m-auto mt-8 rounded-[10px]"/>
+                    <img src={image} className="p-4 md:p-0 md:w-[45vw] md:h-[59vh] m-auto mt-8 rounded-[32px] md:rounded-[10px]"/>
                     <p className="text-white text-center mb-8 mt-2">Launa ERP</p>
                 </div>
             ))}

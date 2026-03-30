@@ -1,8 +1,8 @@
 function AboutComponent(){
     return(
-        <div id="about" className="w-screen h-[110vh] p-8 pt-0 bg-gray-100">
+        <div id="about" className="w-screen md:h-[110vh] p-8 pt-0 bg-gray-100">
             <div className="flex justify-between items-center ">
-                <h3 className="text-black text-3xl ml-[5vw] mb-2 font-['Libre_Baskerville'] ">Sobre nós</h3>
+                <h3 className="text-black text-3xl ml-[5vw] mb-2 font-['Libre_Baskerville'] overflow-hidden">Sobre nós</h3>
                 <div class="share flex mr-[5vw] space-x-2">
                     <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" class="bi bi-twitter" viewBox="0 0 16 16">
@@ -22,7 +22,7 @@ function AboutComponent(){
                 </div>
             </div>
             <div className="flex">
-                <p className="text-black ml-[5vw] text-lg w-[40vw] text-justify">
+                <p className="text-black md:ml-[5vw] text-lg md:w-[40vw] text-justify">
                     Somos espezializados no desenvolvimento de sistemas e soluções digitais que ajudam empresas a otimizar processos, aumentar a produtividade e expandir seus negócios. Com expertise em softwares personalizados, ERPs, CRMs, automações, integrações e até soluções para redes sociais, transformamos ideias em tecnologia que gera resultados reais.
                     <br/> <br/>
                     Nosso <strong>Engenheiro de Software</strong> domina tecnologias como Kotlin, C#, Java, SQL Server e MongoDB, garantindo soluções robustas, escaláveis e seguras. Cada projeto é desenvolvido sob medida, pensando na melhor experiência para o usuário e no crescimento do seu negócio.
