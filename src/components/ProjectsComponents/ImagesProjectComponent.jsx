@@ -28,8 +28,12 @@ function ImagesProjectComponent({nameProject}){
         ],
         "SystemERP" : [
             SystemERPOne,
-            OlimpicLinkImg,
-            LaunaERP
+            SystemERP,
+            SystemERPOne,
+            SystemERP
+        ],
+        AHM : [
+            
         ]
     }
     useEffect(() => (
@@ -42,7 +46,7 @@ function ImagesProjectComponent({nameProject}){
             {images.map(image => (
                 <div>
                     <img src={image} className="p-4 md:p-0 md:w-[45vw] md:h-[59vh] m-auto mt-8 rounded-[32px] md:rounded-[10px]"/>
-                    <p className="text-white text-center mb-8 mt-2">Launa ERP</p>
+                    <p className="text-white text-center mb-8 mt-2">{nameProject}</p>
                 </div>
             ))}
             <div className="rounded-t-[64px] w-full bg-gradient-to-br from-black to-gray-800 text-white">
