@@ -13,10 +13,6 @@ import LaunaTwo from "/public/LaunaTwo.png"
 import SystemERPOne from "/public/SystemERPOne.png"
 import SystemERPTwo from "/public/SystemERPTwo.png"
 
-import ahmFour from  "/public/ahmFour.png"
-import ahmOne from  "/public/ahmOne.png"
-import ahmTwo from  "/public/ahmTwo.png"    
-
 import { useState, useEffect } from "react"
 
 function ImagesProjectComponent({nameProject}){
@@ -41,9 +37,9 @@ function ImagesProjectComponent({nameProject}){
             SystemERP
         ],
         "AHM" : [
-            ahmOne,
-            ahmTwo,
-            ahmFour,
+            "/public/ahmOne.png",
+            "/public/ahmTwo.png",
+            "/public/ahmFour.png",
         ]
     }
     useEffect(() => (
