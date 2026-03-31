@@ -37,9 +37,9 @@ function ImagesProjectComponent({nameProject}){
             SystemERP
         ],
         "AHM" : [
-            "/public/ahmOne.png",
-            "/public/ahmTwo.png",
-            "/public/ahmFour.png",
+            "/public/AHMONE.png",
+            "/public/AHMTWO.png",
+            "/public/AHMFour.png",
         ]
     }
     useEffect(() => (
