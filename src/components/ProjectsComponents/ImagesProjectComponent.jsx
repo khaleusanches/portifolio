@@ -72,15 +72,15 @@ function ImagesProjectComponent({nameProject}){
         ],
         "AHM" : [
             {
-                image: "/public/AHMONE.png",
+                image: "/public/ahmum.jpg",
                 id: "Home do site"
             },
             {
-                image: "/public/AHMTWO.png",
+                image: "/public/ahmdois.jpg",
                 id: "Serviços oferecidos"
             },
             {
-                image: "/public/AHMFour.png",
+                image: "/public/Image.png",
                 id: "Tela de contato"
             }
         ]
