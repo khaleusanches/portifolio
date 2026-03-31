@@ -10,7 +10,6 @@ import LaunaMonitor from "/public/LaunaMonitor.png"
 import LaunaOne from "/public/LaunaOne.png"
 import LaunaTwo from "/public/LaunaTwo.png"
 
-import AHMOne from "/public/AHMONE.PNG"
 import AHMTwo from "/public/AHMTWO.PNG"
 import AHMThree from "/public/AHMTHREE.PNG"
 import AHMFour from "/public/AHMFOUR.PNG"
@@ -41,8 +40,7 @@ function ImagesProjectComponent({nameProject}){
             SystemERPOne,
             SystemERP
         ],
-        AHM : [
-            AHMOne,
+        "AHM" : [
             AHMTwo,
             AHMFour,
             AHMThree
