@@ -6,7 +6,7 @@ const ServicesCard = ({type, title, info, button, img}) => {
 
   return (
     <StyledWrapper>
-      <div className="card mb-8">
+      <div className="card m-auto mb-8">
         <div className="img">
           <img src={img} alt="" className='w-full p-2' />
         </div>
