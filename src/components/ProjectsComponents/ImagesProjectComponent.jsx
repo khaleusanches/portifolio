@@ -5,6 +5,8 @@ import SystemERP from "../../../public/ERPSystem.png"
 
 import OlimpicLinkOne from "../../../public/OlimpiclinkOne.png"
 import OlimpicLinkTwo from "../../../public/OlimpiclinkTwo.png"
+import OlimpicLinkThree from "../../../public/OlimpiclinkThree.png"
+import OlimpicLinkFour from "../../../public/OlimpiclinkFour.png"
 
 import LaunaDashboard from "../../../public/LaunaDashboard.png"
 import LaunaMonitor from "../../../public/LaunaMonitor.png"
@@ -31,8 +33,10 @@ function ImagesProjectComponent({nameProject}){
             LaunaTwo
         ],
         "OlimpicLink" : [
-            OlimpicLinkOne,
             OlimpicLinkTwo,
+            OlimpicLinkThree,
+            OlimpicLinkFour,
+            OlimpicLinkOne,
         ],
         "SystemERP" : [
             SystemERPOne,
