@@ -14,32 +14,75 @@ import SystemERPOne from "/public/SystemERPOne.png"
 import SystemERPTwo from "/public/SystemERPTwo.png"
 
 import { useState, useEffect } from "react"
+import ImagesMaximizeComponent from "../gerais/ImagesMaximizeComponent"
 
 function ImagesProjectComponent({nameProject}){
     const [images, setImages] = useState([])
+    const [selectedImage, setSelectedImage] = useState(null)
     let projects = {
         "Launa" : [
-            LaunaDashboard,
-            LaunaMonitor,
-            LaunaOne,
-            LaunaTwo
+            {
+                image: LaunaDashboard,
+                id: "DashBoard Finaceiro"
+            },
+            {
+                image: LaunaOne,
+                id: "Tela de Pedidos feitos a Fornecedores"
+            },
+            {
+                image: LaunaTwo,
+                id: "Tela de Gerenciamento de Funcionarios"
+            }
         ],
         "OlimpicLink" : [
-            OlimpicLinkTwo,
-            OlimpicLinkThree,
-            OlimpicLinkFour,
-            OlimpicLinkOne,
+            {
+                image: OlimpicLinkTwo,
+                id: "Tela de comunidade"
+            },
+            {
+                image: OlimpicLinkThree,
+                id: "Tela inicial e tela com todas as comunidades"
+            },
+            {
+                image: OlimpicLinkFour,
+                id: "Tela de perfil da comunidade | Tela de eventos da comunidade"
+            },
+            {
+                image: OlimpicLinkOne,
+                id: "Tela de perfil do usuário"
+            }
         ],
         "SystemERP" : [
-            SystemERPOne,
-            SystemERPTwo,
-            SystemERPOne,
-            SystemERP
+            {
+                image: SystemERPOne,
+                id: "Tela de DashBoards"
+            },
+            {
+                image: SystemERPTwo,
+                id: "Tela de compras de produtos"
+            },
+            {
+                image: SystemERPOne,
+                id: ""
+            },
+            {
+                image: SystemERP,
+                id: ""
+            }
         ],
         "AHM" : [
-            "/public/AHMONE.png",
-            "/public/AHMTWO.png",
-            "/public/AHMFour.png",
+            {
+                image: "/public/AHMONE.png",
+                id: "Home do site"
+            },
+            {
+                image: "/public/AHMTWO.png",
+                id: "Serviços oferecidos"
+            },
+            {
+                image: "/public/AHMFour.png",
+                id: "Tela de contato"
+            }
         ]
     }
     useEffect(() => (
@@ -47,17 +90,28 @@ function ImagesProjectComponent({nameProject}){
             if(key == nameProject) setImages(value)
         })
     ),[])
-    return(
-        <div className="w-full md:w-[70vw] overflow-hidden md:overflow-auto md:h-full">
-            {images.map(image => (
-                <div>
-                    <img src={image} className="p-4 md:p-0 md:w-[45vw] md:h-[59vh] m-auto mt-8 rounded-[32px] md:rounded-[10px]"/>
-                    <p className="text-white text-center mb-8 mt-2">{nameProject}</p>
+    return (
+        <div className="w-full md:w-[70vw]">
+            {images.map((img) => (
+                <div key={img.id}>
+                    <img
+                        src={img.image}
+                        onClick={() => setSelectedImage(img.image)}
+                        className="cursor-pointer p-4 md:w-[45vw] md:h-[59vh] m-auto mt-8 rounded-[32px]"
+                    />
+
+                    <p className="text-white text-center mb-8 mt-2">
+                        {img.id}
+                    </p>
                 </div>
             ))}
-            <div className="rounded-t-[64px] w-full bg-gradient-to-br from-black to-gray-800 text-white">
-                <h2 className="text-4xl text-center font-bold tracking-tight text-heading md:text-3xl p-8 pb-4 font-['Libre_Baskerville']">Gostou desse projeto? Podemos criar algo sob medida para você.</h2>
-            </div>
+
+            {/* Modal */}
+            <ImagesMaximizeComponent
+                image={selectedImage}
+                isOpen={!!selectedImage}
+                onClose={() => setSelectedImage(null)}
+            />
         </div>
     )
 }
