@@ -10,10 +10,6 @@ import LaunaMonitor from "/public/LaunaMonitor.png"
 import LaunaOne from "/public/LaunaOne.png"
 import LaunaTwo from "/public/LaunaTwo.png"
 
-import AHMTwo from "/public/AHMTWO.PNG"
-import AHMThree from "/public/AHMTHREE.PNG"
-import AHMFour from "/public/AHMFOUR.PNG"
-
 import SystemERPOne from "/public/SystemERPOne.png"
 import SystemERPTwo from "/public/SystemERPTwo.png"
 
@@ -41,9 +37,7 @@ function ImagesProjectComponent({nameProject}){
             SystemERP
         ],
         "AHM" : [
-            AHMTwo,
-            AHMFour,
-            AHMThree
+    
         ]
     }
     useEffect(() => (
