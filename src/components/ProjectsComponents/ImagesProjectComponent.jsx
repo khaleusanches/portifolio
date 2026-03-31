@@ -1,25 +1,22 @@
+import SystemERP from "/public/ERPSystem.png"
 
-import OlimpicLinkImg from "../../../public/Olimpiclink.png"
-import LaunaERP from "../../../public/launa.png"
-import SystemERP from "../../../public/ERPSystem.png"
+import OlimpicLinkOne from "/public/OlimpiclinkOne.png"
+import OlimpicLinkTwo from "/public/OlimpiclinkTwo.png"
+import OlimpicLinkThree from "/public/OlimpiclinkThree.png"
+import OlimpicLinkFour from "/public/OlimpiclinkFour.png"
 
-import OlimpicLinkOne from "../../../public/OlimpiclinkOne.png"
-import OlimpicLinkTwo from "../../../public/OlimpiclinkTwo.png"
-import OlimpicLinkThree from "../../../public/OlimpiclinkThree.png"
-import OlimpicLinkFour from "../../../public/OlimpiclinkFour.png"
+import LaunaDashboard from "/public/LaunaDashboard.png"
+import LaunaMonitor from "/public/LaunaMonitor.png"
+import LaunaOne from "/public/LaunaOne.png"
+import LaunaTwo from "/public/LaunaTwo.png"
 
-import LaunaDashboard from "../../../public/LaunaDashboard.png"
-import LaunaMonitor from "../../../public/LaunaMonitor.png"
-import LaunaOne from "../../../public/LaunaOne.png"
-import LaunaTwo from "../../../public/LaunaTwo.png"
+import AHMOne from "/public/AHMONE.PNG"
+import AHMTwo from "/public/AHMTWO.PNG"
+import AHMThree from "/public/AHMTHREE.PNG"
+import AHMFour from "/public/AHMFOUR.PNG"
 
-import AHMOne from "../../../public/AHMONE.PNG"
-import AHMTwo from "../../../public/AHMTWO.PNG"
-import AHMThree from "../../../public/AHMTHREE.PNG"
-import AHMFour from "../../../public/AHMFOUR.PNG"
-
-import SystemERPOne from "../../../public/SystemERPOne.png"
-import SystemERPTwo from "../../../public/SystemERPTwo.png"
+import SystemERPOne from "/public/SystemERPOne.png"
+import SystemERPTwo from "/public/SystemERPTwo.png"
 
 import { useState, useEffect } from "react"
 
