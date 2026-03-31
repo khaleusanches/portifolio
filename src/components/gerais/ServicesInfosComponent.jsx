@@ -29,7 +29,7 @@ function ServicesInfosComponent({button, type}){
             "price" : [
                 {
                     name: "Automação Simp.",
-                    price: "R$600 – R$1.200",
+                    price: "R$300 – R$1.200",
                     hours: "15h – 30h",
                     description: "Automação de tarefas básicas como envio de mensagens, organização de planilhas e integrações simples"
                 },
@@ -53,7 +53,7 @@ function ServicesInfosComponent({button, type}){
             "price" : [
                 {
                     name: "Aplicativo Base",
-                    price: "R$800 – R$2.000",
+                    price: "R$600 – R$2.000",
                     hours: "20h – 30h",
                     description: "Automação de tarefas básicas como envio de mensagens, organização de planilhas e integrações simples"
                 },

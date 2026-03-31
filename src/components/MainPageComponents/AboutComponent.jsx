@@ -25,7 +25,7 @@ function AboutComponent(){
                 <p className="text-black md:ml-[5vw] text-lg md:w-[40vw] text-justify">
                     Somos espezializados no desenvolvimento de sistemas e soluções digitais que ajudam empresas a otimizar processos, aumentar a produtividade e expandir seus negócios. Com expertise em softwares personalizados, ERPs, CRMs, automações, integrações e até soluções para redes sociais, transformamos ideias em tecnologia que gera resultados reais.
                     <br/> <br/>
-                    Nosso <strong>Engenheiro de Software</strong> domina tecnologias como Kotlin, C#, Java, SQL Server e MongoDB, garantindo soluções robustas, escaláveis e seguras. Cada projeto é desenvolvido sob medida, pensando na melhor experiência para o usuário e no crescimento do seu negócio.
+                    Nossos <strong>Engenheiros de Software</strong> dominam tecnologias como Kotlin, C#, Java, SQL Server e MongoDB, garantindo soluções robustas, escaláveis e seguras. Cada projeto é desenvolvido sob medida, pensando na melhor experiência para o usuário e no crescimento do seu negócio.
                     <br/> <br/>
                     Acreditamos que tecnologia deve simplificar, não complicar. Por isso, trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e entregando sistemas que realmente fazem a diferença. Se você procura inovação, eficiência e confiabilidade, estamos prontos para transformar sua ideia em realidade.
                 </p>
