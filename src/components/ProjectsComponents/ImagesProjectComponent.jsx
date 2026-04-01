@@ -14,7 +14,7 @@ import SystemERPOne from "/public/SystemERPOne.png"
 import SystemERPTwo from "/public/SystemERPTwo.png"
 import ahmum from "/public/ahmum.jpg"
 import ahmdois from "/public/ahmdois.jpg"
-import ahmtres from "/public/Image.png"
+import ahmtres from "/public/ahmtres.jpg"
 
 import { useState, useEffect } from "react"
 import ImagesMaximizeComponent from "../gerais/ImagesMaximizeComponent"
