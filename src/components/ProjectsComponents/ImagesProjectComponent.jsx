@@ -12,7 +12,7 @@ import LaunaTwo from "/public/LaunaTwo.png"
 
 import SystemERPOne from "/public/SystemERPOne.png"
 import SystemERPTwo from "/public/SystemERPTwo.png"
-import teste from "/public/ahmum.jps"
+import teste from "/public/ahmum.jpg"
 
 import { useState, useEffect } from "react"
 import ImagesMaximizeComponent from "../gerais/ImagesMaximizeComponent"
