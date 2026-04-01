@@ -12,6 +12,7 @@ import LaunaTwo from "/public/LaunaTwo.png"
 
 import SystemERPOne from "/public/SystemERPOne.png"
 import SystemERPTwo from "/public/SystemERPTwo.png"
+import teste from "/public/ahmum.jps"
 
 import { useState, useEffect } from "react"
 import ImagesMaximizeComponent from "../gerais/ImagesMaximizeComponent"
@@ -72,7 +73,7 @@ function ImagesProjectComponent({nameProject}){
         ],
         "AHM" : [
             {
-                image: "/public/ahmum.jpg",
+                image: teste,
                 id: "Home do site"
             },
             {
