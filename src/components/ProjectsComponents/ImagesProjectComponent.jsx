@@ -79,11 +79,11 @@ function ImagesProjectComponent({nameProject}){
                 id: "Home do site"
             },
             {
-                image: "/public/ahmdois.jpg",
+                image: ahmdois,
                 id: "Serviços oferecidos"
             },
             {
-                image: "/public/Image.png",
+                image: ahmtres,
                 id: "Tela de contato"
             }
         ]
