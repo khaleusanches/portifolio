@@ -1,6 +1,6 @@
 function AboutComponent(){
     return(
-        <div id="about" className="w-screen md:h-[110vh] p-8 pt-0 bg-gray-100">
+        <div id="about" className="w-screen md:h-[110vh] p-8 mt-[6vh] pt-[8vh] bg-gray-100">
             <div className="flex justify-between items-center ">
                 <h3 className="text-black text-3xl ml-[5vw] mb-2 font-['Libre_Baskerville'] overflow-hidden">Sobre nós</h3>
                 <div class="share flex mr-[5vw] space-x-2">

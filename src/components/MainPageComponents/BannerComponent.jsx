@@ -22,12 +22,12 @@ function BannerComponent() {
 
     if (!isHovering) {
       const maxScroll = el.scrollHeight - el.clientHeight;
-      if (maxScroll >= 0) {
-        // Loop contínuo: volta ao topo ao passar do máximo
-        el.scrollTop = (el.scrollTop + speed) % maxScroll;
-      } else {
-        // Se o conteúdo for menor que a altura do container, apenas reseta para o topo
-        el.scrollTop = 0;
+      if (maxScroll > 0) {
+        el.scrollTop += speed;
+        // Quando chegar no final, volta ao topo
+        if (el.scrollTop >= maxScroll) {
+          el.scrollTop = 0;
+        }
       }
     }
 
