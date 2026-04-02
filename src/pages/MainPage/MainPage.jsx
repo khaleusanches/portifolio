@@ -9,7 +9,7 @@ import CatalogListComponent from "../../components/PortifolioPageComponents/Cata
 
 function MainPage() {
     return(
-        <div className="h-screen bg-gradient-to-b from-black to-gray-800 text-white overflow-y-auto pb-4">
+        <div className="h-screen bg-gradient-to-b  from-black to-gray-800 text-white overflow-y-auto pb-4">
             <NavBarComponent active="home"/>
             <BannerComponent/>
             <ServicesComponent/>

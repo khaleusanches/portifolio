@@ -4,6 +4,7 @@ import LastProjectComponent from "../gerais/LastProjectComponent";
 import OlimpicLinkImg from "../../../public/Olimpiclink.png"
 import LaunaERP from "../../../public/launa.png"
 import SystemERP from "../../../public/ERPSystem.png"
+import bg from "../../../public/bg3.png"
 import AHM from "../../../public/AHM.png"
 function BannerComponent() {
   const scrollRef = useRef(null);
@@ -39,7 +40,7 @@ function BannerComponent() {
 }, [isHovering]); // isHovering vai pausar o scroll ao passar mouse
 
   return (
-    <div className="w-[100vw] block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 border-white text-white m-auto font-['Libre_Baskerville'] overflow-hidden">
+    <div style={{ backgroundImage: `url(${bg})` }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 border-white text-white m-auto font-['Libre_Baskerville'] overflow-hidden">
       <p className="-rotate-90 relative left-[60px] text-2xl w-[15vw] h-0 ml-[-20vw] ">Últimos Trabalhos</p>
       <div className="hidden md:block h-full shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px] relative left-0 mt-[8vh]">
         <div
