@@ -131,11 +131,11 @@ function ServicesInfosComponent({button, type}){
                                                     <label className="text-sm text-justify block text-gray-200">{formatText(object.description)}</label>
                                                 </div>
                                                 <div className="flex items-center mt-[2vh] gap-x-[1vw] mb-[4vh]">
-                                                    <label className="text-sm text-justify flex flex-wrap md:flex-nowrap justify-stretch md:justify-between md:w-full text-gray-200">
+                                                    <label className="text-sm text-justify flex flex-wrap justify-stretch md:w-full text-gray-200">
                                                          {object.price.map((item, index) => (
-                                                            <div key={index} className="mb-4 p-3 mr-8 md:mr-0 rounded bg-gray-700/40">
-                                                            <p className="text-white font-bold">{item.name}</p>
-                                                            <p className="text-gray-300 text-sm">{item.hours}</p>
+                                                            <div key={index} className="mb-3 p-3 mr-8 md:mr-3 rounded bg-gray-700/40">
+                                                            <p className="text-white font-bold ">{item.name}</p>
+                                                            <p className="text-gray-300">{item.hours}</p>
                                                             <p className="text-green-400 font-semibold">{item.price}</p>
                                                             </div>
                                                         ))}
