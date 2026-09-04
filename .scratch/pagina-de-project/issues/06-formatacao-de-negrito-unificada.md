@@ -8,11 +8,11 @@ Prefactor: a corrente do ticket 09 consome esta formatação.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Existe uma única implementação da formatação de negrito, compartilhada
-- [ ] O negrito é renderizado no laranja da marca na página de Project e no modal de
+- [x] Existe uma única implementação da formatação de negrito, compartilhada
+- [x] O negrito é renderizado no laranja da marca na página de Project e no modal de
       Service
-- [ ] O nome de contratante em destaque no texto de um Project continua visível como
+- [x] O nome de contratante em destaque no texto de um Project continua visível como
       destaque — é a prova social mais forte da página
-- [ ] As duas cópias divergentes deixam de existir
+- [x] As duas cópias divergentes deixam de existir

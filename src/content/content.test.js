@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { projects, featured, getProject } from "./projects"
+import { projects, featured, getProject, projectChain } from "./projects"
 import { services, getService } from "./services"
 
 /**
@@ -69,6 +69,108 @@ describe("Slug", () => {
 
     it.each(everyService)("o Slug de %s bate com a chave do módulo", (slug, service) => {
         expect(service.slug).toBe(slug)
+    })
+})
+
+describe("Capability", () => {
+    const comCapabilities = everyProject.filter(([, project]) => project.capabilities?.length)
+
+    it("ao menos um Project já declara Capabilities", () => {
+        expect(comCapabilities.length).toBeGreaterThan(0)
+    })
+
+    it.each(everyProject)("toda Capability de %s tem título e texto", (slug, project) => {
+        for (const capability of project.capabilities ?? []) {
+            expect(capability.title, `Capability sem título em ${slug}`).toBeTruthy()
+            expect(capability.text, `Capability sem texto em ${slug}`).toBeTruthy()
+        }
+    })
+
+    it.each(everyProject)("toda referência de Capability de %s aponta para uma Screenshot do mesmo Project", (slug, project) => {
+        const slugsDeScreenshot = project.screenshots.map((screenshot) => screenshot.slug)
+        for (const capability of project.capabilities ?? []) {
+            if (!capability.screenshot) continue
+            expect(slugsDeScreenshot, `Capability de ${slug} aponta para Screenshot inexistente`)
+                .toContain(capability.screenshot)
+        }
+    })
+
+    it.each(everyProject)("nenhuma Screenshot de %s é reivindicada por duas Capabilities", (slug, project) => {
+        const reivindicadas = (project.capabilities ?? [])
+            .map((capability) => capability.screenshot)
+            .filter(Boolean)
+        expect(new Set(reivindicadas).size).toBe(reivindicadas.length)
+    })
+})
+
+describe("corrente de blocos", () => {
+    it("as Capabilities mandam na ordem, e as telas não reivindicadas entram entre os pares", () => {
+        // O RyccoDespachador exercita os três tipos de bloco: duas Capabilities sem
+        // tela, quatro pares, e duas telas que nenhuma Capability reivindicou.
+        expect(projectChain(projects.RyccoDespachador).map((bloco) => [
+            bloco.kind,
+            bloco.capability?.title ?? bloco.screenshot?.slug
+        ])).toEqual([
+            ["capability", "Voz em Tempo Real"],
+            ["pair", "Monitoramento por GPS"],
+            ["pair", "Emergências"],
+            ["pair", "Automação Operacional"],
+            ["screenshot", "patrulha"],
+            ["screenshot", "ordem-servico"],
+            ["pair", "Vídeo e Câmeras"],
+            ["capability", "Controle de Acesso"]
+        ])
+    })
+
+    it("um bloco pareado carrega a Screenshot que a Capability reivindicou", () => {
+        const par = projectChain(projects.RyccoDespachador).find((bloco) => bloco.kind === "pair")
+        expect(par.screenshot).toBe(projects.RyccoDespachador.screenshots[0])
+        expect(par.capability.screenshot).toBe(par.screenshot.slug)
+    })
+
+    it("um Project sem Capability produz uma corrente só de telas", () => {
+        const corrente = projectChain(projects.OlimpicLink)
+        expect(corrente).toHaveLength(projects.OlimpicLink.screenshots.length)
+        expect(corrente.every((bloco) => bloco.kind === "screenshot")).toBe(true)
+        expect(corrente.map((bloco) => bloco.screenshot))
+            .toEqual(projects.OlimpicLink.screenshots)
+    })
+
+    it("toda Screenshot do Project aparece exatamente uma vez na corrente", () => {
+        for (const [slug, project] of everyProject) {
+            const naCorrente = projectChain(project)
+                .filter((bloco) => bloco.screenshot)
+                .map((bloco) => bloco.screenshot.slug)
+            expect(new Set(naCorrente).size, `Screenshot repetida na corrente de ${slug}`)
+                .toBe(naCorrente.length)
+            expect(naCorrente.sort(), `Screenshot perdida na corrente de ${slug}`)
+                .toEqual(project.screenshots.map((s) => s.slug).sort())
+        }
+    })
+
+    it("toda Capability do Project aparece exatamente uma vez na corrente", () => {
+        for (const [slug, project] of everyProject) {
+            const naCorrente = projectChain(project).filter((bloco) => bloco.capability)
+            expect(naCorrente.length, `Capability perdida na corrente de ${slug}`)
+                .toBe((project.capabilities ?? []).length)
+        }
+    })
+
+    it("Project ausente produz corrente vazia", () => {
+        expect(projectChain(null)).toEqual([])
+    })
+})
+
+describe("Screenshot Slug", () => {
+    it.each(everyProject)("os Slugs de Screenshot de %s são únicos", (slug, project) => {
+        const slugs = project.screenshots.map((screenshot) => screenshot.slug)
+        expect(new Set(slugs).size, `Slug de Screenshot repetido em ${slug}`).toBe(slugs.length)
+    })
+
+    it.each(everyProject)("toda Screenshot de %s tem Slug", (slug, project) => {
+        for (const screenshot of project.screenshots) {
+            expect(screenshot.slug, `Screenshot sem Slug em ${slug}`).toBeTruthy()
+        }
     })
 })
 

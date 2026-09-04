@@ -8,10 +8,10 @@ para o mesmo lado que avançar, e a 300ms com fade isso é imperceptível.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A transição entre rotas dura ~300ms
-- [ ] A transição altera opacidade, não só posição
-- [ ] A dependência de animação passa a estar declarada nas dependências do projeto, e não
+- [x] A transição entre rotas dura ~300ms
+- [x] A transição altera opacidade, não só posição
+- [x] A dependência de animação passa a estar declarada nas dependências do projeto, e não
       só presente como transitiva
-- [ ] Uma instalação limpa das dependências continua rodando a aplicação
+- [x] Uma instalação limpa das dependências continua rodando a aplicação

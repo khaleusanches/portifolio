@@ -50,8 +50,10 @@ import AHMThree from "../../public/ahmtres.webp"
  * cover       imagem do card, com dimensões explícitas: a vitrine fica acima da
  *             dobra, então a caixa precisa estar reservada antes de a imagem chegar
  * description texto longo da página de detalhe
- * screenshots telas com legenda obrigatória e dimensões explícitas, para que
- *             a caixa da imagem seja reservada antes de a imagem chegar
+ * capabilities capacidades que a Brand escolhe contar, cada uma com título, texto
+ *             e, opcionalmente, o Slug da Screenshot que a demonstra (ver ADR 0002)
+ * screenshots telas com Slug próprio, legenda obrigatória e dimensões explícitas,
+ *             para que a caixa seja reservada antes de a imagem chegar
  */
 export const projects = {
     RyccoDespachador: {
@@ -65,14 +67,46 @@ export const projects = {
         cover: RyccoDespachadorCover,
         coverWidth: 810,
         coverHeight: 821,
-        description: "Console desenvolvido para a **Rycco Telecom**, central de operação usada pelo despachador para comandar equipes em campo: fala por voz com os grupos, acompanha onde cada rádio está no mapa, recebe emergências e consulta tudo o que aconteceu. Roda no navegador, sem instalação, e conversa com rádios POC — celulares e aparelhos com o aplicativo da operadora — pela internet móvel ou Wi-Fi.\n\n**Voz em Tempo Real:** Comunicação PTT com grupos inteiros e chamada privada rádio a rádio, com sinalização e identificação de usuários em servidor próprio construído em **C#** sobre **WebRTC** e **WebSockets**.\n\n**Monitoramento por GPS:** Posição das equipes em tempo real e histórico de trajeto sobre mapa **Leaflet**, com painel de quem está online e offline.\n\n**Emergências:** Recebimento de SOS acionado pelo botão de pânico do rádio e alertas das câmeras veiculares — fadiga do motorista, uso de celular e risco de colisão — empilhados sobre qualquer tela do console.\n\n**Automação Operacional:** Cercas eletrônicas que registram entradas e saídas sozinhas, patrulhas com pontos e horários conferidos automaticamente, e ordens de serviço com checklist que exige foto e vídeo de comprovação da equipe em campo.\n\n**Vídeo e Câmeras:** Abertura da câmera de um rádio ou de câmera veicular ao vivo, com grade de várias câmeras simultâneas.\n\n**Controle de Acesso:** Três níveis de licença combinados com permissões por operador, definindo o que cada despachador enxerga.\n\n**Tecnologia Utilizada:** Frontend em **React** e **Tailwind**; backend, APIs, WebSockets e servidor de sinalização em **C#**.",
+        description: "Console desenvolvido para a **Rycco Telecom**, central de operação usada pelo despachador para comandar equipes em campo: fala por voz com os grupos, acompanha onde cada rádio está no mapa, recebe emergências e consulta tudo o que aconteceu. Roda no navegador, sem instalação, e conversa com rádios POC — celulares e aparelhos com o aplicativo da operadora — pela internet móvel ou Wi-Fi.",
+        capabilities: [
+            {
+                title: "Voz em Tempo Real",
+                text: "Comunicação PTT com grupos inteiros e chamada privada rádio a rádio, com sinalização e identificação de usuários em servidor próprio construído em **C#** sobre **WebRTC** e **WebSockets**.",
+                screenshot: null
+            },
+            {
+                title: "Monitoramento por GPS",
+                text: "Posição das equipes em tempo real e histórico de trajeto sobre mapa **Leaflet**, com painel de quem está online e offline.",
+                screenshot: "mapa"
+            },
+            {
+                title: "Emergências",
+                text: "Recebimento de SOS acionado pelo botão de pânico do rádio e alertas das câmeras veiculares — fadiga do motorista, uso de celular e risco de colisão — empilhados sobre qualquer tela do console.",
+                screenshot: "emergencias"
+            },
+            {
+                title: "Automação Operacional",
+                text: "Cercas eletrônicas que registram entradas e saídas sozinhas, patrulhas com pontos e horários conferidos automaticamente, e ordens de serviço com checklist que exige foto e vídeo de comprovação da equipe em campo.",
+                screenshot: "cercas"
+            },
+            {
+                title: "Vídeo e Câmeras",
+                text: "Abertura da câmera de um rádio ou de câmera veicular ao vivo, com grade de várias câmeras simultâneas.",
+                screenshot: "cameras"
+            },
+            {
+                title: "Controle de Acesso",
+                text: "Três níveis de licença combinados com permissões por operador, definindo o que cada despachador enxerga.",
+                screenshot: null
+            }
+        ],
         screenshots: [
-            { image: RyccoMapa, width: 1600, height: 950, caption: "Tela principal: grupos e rádios à esquerda, posição das viaturas em tempo real no mapa" },
-            { image: RyccoEmergencias, width: 1600, height: 950, caption: "Emergências: SOS e alertas de câmera veicular empilhados sobre qualquer tela" },
-            { image: RyccoCercas, width: 1600, height: 950, caption: "Cercas eletrônicas: áreas desenhadas no mapa registram entradas e saídas" },
-            { image: RyccoPatrulha, width: 1600, height: 950, caption: "Patrulha: rotas, pontos no mapa e horários da ronda do dia" },
-            { image: RyccoOrdemServico, width: 1600, height: 783, caption: "Ordens de serviço: checklist com campos de texto, número e escolha, com foto e vídeo obrigatórios" },
-            { image: RyccoCameras, width: 1600, height: 950, caption: "Histórico das câmeras veiculares: fadiga do motorista, uso de celular e colisão iminente" }
+            { slug: "mapa", image: RyccoMapa, width: 1600, height: 950, caption: "Grupos e rádios à esquerda; viaturas posicionadas no mapa em tempo real" },
+            { slug: "emergencias", image: RyccoEmergencias, width: 1600, height: 950, caption: "Um SOS e alertas de câmera veicular empilhados sobre a tela que estava aberta" },
+            { slug: "cercas", image: RyccoCercas, width: 1600, height: 950, caption: "Áreas desenhadas sobre o mapa, com o registro de entradas e saídas ao lado" },
+            { slug: "patrulha", image: RyccoPatrulha, width: 1600, height: 950, caption: "A ronda do dia: rota traçada, pontos de conferência no mapa e horários" },
+            { slug: "ordem-servico", image: RyccoOrdemServico, width: 1600, height: 783, caption: "Checklist com campos de texto, número e escolha, e os anexos de foto e vídeo obrigatórios" },
+            { slug: "cameras", image: RyccoCameras, width: 1600, height: 950, caption: "Histórico de alertas das câmeras: fadiga do motorista, uso de celular e colisão iminente" }
         ]
     },
 
@@ -89,13 +123,13 @@ export const projects = {
         coverHeight: 821,
         description: "Painel administrativo desenvolvido para a **Rycco Telecom**, onde se administra tudo o que faz os rádios POC funcionarem: quais empresas são clientes, quantas licenças cada distribuidor possui, que aparelhos estão cadastrados, em que grupos de conversa eles entram e até quando a licença de cada um vale. Roda no navegador, em produção, no endereço manager.ryccotelecom.com.\n\n**Hierarquia Multiempresa:** Estrutura em camadas — distribuidor, empresa cliente, grupo e rádio — em que cada nível enxerga apenas o que lhe pertence, permitindo que uma mesma instalação atenda vários distribuidores sem que um veja os dados do outro.\n\n**Gestão de Licenças:** Controle de licenças por versão e validade, com aviso de vencimento que leva direto aos rádios afetados, além de renovação e troca de licença em lote.\n\n**Cadastro em Escala:** Cadastro de aparelhos por IMEI com empresa, tipo de conta, licença e grupos definidos de uma vez, e ativação do rádio em campo pela leitura de um **QR Code**.\n\n**Controle do que o Despachador Vê:** É aqui que se define quais funcionalidades a licença de cada rádio libera no console de operação — mapa, vídeo, patrulha, cercas, mensagens e ordens de serviço.\n\n**Assistente com LLM Próprio:** Assistente virtual embutido no painel, atendido por um modelo de linguagem treinado sob medida e hospedado no servidor da empresa, que tira dúvidas sobre o sistema e automatiza parte das tarefas administrativas.\n\n**Tecnologia Utilizada:** Frontend em **React** e **Tailwind**; backend e integração com o assistente em **C#**.",
         screenshots: [
-            { image: ManagerVisaoGeral, width: 1362, height: 854, caption: "Visão geral: indicadores do ecossistema e licenças disponíveis por versão e validade" },
-            { image: ManagerEmpresas, width: 1362, height: 854, caption: "Empresas: cadastro dos clientes finais, com agente responsável e rádios online" },
-            { image: ManagerGrupos, width: 1362, height: 854, caption: "Grupos: canais de conversa, com gestão de membros separada da edição do grupo" },
-            { image: ManagerEquipamentos, width: 1362, height: 854, caption: "Equipamentos: filtros, seleção múltipla e ações em lote sobre os rádios" },
-            { image: ManagerCadastro, width: 1362, height: 854, caption: "Cadastro de rádios: empresa, tipo de conta, licença e grupos definidos antes da lista de aparelhos" },
-            { image: ManagerLicencas, width: 1362, height: 854, caption: "Funcionalidades por licença: em cinza, o que a licença do rádio não libera no despachador" },
-            { image: ManagerAssistente, width: 1362, height: 852, caption: "Assistente Rycco: assistente virtual embutido, atendido por um LLM próprio no servidor da empresa" }
+            { slug: "visao-geral", image: ManagerVisaoGeral, width: 1362, height: 854, caption: "Visão geral: indicadores do ecossistema e licenças disponíveis por versão e validade" },
+            { slug: "empresas", image: ManagerEmpresas, width: 1362, height: 854, caption: "Empresas: cadastro dos clientes finais, com agente responsável e rádios online" },
+            { slug: "grupos", image: ManagerGrupos, width: 1362, height: 854, caption: "Grupos: canais de conversa, com gestão de membros separada da edição do grupo" },
+            { slug: "equipamentos", image: ManagerEquipamentos, width: 1362, height: 854, caption: "Equipamentos: filtros, seleção múltipla e ações em lote sobre os rádios" },
+            { slug: "cadastro", image: ManagerCadastro, width: 1362, height: 854, caption: "Cadastro de rádios: empresa, tipo de conta, licença e grupos definidos antes da lista de aparelhos" },
+            { slug: "licencas", image: ManagerLicencas, width: 1362, height: 854, caption: "Funcionalidades por licença: em cinza, o que a licença do rádio não libera no despachador" },
+            { slug: "assistente", image: ManagerAssistente, width: 1362, height: 852, caption: "Assistente Rycco: assistente virtual embutido, atendido por um LLM próprio no servidor da empresa" }
         ]
     },
 
@@ -112,10 +146,10 @@ export const projects = {
         coverHeight: 821,
         description: "O OlimpicLink é uma plataforma social desenvolvida com foco em performance, escalabilidade e experiência do usuário, projetada para conectar pessoas apaixonadas por esportes em um ambiente totalmente interativo e moderno.\n\nA aplicação foi construída utilizando uma arquitetura moderna baseada em API REST, garantindo uma comunicação eficiente entre frontend e backend, além de permitir fácil expansão e integração com novos serviços.\n\nNo desenvolvimento mobile, foi utilizada Kotlin, proporcionando alta performance e uma experiência fluida e responsiva. No backend, a aplicação foi estruturada com Java e Python, garantindo segurança, organização e alta capacidade de processamento. O banco de dados SQL Server foi utilizado para gerenciar grandes volumes de dados com consistência e confiabilidade.\n\nEntre as principais funcionalidades estão autenticação segura de usuários, feed dinâmico de conteúdo, criação e gerenciamento de eventos, comunidades e publicações, além de um sistema completo de interações sociais.\n\nO projeto foi pensado para suportar crescimento, com uma base sólida e preparada para escalar conforme a demanda, sendo ideal para soluções que exigem alto nível de engajamento, performance e confiabilidade.\n\nO OlimpicLink demonstra na prática a aplicação de boas práticas de desenvolvimento, arquitetura bem definida e foco total na experiência do usuário — características essenciais para sistemas modernos e competitivos.",
         screenshots: [
-            { image: OlimpicLinkTwo, width: 1536, height: 1024, caption: "Tela de comunidade" },
-            { image: OlimpicLinkThree, width: 1536, height: 1024, caption: "Tela inicial e tela com todas as comunidades" },
-            { image: OlimpicLinkFour, width: 1536, height: 1024, caption: "Tela de perfil da comunidade | Tela de eventos da comunidade" },
-            { image: OlimpicLinkOne, width: 1536, height: 1024, caption: "Tela de perfil do usuário" }
+            { slug: "comunidade", image: OlimpicLinkTwo, width: 1536, height: 1024, caption: "Tela de comunidade" },
+            { slug: "inicio-e-comunidades", image: OlimpicLinkThree, width: 1536, height: 1024, caption: "Tela inicial e tela com todas as comunidades" },
+            { slug: "perfil-da-comunidade", image: OlimpicLinkFour, width: 1536, height: 1024, caption: "Tela de perfil da comunidade | Tela de eventos da comunidade" },
+            { slug: "perfil-do-usuario", image: OlimpicLinkOne, width: 1536, height: 1024, caption: "Tela de perfil do usuário" }
         ]
     },
 
@@ -132,9 +166,9 @@ export const projects = {
         coverHeight: 821,
         description: "Sistema completo para gestão de uma loja de tintas, integrando processos essenciais como estoque, vendas e financeiro em uma única plataforma.\n\n**Automação e Processamento:** Integração com **Python** para execução de rotinas automatizadas e processamento inteligente de dados.\n\n**Arquitetura Moderna:** Estruturação do sistema com uma arquitetura escalável e organizada, garantindo fácil manutenção, expansão futura e alto desempenho.\n\n**Backend Development:** Implementação da aplicação utilizando **C#**, assegurando robustez, segurança e eficiência no processamento de dados.\n\n**Database Management:** Modelagem e gerenciamento de dados com **SQL Server**, garantindo consistência, confiabilidade e performance em operações complexas.\n\n**Gestão e Controle:** Desenvolvimento de funcionalidades como controle de estoque em tempo real, gestão de vendas, acompanhamento financeiro e geração de relatórios estratégicos.\n\n**Escalabilidade e Performance:** Projeto desenvolvido com foco em crescimento, preparado para suportar aumento de demanda e evolução do negócio.",
         screenshots: [
-            { image: LaunaDashboard, width: 1536, height: 1024, caption: "Dashboard financeiro" },
-            { image: LaunaOne, width: 1536, height: 1024, caption: "Tela de pedidos feitos a fornecedores" },
-            { image: LaunaTwo, width: 1536, height: 1024, caption: "Tela de gerenciamento de funcionários" }
+            { slug: "dashboard-financeiro", image: LaunaDashboard, width: 1536, height: 1024, caption: "Dashboard financeiro" },
+            { slug: "pedidos-a-fornecedores", image: LaunaOne, width: 1536, height: 1024, caption: "Tela de pedidos feitos a fornecedores" },
+            { slug: "funcionarios", image: LaunaTwo, width: 1536, height: 1024, caption: "Tela de gerenciamento de funcionários" }
         ]
     },
 
@@ -151,8 +185,8 @@ export const projects = {
         coverHeight: 821,
         description: "Sistema ERP web capaz de centralizar e controlar todas as áreas da empresa em uma única plataforma, proporcionando mais organização, produtividade e visão estratégica do negócio.\n\n**Controle Total do Negócio:** Gerenciamento integrado de financeiro, funcionários, estoque, vendas, compras, fornecedores, produtos e processos de fabricação, eliminando retrabalho e reduzindo erros operacionais.\n\n**Dashboards Inteligentes:** Criação de painéis visuais com dados em tempo real, facilitando a análise de resultados e auxiliando na tomada de decisões rápidas e estratégicas.\n\n**Integração de Processos:** Todos os setores conectados em um único sistema, permitindo um fluxo de informações contínuo e eficiente entre as áreas da empresa.\n\n**Escalabilidade e Crescimento:** Sistema desenvolvido para acompanhar a evolução do negócio, suportando aumento de demanda e novas funcionalidades conforme necessário.\n\n**Arquitetura Moderna:** Estrutura robusta e organizada, garantindo estabilidade, segurança e alta performance mesmo com grande volume de dados.\n\n**Tecnologia Utilizada:** Aplicação web desenvolvida com **React** no frontend e **Python** e **Java** no backend, garantindo uma experiência moderna, rápida e confiável.",
         screenshots: [
-            { image: SystemERPOne, width: 1536, height: 1024, caption: "Tela de dashboards" },
-            { image: SystemERPTwo, width: 1536, height: 1024, caption: "Tela de compras de produtos" }
+            { slug: "dashboards", image: SystemERPOne, width: 1536, height: 1024, caption: "Tela de dashboards" },
+            { slug: "compras", image: SystemERPTwo, width: 1536, height: 1024, caption: "Tela de compras de produtos" }
         ]
     },
 
@@ -169,9 +203,9 @@ export const projects = {
         coverHeight: 821,
         description: "Desenvolvimento de uma landing page institucional moderna para a empresa AHM, com foco em apresentação profissional, fortalecimento da marca e geração de leads.\n\n**Design Estratégico:** Interface planejada para transmitir credibilidade e profissionalismo, utilizando um layout limpo, responsivo e alinhado à identidade visual da empresa.\n\n**Alta Conversão:** Estrutura otimizada com foco em conversão, incluindo chamadas para ação (CTAs) bem posicionadas, navegação intuitiva e seções organizadas para guiar o usuário até o contato.\n\n**Performance e Responsividade:** Página leve e altamente otimizada, garantindo carregamento rápido e excelente experiência em dispositivos móveis, tablets e desktops.\n\n**Experiência do Usuário (UX):** Desenvolvimento centrado no usuário, proporcionando navegação fluida, leitura agradável e fácil acesso às principais informações.\n\n**Tecnologia Utilizada:** Implementação utilizando React, garantindo flexibilidade, componentização e facilidade de manutenção futura.\n\n**Objetivo do Projeto:** Criar uma presença digital sólida para a AHM, destacando seus serviços e facilitando o contato com potenciais clientes de forma eficiente e estratégica.",
         screenshots: [
-            { image: AHMOne, width: 1536, height: 1024, caption: "Home do site" },
-            { image: AHMTwo, width: 1536, height: 1024, caption: "Serviços oferecidos" },
-            { image: AHMThree, width: 1536, height: 1024, caption: "Tela de contato" }
+            { slug: "home", image: AHMOne, width: 1536, height: 1024, caption: "Home do site" },
+            { slug: "servicos", image: AHMTwo, width: 1536, height: 1024, caption: "Serviços oferecidos" },
+            { slug: "contato", image: AHMThree, width: 1536, height: 1024, caption: "Tela de contato" }
         ]
     }
 }
@@ -182,6 +216,56 @@ export const featured = ["RyccoDespachador", "OlimpicLink", "Launa", "RyccoManag
 export const getProject = (slug) => projects[slug] ?? null
 
 export const featuredProjects = () => featured.map((slug) => projects[slug])
+
+/**
+ * A corrente de blocos de um Project: a sequência que a página de detalhe renderiza.
+ *
+ * As Capabilities mandam na ordem — elas são o argumento que a Brand faz. Uma
+ * Capability que reivindica uma Screenshot vira um bloco `pair`; sem Screenshot, vira
+ * um bloco `capability`. Uma Screenshot que nenhuma Capability reivindicou vira um
+ * bloco `screenshot`, na posição que ela ocupa entre os pares.
+ *
+ * As contagens de Capability e de Screenshot não fecham na maioria dos Projects, e é
+ * por isso que a referência é opcional nos dois sentidos (ver ADR 0002). Um Project sem
+ * nenhuma Capability produz uma corrente só de blocos `screenshot` — é o que mantém a
+ * página dos Projects ainda não migrados funcionando.
+ */
+export const projectChain = (project) => {
+    if (!project) return []
+
+    const screenshots = project.screenshots ?? []
+    const capabilities = project.capabilities ?? []
+    const porSlug = new Map(screenshots.map((screenshot) => [screenshot.slug, screenshot]))
+    const reivindicadas = new Set(capabilities.map((capability) => capability.screenshot).filter(Boolean))
+
+    const corrente = []
+    const emitidas = new Set()
+
+    /** Emite as telas não reivindicadas que vêm antes de `slugLimite` na ordem das
+     *  Screenshots. Sem limite, emite todas as que ainda faltam. */
+    const emitirNaoReivindicadasAntesDe = (slugLimite) => {
+        for (const screenshot of screenshots) {
+            if (screenshot.slug === slugLimite) return
+            if (reivindicadas.has(screenshot.slug) || emitidas.has(screenshot.slug)) continue
+            corrente.push({ kind: "screenshot", screenshot })
+            emitidas.add(screenshot.slug)
+        }
+    }
+
+    for (const capability of capabilities) {
+        if (!capability.screenshot) {
+            corrente.push({ kind: "capability", capability })
+            continue
+        }
+        emitirNaoReivindicadasAntesDe(capability.screenshot)
+        corrente.push({ kind: "pair", capability, screenshot: porSlug.get(capability.screenshot) })
+        emitidas.add(capability.screenshot)
+    }
+
+    emitirNaoReivindicadasAntesDe(null)
+
+    return corrente
+}
 
 /** Os Projects que comprovam um Service. Derivado de Evidence, nunca declarado. */
 export const projectsEvidencing = (serviceSlug) =>

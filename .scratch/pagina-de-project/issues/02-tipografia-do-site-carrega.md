@@ -8,10 +8,10 @@ usada, em vez de família declarada inline nos componentes.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A fonte serif carrega de fato e é visível na Headline da página de Project e nos
+- [x] A fonte serif carrega de fato e é visível na Headline da página de Project e nos
       títulos da home
-- [ ] Os componentes usam a utilitária de fonte configurada, não família declarada inline
-- [ ] A família de fonte configurada que nenhum componente usa é removida
-- [ ] A classe utilitária inexistente, usada hoje em três componentes, é removida
+- [x] Os componentes usam a utilitária de fonte configurada, não família declarada inline
+- [x] A família de fonte configurada que nenhum componente usa é removida
+- [x] A classe utilitária inexistente, usada hoje em três componentes, é removida

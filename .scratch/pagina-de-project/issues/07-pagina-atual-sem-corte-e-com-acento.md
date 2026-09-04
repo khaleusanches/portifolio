@@ -11,9 +11,9 @@ para que o primeiro passo da entrega seja avaliável a olho, que foi o motivo de
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Nenhuma parte da coluna de Screenshots fica fora da tela no desktop
-- [ ] O botão de orçamento da página de Project usa o laranja da marca
-- [ ] A página não ganha rolagem horizontal
-- [ ] Fica registrado no ticket que o modal de Service segue verde até ser tratado
+- [x] Nenhuma parte da coluna de Screenshots fica fora da tela no desktop
+- [x] O botão de orçamento da página de Project usa o laranja da marca
+- [x] A página não ganha rolagem horizontal
+- [x] Fica registrado no ticket que o modal de Service segue verde até ser tratado

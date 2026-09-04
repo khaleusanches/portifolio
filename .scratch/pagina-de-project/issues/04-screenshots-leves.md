@@ -9,12 +9,12 @@ carregamento.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Todas as Screenshots estão no formato leve já usado pelos Projects mais recentes
-- [ ] Toda Screenshot tem dimensões explícitas, e a página não salta enquanto carrega
-- [ ] As Screenshots fora da primeira dobra carregam de forma tardia
-- [ ] O arquivo de projeto gráfico de 14MB sai do diretório público
-- [ ] A imagem avulsa de 2MB, não referenciada por nenhum conteúdo, sai do diretório
+- [x] Todas as Screenshots estão no formato leve já usado pelos Projects mais recentes
+- [x] Toda Screenshot tem dimensões explícitas, e a página não salta enquanto carrega
+- [x] As Screenshots fora da primeira dobra carregam de forma tardia
+- [x] O arquivo de projeto gráfico de 14MB sai do diretório público
+- [x] A imagem avulsa de 2MB, não referenciada por nenhum conteúdo, sai do diretório
       público
-- [ ] O build deixa de conter os arquivos removidos
+- [x] O build deixa de conter os arquivos removidos

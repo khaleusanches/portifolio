@@ -22,3 +22,15 @@ Uma decisão relacionada ficou **em aberto**: um assistente de chat fechado ao m
 domínio (só Projects, Services, Tiers e Evidence, sem geração livre) está pretendido mas
 não construído. Ele seria o segundo consumidor destes dados e reforçaria esta decisão, mas
 não é justificativa dela — o módulo único se sustenta pela divergência que já existe.
+
+## Adendo
+
+Este ADR tratou de conteúdo que morava dentro dos componentes que o renderizam. Não
+previa que o conteúdo de um *campo* ganharia estrutura própria: a Description carregava
+uma lista de capacidades codificada como convenção de negrito, reconstruída em tempo de
+execução partindo a string. Ver ADR 0002 (Capability) e ADR 0003 (Stack como fonte única
+de tecnologia), que aplicam o mesmo raciocínio um nível abaixo.
+
+O mesmo padrão apareceu também na *apresentação*: a função que renderizava a convenção
+`**trecho**` existia em duas cópias divergentes, uma pintando a ênfase de laranja e a
+outra de branco.

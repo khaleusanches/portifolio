@@ -8,9 +8,9 @@ tela no celular — por isso ela sobrevive em vez de sair.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A imagem ampliada mantém a proporção original, sem esticar
-- [ ] A ampliação fecha com a tecla de escape
-- [ ] A ampliação fecha ao clicar fora da imagem
-- [ ] O comportamento é o mesmo no desktop e no celular
+- [x] A imagem ampliada mantém a proporção original, sem esticar
+- [x] A ampliação fecha com a tecla de escape
+- [x] A ampliação fecha ao clicar fora da imagem
+- [x] O comportamento é o mesmo no desktop e no celular

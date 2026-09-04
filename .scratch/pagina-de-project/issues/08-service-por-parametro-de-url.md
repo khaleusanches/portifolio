@@ -13,9 +13,9 @@ registrada como aberta no ADR 0004.
 **Blocked by:** 01 (a busca de Service precisa devolver ausência antes, porque o parâmetro
 de URL é justamente por onde um slug inválido chega vindo do Client).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A home aberta com o parâmetro de um Service abre com o modal daquele Service
-- [ ] A home aberta sem parâmetro se comporta exatamente como hoje
-- [ ] Um slug de Service desconhecido no parâmetro não abre modal e não quebra a home
-- [ ] O ADR 0004 é escrito, registrando a rejeição da rota própria como decisão aberta
+- [x] A home aberta com o parâmetro de um Service abre com o modal daquele Service
+- [x] A home aberta sem parâmetro se comporta exatamente como hoje
+- [x] Um slug de Service desconhecido no parâmetro não abre modal e não quebra a home
+- [x] O ADR 0004 é escrito, registrando a rejeição da rota própria como decisão aberta

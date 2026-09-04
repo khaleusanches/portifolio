@@ -9,14 +9,14 @@ DOM. Prefactor: nenhum outro ticket pode ser testado antes deste.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Existe um script de teste no projeto e a suíte roda com um comando
-- [ ] O runner resolve os imports de imagem do módulo de conteúdo sem loader adicional
-- [ ] Teste: toda Screenshot de todo Project tem Caption
-- [ ] Teste: todo slug em Evidence corresponde a um Service existente
-- [ ] Teste: todo slug na curadoria da vitrine corresponde a um Project existente
-- [ ] Teste: a busca de Project devolve ausência para slug desconhecido
-- [ ] Teste: a busca de Service devolve ausência para slug desconhecido
-- [ ] A busca de Service passa a devolver ausência em vez do primeiro Service
-- [ ] Nenhum consumidor existente quebra com a busca de Service podendo devolver ausência
+- [x] Existe um script de teste no projeto e a suíte roda com um comando
+- [x] O runner resolve os imports de imagem do módulo de conteúdo sem loader adicional
+- [x] Teste: toda Screenshot de todo Project tem Caption
+- [x] Teste: todo slug em Evidence corresponde a um Service existente
+- [x] Teste: todo slug na curadoria da vitrine corresponde a um Project existente
+- [x] Teste: a busca de Project devolve ausência para slug desconhecido
+- [x] Teste: a busca de Service devolve ausência para slug desconhecido
+- [x] A busca de Service passa a devolver ausência em vez do primeiro Service
+- [x] Nenhum consumidor existente quebra com a busca de Service podendo devolver ausência

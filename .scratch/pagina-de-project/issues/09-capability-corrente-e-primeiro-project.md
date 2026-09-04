@@ -21,23 +21,23 @@ Os outros cinco Projects continuam na renderização atual, intactos.
 
 **Blocked by:** 01 (harness de teste), 06 (formatação de negrito unificada).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Capability existe no modelo, com título, texto e referência opcional a Screenshot
-- [ ] Screenshot tem Slug próprio, e a lista deixa de ser chaveada pelo texto da Caption
-- [ ] A derivação da corrente vive no módulo de conteúdo e é testada sem renderizar nada
-- [ ] Teste: toda referência de Capability aponta para um Slug de Screenshot existente no
+- [x] Capability existe no modelo, com título, texto e referência opcional a Screenshot
+- [x] Screenshot tem Slug próprio, e a lista deixa de ser chaveada pelo texto da Caption
+- [x] A derivação da corrente vive no módulo de conteúdo e é testada sem renderizar nada
+- [x] Teste: toda referência de Capability aponta para um Slug de Screenshot existente no
       mesmo Project
-- [ ] Teste: Slugs de Screenshot são únicos dentro de um Project
-- [ ] Teste: a corrente produz pares na ordem das Capabilities e blocos só-imagem para as
+- [x] Teste: Slugs de Screenshot são únicos dentro de um Project
+- [x] Teste: a corrente produz pares na ordem das Capabilities e blocos só-imagem para as
       telas não reivindicadas
-- [ ] Teste: um Project sem nenhuma Capability produz uma corrente só de imagens
-- [ ] A página do Project de console de despacho renderiza a corrente, com pares alternando
+- [x] Teste: um Project sem nenhuma Capability produz uma corrente só de imagens
+- [x] A página do Project de console de despacho renderiza a corrente, com pares alternando
       lados no desktop e blocos só-imagem em largura cheia
-- [ ] No celular a alternância desaparece, tudo empilha em uma coluna, e o texto vem antes
+- [x] No celular a alternância desaparece, tudo empilha em uma coluna, e o texto vem antes
       da imagem
-- [ ] As Captions daquele Project são reescritas para descrever o que a imagem mostra, em
+- [x] As Captions daquele Project são reescritas para descrever o que a imagem mostra, em
       vez de renomear a capacidade
-- [ ] Os outros cinco Projects continuam renderizando como hoje, sem regressão
-- [ ] O ADR 0002 é escrito, com a tabela de contagens como evidência
-- [ ] O `CONTEXT.md` ganha Capability e tem Description, Slug e Caption redefinidos
+- [x] Os outros cinco Projects continuam renderizando como hoje, sem regressão
+- [x] O ADR 0002 é escrito, com a tabela de contagens como evidência
+- [x] O `CONTEXT.md` ganha Capability e tem Description, Slug e Caption redefinidos

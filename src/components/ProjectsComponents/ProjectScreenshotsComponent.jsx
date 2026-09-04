@@ -8,7 +8,7 @@ function ProjectScreenshotsComponent({ project }){
     return (
         <div className="w-full md:flex-1 md:min-w-0">
             {screenshots.map((screenshot, indice) => (
-                <div key={screenshot.caption}>
+                <div key={screenshot.slug}>
                     <img
                         src={screenshot.image}
                         alt={screenshot.caption}
