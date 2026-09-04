@@ -22,6 +22,11 @@ import { projectChain } from "../../content/projects"
  * escuro, não cumpre esse papel.
  */
 function Tela({ screenshot, prioritaria, onAmpliar }) {
+    // Tela de celular ocupando a largura da coluna ficaria com mais de mil pixels de
+    // altura e empurraria todo o resto para fora da vista. Retrato é limitado pela
+    // altura e centralizado; paisagem continua ocupando a largura.
+    const retrato = screenshot.height > screenshot.width
+
     return (
         <figure className="m-0">
             <img
@@ -33,9 +38,13 @@ function Tela({ screenshot, prioritaria, onAmpliar }) {
                 fetchPriority={prioritaria ? "high" : "auto"}
                 decoding="async"
                 onClick={() => onAmpliar(screenshot)}
-                className="w-full h-auto rounded-2xl cursor-pointer ring-1 ring-line/15 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)]"
+                className={`h-auto rounded-2xl cursor-pointer ring-1 ring-line/15 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)] ${
+                    retrato ? "mx-auto w-auto max-h-[70vh] max-w-full" : "w-full"
+                }`}
             />
-            <figcaption className="mt-3 text-sm text-muted">{screenshot.caption}</figcaption>
+            <figcaption className={`mt-3 text-sm text-muted ${retrato ? "text-center" : ""}`}>
+                {screenshot.caption}
+            </figcaption>
         </figure>
     )
 }

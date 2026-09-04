@@ -1,4 +1,5 @@
 import RyccoDespachadorCover from "../../public/RyccoDespachador.webp"
+import RyccoPTTCover from "../../public/RyccoPTT.webp"
 import RyccoManagerCover from "../../public/RyccoManager.webp"
 import OlimpicLinkCover from "../../public/Olimpiclink.webp"
 import LaunaCover from "../../public/launa.webp"
@@ -23,6 +24,13 @@ import RyccoCercas from "../../public/RyccoDespachadorCercas.webp"
 import RyccoPatrulha from "../../public/RyccoDespachadorPatrulha.webp"
 import RyccoOrdemServico from "../../public/RyccoDespachadorOrdemServico.webp"
 import RyccoCameras from "../../public/RyccoDespachadorCameras.webp"
+
+import PTTPrincipal from "../../public/RyccoPTTPrincipal.webp"
+import PTTMensagens from "../../public/RyccoPTTMensagens.webp"
+import PTTPrivado from "../../public/RyccoPTTPrivado.webp"
+import PTTMapa from "../../public/RyccoPTTMapa.webp"
+import PTTOrdens from "../../public/RyccoPTTOrdens.webp"
+import PTTBotoes from "../../public/RyccoPTTBotoes.webp"
 
 import ManagerVisaoGeral from "../../public/RyccoManagerVisaoGeral.webp"
 import ManagerEmpresas from "../../public/RyccoManagerEmpresas.webp"
@@ -107,6 +115,65 @@ export const projects = {
             { slug: "patrulha", image: RyccoPatrulha, width: 1600, height: 950, caption: "A ronda do dia: rota traçada, pontos de conferência no mapa e horários" },
             { slug: "ordem-servico", image: RyccoOrdemServico, width: 1600, height: 783, caption: "Checklist com campos de texto, número e escolha, e os anexos de foto e vídeo obrigatórios" },
             { slug: "cameras", image: RyccoCameras, width: 1600, height: 950, caption: "Histórico de alertas das câmeras: fadiga do motorista, uso de celular e colisão iminente" }
+        ]
+    },
+
+    RyccoPTT: {
+        slug: "RyccoPTT",
+        pitch: "Aplicativo de rádio PTT para Android",
+        headline: "Rycco PTT — Rádio Digital no Celular para Equipes em Campo",
+        stack: ["Kotlin", "Android", "C#", "WebRTC"],
+        marks: ["#Mobile", "#TempoReal", "#MissãoCrítica", "#Offline"],
+        evidence: ["mobile"],
+        liveDemo: null,
+        cover: RyccoPTTCover,
+        coverWidth: 810,
+        coverHeight: 821,
+        description: "Aplicativo desenvolvido para a **Rycco Telecom**, o lado do campo da plataforma de rádios POC: transforma um celular Android num rádio digital que fala por PTT com o grupo inteiro, recebe ordens da central, mostra a posição no mapa e aciona emergência. É a ponta que conversa com o **RyccoDespachador** — o que o despachador envia chega aqui, e o que a equipe registra volta para lá.",
+        capabilities: [
+            {
+                title: "Falar Apertando um Botão",
+                text: "Transmissão para o grupo inteiro segurando a barra na tela ou o botão físico do aparelho, com indicação de quem está falando e aviso quando o canal está ocupado.",
+                screenshot: "principal"
+            },
+            {
+                title: "Grupos e Canais",
+                text: "Troca de canal a qualquer momento, com a lista de grupos disponíveis e quantos rádios estão online em cada um. É a mesma tela de abertura: o canal ativo fica sempre à vista.",
+                screenshot: null
+            },
+            {
+                title: "Texto sem Ocupar a Voz",
+                text: "Mensagens com um colega ou com o grupo, com confirmação de entrega, para o que não precisa interromper o canal de voz.",
+                screenshot: "mensagens"
+            },
+            {
+                title: "Chamada Privada",
+                text: "Conversa de voz direta entre dois rádios, fora do canal do grupo, para o que não é assunto de todos.",
+                screenshot: "privado"
+            },
+            {
+                title: "Posição no Mapa",
+                text: "Localização do próprio rádio em tempo real, com a opção de acompanhar quem está transmitindo no momento.",
+                screenshot: "mapa"
+            },
+            {
+                title: "Ordens de Serviço no Campo",
+                text: "As tarefas enviadas pela central chegam com prazo e checklist, e cada uma exige a comprovação que a central definiu — foto, vídeo ou assinatura — antes de poder ser concluída.",
+                screenshot: "ordens"
+            },
+            {
+                title: "Configuração do Rádio",
+                text: "Os botões físicos do aparelho são mapeáveis: PTT, SOS, vídeo de emergência e troca de canal ganham tecla dedicada, para operar sem olhar a tela. Junto vêm perfil, histórico de áudio e diagnóstico de conexão e GPS.",
+                screenshot: "botoes"
+            }
+        ],
+        screenshots: [
+            { slug: "principal", image: PTTPrincipal, width: 720, height: 1280, caption: "Tela principal: as abas fixas, a lista de grupos e a barra Segure para falar" },
+            { slug: "mensagens", image: PTTMensagens, width: 720, height: 1280, caption: "Mensagens: texto com um colega ou com o grupo, sem ocupar o canal de voz" },
+            { slug: "privado", image: PTTPrivado, width: 720, height: 1280, caption: "Chamada privada: conversa de voz direta com um colega, sem passar pelo canal" },
+            { slug: "mapa", image: PTTMapa, width: 720, height: 1280, caption: "Mapa: a posição do rádio, com a opção de focar em quem está transmitindo" },
+            { slug: "ordens", image: PTTOrdens, width: 720, height: 1280, caption: "Ordem de serviço no campo: tarefas com prazo, foto e vídeo de comprovação e assinatura" },
+            { slug: "botoes", image: PTTBotoes, width: 720, height: 1280, caption: "Mapeamento de botões: PTT, SOS, vídeo de emergência e troca de canal em teclas físicas" }
         ]
     },
 
