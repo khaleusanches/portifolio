@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 
 const pageVariants = {
   initial: (direction) => ({
@@ -18,22 +17,25 @@ const pageVariants = {
   })
 };
 
-/* 300ms com fade. Antes: 1s, sem nunca alterar opacidade, em 'backOut' — que é o
-   ease que faz a página quicar na parada. A direção do slide segue fixa (custom={1}
-   abaixo): a 300ms com fade ela é imperceptível, e acertá-la exigiria rastrear
-   intenção de navegação num componente global. */
+/* 200ms por metade, ~400ms de navegação. Antes: 1s só de entrada, sem nunca
+   alterar opacidade, em 'backOut' — o ease que fazia a página quicar na parada.
+
+   O AnimatePresence é mode="wait", então saída e entrada não se sobrepõem e a
+   duração percebida é o dobro desta. Sobrepor exigiria tirar o mode="wait", e aí
+   as duas páginas ficariam ambas no fluxo, dobrando a altura por um instante.
+
+   A direção do slide segue fixa (custom={1} abaixo): nesta duração ela é
+   imperceptível, e acertá-la exigiria rastrear intenção de navegação num
+   componente global. */
 const pageTransition = {
   type: 'tween',
   ease: 'easeOut',
-  duration: 0.3
+  duration: 0.2
 };
 
 export default function PageTransition({ children }) {
-  const location = useLocation();
-
   return (
     <motion.div
-      key={location.pathname}
       initial="initial"
       animate="center"
       exit="exit"

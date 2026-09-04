@@ -24,7 +24,7 @@ function ProjectCardComponent({ project, onMouseEnter, onMouseLeave }) {
             onMouseLeave={handleMouseLeave}
         >
             <img className="rounded-[24px]" src={project.cover} alt=""
-                 width={810} height={821} loading="lazy" decoding="async" />
+                 width={project.coverWidth} height={project.coverHeight} decoding="async" />
             <h2 className="mt-2 font-bold tracking-tight text-xl ml-1">{project.pitch}</h2>
             <p className="text-gray-400 font-bold mt-2 text-sm ml-1">{project.stack.join(" | ")}</p>
         </div>

@@ -7,14 +7,15 @@ function ProjectScreenshotsComponent({ project }){
 
     return (
         <div className="w-full md:flex-1 md:min-w-0">
-            {screenshots.map((screenshot) => (
+            {screenshots.map((screenshot, indice) => (
                 <div key={screenshot.caption}>
                     <img
                         src={screenshot.image}
                         alt={screenshot.caption}
                         width={screenshot.width}
                         height={screenshot.height}
-                        loading="lazy"
+                        loading={indice === 0 ? "eager" : "lazy"}
+                        fetchPriority={indice === 0 ? "high" : "auto"}
                         decoding="async"
                         onClick={() => setAmpliada(screenshot)}
                         className="cursor-pointer object-contain p-4 md:w-[45vw] md:h-[59vh] m-auto mt-8 rounded-[32px]"

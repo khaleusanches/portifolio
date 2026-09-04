@@ -34,6 +34,14 @@ describe("Screenshot", () => {
     })
 })
 
+describe("Cover", () => {
+    it.each(everyProject)("%s tem cover com dimensões explícitas", (slug, project) => {
+        expect(project.cover, `Project sem cover: ${slug}`).toBeTruthy()
+        expect(project.coverWidth, `cover sem width em ${slug}`).toBeGreaterThan(0)
+        expect(project.coverHeight, `cover sem height em ${slug}`).toBeGreaterThan(0)
+    })
+})
+
 describe("Evidence", () => {
     it.each(everyProject)("todo slug de Evidence de %s é um Service existente", (slug, project) => {
         for (const serviceSlug of project.evidence) {
