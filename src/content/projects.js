@@ -378,7 +378,7 @@ export const projects = {
 }
 
 /** Featured: a lista ordenada de Projects da vitrine da home. */
-export const featured = ["RyccoDespachador", "OlimpicLink", "Launa", "RyccoManager", "SystemERP", "AHM"]
+export const featured = ["RyccoDespachador", "OlimpicLink", "RyccoPTT", "Launa", "RyccoManager", "SystemERP"]
 
 export const getProject = (slug) => projects[slug] ?? null
 
