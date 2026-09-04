@@ -4,11 +4,10 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import MainPage from './pages/MainPage/MainPage.jsx'
-import PortifolioPage from './pages/PortifolioPage/PortifolioPage.jsx'
 import AboutPage from './pages/AboutPage/AboutPage.jsx'
 import PageTransition from './components/PageTransition.jsx'
 import { AnimatePresence } from 'framer-motion'
-import ProjectsPage from './pages/ProjectsPage/ProjectsPage.jsx'
+import ProjectPage from './pages/ProjectPage/ProjectPage.jsx'
 
 function Layout() {
   return (
@@ -29,10 +28,6 @@ const router = createBrowserRouter([
         element: <MainPage/>
       },
       {
-        path: "/portifolio",
-        element: <PortifolioPage/>
-      },
-      {
         path: "/about",
         element: <AboutPage/>
       },
@@ -45,8 +40,8 @@ const router = createBrowserRouter([
         element: <AboutPage/>
       },
       {
-        path: "/project/:nameProject",
-        element: <ProjectsPage/>
+        path: "/project/:slug",
+        element: <ProjectPage/>
       }
     ]
   }

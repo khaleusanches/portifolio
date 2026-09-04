@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import ServicesInfosComponent from '../gerais/ServicesInfosComponent';
 
-const ServicesCard = ({type, title, info, button, img}) => {
+const ServicesCard = ({service}) => {
 
   return (
     <StyledWrapper className='flex justify-center'>
       <div className="card mb-8">
         <div className="img">
-          <img src={img} alt="" className='w-full p-2' />
+          <img src={service.icon} alt="" className='w-full p-2' />
         </div>
-        <span className='h-[6vw] md:h-[4vw] overflow-hidden'>{title}</span>
-        <p className="info">{info}</p>
-        <ServicesInfosComponent button={button} type={type}/>
+        <span className='h-[6vw] md:h-[4vw] overflow-hidden'>{service.pitch}</span>
+        <p className="info">{service.summary}</p>
+        <ServicesInfosComponent service={service}/>
       </div>
     </StyledWrapper>
   );

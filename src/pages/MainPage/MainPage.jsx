@@ -5,7 +5,6 @@ import AboutComponent from "../../components/MainPageComponents/AboutComponent";
 import BannerComponent from "../../components/MainPageComponents/BannerComponent";
 import RodapeComponent from "../../components/MainPageComponents/RodapeComponent";
 import ServicesComponent from "../../components/MainPageComponents/ServicesComponent";
-import CatalogListComponent from "../../components/PortifolioPageComponents/CatalogListComponent"
 
 function MainPage() {
     return(

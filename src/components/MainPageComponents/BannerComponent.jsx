@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import icon from "../../assets/k-icon.png"
-import LastProjectComponent from "../gerais/LastProjectComponent";
-import OlimpicLinkImg from "../../../public/Olimpiclink.png"
-import LaunaERP from "../../../public/launa.png"
-import SystemERP from "../../../public/ERPSystem.png"
+import ProjectCardComponent from "../gerais/ProjectCardComponent";
 import bg from "../../../public/bg3.png"
-import AHM from "../../../public/AHM.png"
+import { featuredProjects } from "../../content/projects"
 function BannerComponent() {
   const scrollRef = useRef(null);
+  const featured = featuredProjects();
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
@@ -49,10 +47,9 @@ function BannerComponent() {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <LastProjectComponent project="OlimpicLink" link={OlimpicLinkImg} title="Rede Social para esportistas da região de Diadema" language="Kotlin | Java | Python | SQL Server" />
-          <LastProjectComponent project="Launa" link={LaunaERP} title="Software de Gestão Empresarial Privada" language="C# | Python | SQL Server" />
-          <LastProjectComponent project="SystemERP" link={SystemERP} title="Website ERP - Para gerenciar tudo de uma empresa" language="React | C# | Python | SQL Server" />
-          <LastProjectComponent project="AHM" link={AHM} title="AHM - Site de Apresentação" language="React | Tailwind | Javascript" />
+          {featured.map((project) => (
+            <ProjectCardComponent key={project.slug} project={project} />
+          ))}
         </div>
       </div>
             <div className="w-[100vw] md:w-[70vw] flex justify-between items-center flex-col mt-[16vh] md:mt-0">
@@ -75,10 +72,9 @@ function BannerComponent() {
             <div   
               className="h-[40vh] flex justify-around overflow-x-auto no-scrollbar w-[120vw] md:w-[18vw] "
             >
-              <LastProjectComponent project="OlimpicLink" link={OlimpicLinkImg} title="Rede Social para esportistas" language="Kotlin | Java | Python | SQL Server" />
-              <LastProjectComponent project="Launa" link={LaunaERP} title="Software de Gestão Empresarial Privada" language="C# | Python | SQL Server" />
-              <LastProjectComponent project="SystemERP" link={SystemERP} title="Website ERP" language="React | C# | Python | SQL Server" />
-              <LastProjectComponent project="AHM" link={AHM} title="AHM - Site de Apresentação" language="React | Tailwind | Javascript" />
+              {featured.map((project) => (
+                <ProjectCardComponent key={project.slug} project={project} />
+              ))}
             </div>
           </div>
           

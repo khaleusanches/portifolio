@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LastProjectComponent({ project, link, title, language, onMouseEnter, onMouseLeave }) {
+function ProjectCardComponent({ project, onMouseEnter, onMouseLeave }) {
     const navigate = useNavigate()
     const [isHovered, setIsHovered] = useState(false);
 
@@ -16,17 +16,17 @@ function LastProjectComponent({ project, link, title, language, onMouseEnter, on
     };
 
     return (
-        <div onClick={() => navigate(`/project/${project}`)}
+        <div onClick={() => navigate(`/project/${project.slug}`)}
             className={`flex-shrink-0 md:flex-shrink mt-4 transition-all w-[50vw] md:w-[17vw] m-auto duration-300 cursor-pointer relative ${
                 isHovered ? "translate-y-4 scale-100" : "scale-95"
             }`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <img className="rounded-[24px]" src={link} alt="" />
-            <h2 className="mt-2 font-bold tracking-tight text-heading text-xl ml-1">{title}</h2>
-            <p className="text-gray-400 font-bold mt-2 text-sm ml-1">{language}</p>
+            <img className="rounded-[24px]" src={project.cover} alt="" />
+            <h2 className="mt-2 font-bold tracking-tight text-heading text-xl ml-1">{project.pitch}</h2>
+            <p className="text-gray-400 font-bold mt-2 text-sm ml-1">{project.stack.join(" | ")}</p>
         </div>
     )
 }
-export default LastProjectComponent
+export default ProjectCardComponent
