@@ -1,17 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { projectsEvidencing } from "../../content/projects"
+import { formatText } from "./formatText"
 
 function ServicesInfosComponent({service}){
     const navigate = useNavigate()
     const evidence = projectsEvidencing(service.slug)
 
-    function formatText(text) {
-        return text.split("**").map((part, index) => 
-            index % 2 === 1 
-                ? <strong className="text-[#fe5800]" key={index}>{part}</strong> 
-                : part
-        )
-    }
     const id = `configuration-${service.slug}`
      return(
         <div>

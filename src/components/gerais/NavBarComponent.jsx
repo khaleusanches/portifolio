@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router"
+import { useNavigate } from "react-router-dom"
 import icon from "../../assets/k-icon.png"
 import logo from "../../../public/logo.png"
 function NavBarComponent({active}){
@@ -9,10 +9,10 @@ function NavBarComponent({active}){
                 <ul className="flex items-center justify-between w-full mt-8">
                     <li className="md:ml-8 hidden mr-2 md:block"><img src={logo} alt="Ícone" className="w-[10vw] ml-[0vw]"/></li>
                     <div className="flex space-x-8 ml-[8vw] md:ml-0">
-                        <li className="no-scrollbar"><a href="#" className={` border-[#fe5800] hover:border-b-2 ${active === "home" ? "border-b-2" : ""}`}>Home</a></li>
+                        <li className="no-scrollbar"><a href="#" className={` border-brand hover:border-b-2 ${active === "home" ? "border-b-2" : ""}`}>Home</a></li>
                        {/*  <li><a href="#" onClick={() => navigate("/portifolio")} className={`hover:border-b-2 border-blue-800 py-3 ${active === "portifolio" ? "border-b-2" : ""}`}>Success Cases</a></li>*/}
-                        <li className="no-scrollbar"><a href="#services" className={`hover:border-b-2 border-[#fe5800] ${active === "services" ? "border-b-2" : ""}`}>Serviços</a></li> 
-                        <li className="no-scrollbar"><a href="#about" className={`hover:border-b-2 border-[#fe5800] ${active === "about" ? "border-b-2" : ""}`}>Sobre</a></li>
+                        <li className="no-scrollbar"><a href="#services" className={`hover:border-b-2 border-brand ${active === "services" ? "border-b-2" : ""}`}>Serviços</a></li> 
+                        <li className="no-scrollbar"><a href="#about" className={`hover:border-b-2 border-brand ${active === "about" ? "border-b-2" : ""}`}>Sobre</a></li>
                        {/*  <li><a href="#" onClick={() => navigate("/contact")} className={`hover:border-b-2 border-blue-800 py-3 ${active === "contact" ? "border-b-2" : ""}`}>Contact</a></li>*/}
 
                     </div>

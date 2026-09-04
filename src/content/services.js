@@ -124,4 +124,7 @@ export const services = {
 
 export const serviceList = Object.values(services)
 
-export const getService = (slug) => services[slug] ?? services.website
+/** Ausência para Slug desconhecido, como getProject. Devolver um Service de
+  * fallback exibiria silenciosamente o Service errado — e o ticket 08 torna esse
+  * caminho alcançável pelo Client, via parâmetro de URL. */
+export const getService = (slug) => services[slug] ?? null

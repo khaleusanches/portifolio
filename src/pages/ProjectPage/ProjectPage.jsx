@@ -9,7 +9,7 @@ function ProjectPage(){
     const project = getProject(slug)
 
     return(
-        <div className="w-full h-screen overflow-x-auto">
+        <div className="w-full h-screen overflow-y-auto">
             <div className="block md:flex h-full">
                 <ProjectDescriptionComponent project={project}/>
                 <ProjectScreenshotsComponent project={project}/>

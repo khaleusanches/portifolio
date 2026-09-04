@@ -49,7 +49,7 @@ function BannerComponent() {
   }, [isHovering]); // isHovering vai pausar o scroll ao passar mouse
 
   return (
-    <div style={{ backgroundImage: `url(${bg})` }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 border-white text-white m-auto font-['Libre_Baskerville'] overflow-hidden">
+    <div style={{ backgroundImage: `url(${bg})` }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 border-white text-white m-auto font-baskerville overflow-hidden">
       <p className="-rotate-90 relative left-[60px] text-2xl w-[15vw] h-0 ml-[-20vw] ">Últimos Trabalhos</p>
       <div className="hidden md:block h-[88vh] shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px] relative left-0 mt-[12vh]">
         <div
@@ -69,8 +69,8 @@ function BannerComponent() {
       </div>
             <div className="w-[100vw] md:w-[70vw] flex justify-between items-center flex-col mt-[16vh] md:mt-0">
                 <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] lg:mt-16 w-[90vw] md:w-[62.5vw] overflow-hidden">
-                    <h1 className="mb-2 text-5xl font-bold tracking-tight text-heading md:text-5xl lg:text-7xl font-['Arial'] overflow-hidden"><strong>KH</strong> <strong className="text-[#fe5800]">SOFTWARES</strong></h1>
-                    <h1 className="text-3xl font-bold tracking-tight text-heading md:text-5xl lg:text-4xl overflow-hidden mb-8" >Construímos aplicações eficiêntes para sua empresa</h1>
+                    <h1 className="mb-2 text-5xl font-bold tracking-tight md:text-5xl lg:text-7xl font-['Arial'] overflow-hidden"><strong>KH</strong> <strong className="text-brand">SOFTWARES</strong></h1>
+                    <h1 className="text-3xl font-bold tracking-tight md:text-5xl lg:text-4xl overflow-hidden mb-8" >Construímos aplicações eficiêntes para sua empresa</h1>
                     <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="border-2 border-b-8 border-white font-bold rounded-[16px] p-4 hover:bg-white hover:border-gray-800 hover:text-gray-800 mb-8">Entre em Contato</a>
                     <p className="block h-8"></p>
                 </div>
@@ -78,7 +78,7 @@ function BannerComponent() {
 
                     <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] lg:w-[20vw] mb-[2vh] md:mb-[10vh]">
                         <div className="pb">
-                            <h2 className="mb-4 text-3xl font-extralight tracking-tight text-heading md:text-3xl lg:text-3xl"></h2>
+                            <h2 className="mb-4 text-3xl font-extralight tracking-tight md:text-3xl lg:text-3xl"></h2>
                         </div>
                     </div>
                 </div>
