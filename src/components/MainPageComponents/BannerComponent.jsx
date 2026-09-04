@@ -13,7 +13,7 @@ function BannerComponent() {
     if (!el) return;
 
     // O scroll é dirigido por script: qualquer scroll-behavior herdado do CSS
-    // transformaria cada atribuição em animação e impediria o retorno ao topo.
+    // transformaria cada atribuição em animação e impediria o reposicionamento.
     el.style.scrollBehavior = "auto";
 
     let rafId;
@@ -22,11 +22,19 @@ function BannerComponent() {
 
     const step = () => {
       if (!isHovering) {
-        const maxScroll = el.scrollHeight - el.clientHeight;
-        if (maxScroll > 0) {
+        // A lista é renderizada duas vezes; uma volta completa é a distância
+        // até o primeiro card da segunda cópia. Medida assim, e não por
+        // scrollHeight / 2, não depende de como as margens caem nas pontas.
+        const first = el.children[0];
+        const firstOfSecondCopy = el.children[el.children.length / 2];
+        const loopHeight = firstOfSecondCopy
+          ? firstOfSecondCopy.offsetTop - first.offsetTop
+          : 0;
+        if (loopHeight > 0) {
           pos += speed;
-          // Chegou ao fim: volta ao começo da lista.
-          if (pos >= maxScroll) pos = 0;
+          // Ao terminar a primeira cópia, recua uma volta inteira: o que está
+          // na tela é idêntico, então a emenda não aparece.
+          if (pos >= loopHeight) pos -= loopHeight;
           el.scrollTop = pos;
         }
       }
@@ -42,15 +50,15 @@ function BannerComponent() {
   return (
     <div style={{ backgroundImage: `url(${bg})` }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 border-white text-white m-auto font-['Libre_Baskerville'] overflow-hidden">
       <p className="-rotate-90 relative left-[60px] text-2xl w-[15vw] h-0 ml-[-20vw] ">Últimos Trabalhos</p>
-      <div className="hidden md:block h-full shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px] relative left-0 mt-[8vh]">
+      <div className="hidden md:block h-[88vh] shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px] relative left-0 mt-[12vh]">
         <div
           ref={scrollRef}
-          className="h-[92vh] overflow-auto no-scrollbar lg:w-[18vw] "
+          className="h-full overflow-auto no-scrollbar lg:w-[18vw] "
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          {featured.map((project) => (
-            <ProjectCardComponent key={project.slug} project={project} />
+          {[...featured, ...featured].map((project, i) => (
+            <ProjectCardComponent key={`${project.slug}-${i}`} project={project} />
           ))}
         </div>
       </div>
