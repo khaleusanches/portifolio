@@ -11,7 +11,7 @@ function ProjectPage(){
     if (!project) return null
 
     return(
-        <div className="w-full h-screen overflow-y-auto bg-surface text-white">
+        <div className="w-full h-screen overflow-y-auto bg-base text-ink">
             <ProjectHeaderComponent project={project}/>
             <ProjectChainComponent project={project}/>
             <ProjectFooterComponent project={project}/>

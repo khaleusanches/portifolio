@@ -33,9 +33,9 @@ function Tela({ screenshot, prioritaria, onAmpliar }) {
                 fetchPriority={prioritaria ? "high" : "auto"}
                 decoding="async"
                 onClick={() => onAmpliar(screenshot)}
-                className="w-full h-auto rounded-2xl cursor-pointer ring-1 ring-white/10 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)]"
+                className="w-full h-auto rounded-2xl cursor-pointer ring-1 ring-line/15 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)]"
             />
-            <figcaption className="mt-3 text-sm text-gray-400">{screenshot.caption}</figcaption>
+            <figcaption className="mt-3 text-sm text-muted">{screenshot.caption}</figcaption>
         </figure>
     )
 }
@@ -49,8 +49,8 @@ function Tela({ screenshot, prioritaria, onAmpliar }) {
 function Capacidade({ capability }) {
     return (
         <>
-            <h2 className="font-baskerville text-2xl md:text-3xl text-white">{capability.title}</h2>
-            <p className="mt-3 text-gray-300 leading-relaxed">{formatText(capability.text)}</p>
+            <h2 className="font-baskerville text-2xl md:text-3xl text-ink">{capability.title}</h2>
+            <p className="mt-3 text-ink/80 leading-relaxed">{formatText(capability.text)}</p>
         </>
     )
 }

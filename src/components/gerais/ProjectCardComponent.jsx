@@ -26,6 +26,8 @@ function ProjectCardComponent({ project, onMouseEnter, onMouseLeave }) {
             <img className="rounded-[24px]" src={project.cover} alt=""
                  width={project.coverWidth} height={project.coverHeight} decoding="async" />
             <h2 className="mt-2 font-bold tracking-tight text-xl ml-1">{project.pitch}</h2>
+            {/* Cor fixa, e não token: o card só aparece sobre o herói, que é uma imagem
+                escura nos dois temas. Seguir o tema aqui deixaria o texto ilegível no claro. */}
             <p className="text-gray-400 font-bold mt-2 text-sm ml-1">{project.stack.join(" | ")}</p>
         </div>
     )

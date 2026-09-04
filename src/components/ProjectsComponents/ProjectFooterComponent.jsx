@@ -16,7 +16,7 @@ function ProjectFooterComponent({ project }) {
 
     return (
         <footer className="mx-auto w-full max-w-[1400px] px-6 md:px-12 pb-24">
-            <div className="pt-10 border-t border-white/10 flex flex-col items-center gap-8">
+            <div className="pt-10 border-t border-line/10 flex flex-col items-center gap-8">
                 <a
                     href="https://wa.link/q560iy"
                     target="_blank"
@@ -28,13 +28,13 @@ function ProjectFooterComponent({ project }) {
 
                 {proximo ? (
                     <Link to={`/project/${proximo.slug}`} className="group text-center">
-                        <span className="block text-sm text-gray-500">Próximo projeto</span>
-                        <span className="mt-1 block text-lg text-gray-300 group-hover:text-white">
+                        <span className="block text-sm text-muted/80">Próximo projeto</span>
+                        <span className="mt-1 block text-lg text-ink/80 group-hover:text-ink">
                             {proximo.pitch} →
                         </span>
                     </Link>
                 ) : (
-                    <Link to="/" className="text-sm text-gray-400 hover:text-white">
+                    <Link to="/" className="text-sm text-muted hover:text-ink">
                         ← Voltar para a vitrine
                     </Link>
                 )}
