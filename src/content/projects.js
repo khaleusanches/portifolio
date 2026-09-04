@@ -29,7 +29,6 @@ import ManagerEmpresas from "../../public/RyccoManagerEmpresas.webp"
 import ManagerGrupos from "../../public/RyccoManagerGrupos.webp"
 import ManagerEquipamentos from "../../public/RyccoManagerEquipamentos.webp"
 import ManagerCadastro from "../../public/RyccoManagerCadastro.webp"
-import ManagerQRCode from "../../public/RyccoManagerQRCode.webp"
 import ManagerLicencas from "../../public/RyccoManagerLicencas.webp"
 import ManagerAssistente from "../../public/RyccoManagerAssistente.webp"
 
@@ -68,7 +67,7 @@ export const projects = {
             { image: RyccoEmergencias, caption: "Emergências: SOS e alertas de câmera veicular empilhados sobre qualquer tela" },
             { image: RyccoCercas, caption: "Cercas eletrônicas: áreas desenhadas no mapa registram entradas e saídas" },
             { image: RyccoPatrulha, caption: "Patrulha: rotas, pontos no mapa e horários da ronda do dia" },
-            { image: RyccoOrdemServico, caption: "Ordens de serviço: progresso, tarefas e as mídias enviadas pela equipe em campo" },
+            { image: RyccoOrdemServico, caption: "Ordens de serviço: trabalhos atribuídos a rádios, com progresso do checklist e validade" },
             { image: RyccoCameras, caption: "Histórico das câmeras veiculares: fadiga do motorista, uso de celular e colisão iminente" }
         ]
     },
@@ -89,7 +88,6 @@ export const projects = {
             { image: ManagerGrupos, caption: "Grupos: canais de conversa, com gestão de membros separada da edição do grupo" },
             { image: ManagerEquipamentos, caption: "Equipamentos: filtros, seleção múltipla e ações em lote sobre os rádios" },
             { image: ManagerCadastro, caption: "Cadastro de rádios: empresa, tipo de conta, licença e grupos definidos antes da lista de aparelhos" },
-            { image: ManagerQRCode, caption: "QR Code de ativação: o rádio entra na plataforma lendo o código" },
             { image: ManagerLicencas, caption: "Funcionalidades por licença: em cinza, o que a licença do rádio não libera no despachador" },
             { image: ManagerAssistente, caption: "Assistente Rycco: assistente virtual embutido, atendido por um LLM próprio no servidor da empresa" }
         ]
