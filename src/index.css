@@ -8,13 +8,9 @@
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-
 }
 #root{
   background-color: #111827;
-  scroll-behavior: smooth;
-
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -23,6 +19,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+/* Apenas a página rola suave, para os links âncora (#services, #about).
+   Nunca no seletor universal: scroll-behavior: smooth transforma toda
+   atribuição de scrollTop em animação, e quebra scroll controlado por script. */
 html {
   scroll-behavior: smooth;
 }

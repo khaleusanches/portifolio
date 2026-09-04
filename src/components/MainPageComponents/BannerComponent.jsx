@@ -9,33 +9,35 @@ function BannerComponent() {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-  const el = scrollRef.current;
-  if (!el) return;
-
-  let rafId;
-  const speed = 0.8;
-
-  const step = () => {
+    const el = scrollRef.current;
     if (!el) return;
 
-    if (!isHovering) {
-      const maxScroll = el.scrollHeight - el.clientHeight;
-      if (maxScroll > 0) {
-        el.scrollTop += speed;
-        // Quando chegar no final, volta ao topo
-        if (el.scrollTop >= maxScroll) {
-          el.scrollTop = 0;
+    // O scroll é dirigido por script: qualquer scroll-behavior herdado do CSS
+    // transformaria cada atribuição em animação e impediria o retorno ao topo.
+    el.style.scrollBehavior = "auto";
+
+    let rafId;
+    let pos = el.scrollTop;
+    const speed = 0.8;
+
+    const step = () => {
+      if (!isHovering) {
+        const maxScroll = el.scrollHeight - el.clientHeight;
+        if (maxScroll > 0) {
+          pos += speed;
+          // Chegou ao fim: volta ao começo da lista.
+          if (pos >= maxScroll) pos = 0;
+          el.scrollTop = pos;
         }
       }
-    }
+
+      rafId = requestAnimationFrame(step);
+    };
 
     rafId = requestAnimationFrame(step);
-  };
 
-  rafId = requestAnimationFrame(step);
-
-  return () => cancelAnimationFrame(rafId);
-}, [isHovering]); // isHovering vai pausar o scroll ao passar mouse
+    return () => cancelAnimationFrame(rafId);
+  }, [isHovering]); // isHovering vai pausar o scroll ao passar mouse
 
   return (
     <div style={{ backgroundImage: `url(${bg})` }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 border-white text-white m-auto font-['Libre_Baskerville'] overflow-hidden">
