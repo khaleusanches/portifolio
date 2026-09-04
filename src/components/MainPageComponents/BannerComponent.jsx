@@ -19,10 +19,14 @@ function BannerComponent() {
     let pos = el.scrollTop;
     let anterior = null;
 
-    // Pixels por segundo, e não por quadro: com valor por quadro a vitrine corre
-    // ao dobro num monitor de 120Hz e a "velocidade" deixa de ser um número
-    // comparável.
-    const VELOCIDADE = 150;
+    // A vitrine é regulada por tempo de volta, não por velocidade: é assim que a
+    // duração se mantém a mesma em qualquer tela e não muda sozinha quando um
+    // Project entra ou sai de Featured. A velocidade sai daqui, dividida pela
+    // altura real da volta.
+    //
+    // Por segundo, e nunca por quadro: com valor por quadro a mesma vitrine
+    // corre ao dobro num monitor de 120Hz.
+    const SEGUNDOS_POR_VOLTA = 30;
 
     const step = (agora) => {
       // Um salto grande significa aba oculta ou travamento; avançar o equivalente
@@ -40,7 +44,7 @@ function BannerComponent() {
         const firstOfSecondCopy = el.children[1 + count];
         if (first && firstOfSecondCopy) {
           const loopHeight = firstOfSecondCopy.offsetTop - first.offsetTop;
-          pos += (VELOCIDADE * decorrido) / 1000;
+          pos += ((loopHeight / SEGUNDOS_POR_VOLTA) * decorrido) / 1000;
           // Ao alcançar a segunda cópia, recua uma volta: o conteúdo na tela é
           // idêntico, então a emenda não aparece. E como o recuo para no
           // primeiro card real, o espaçador do topo nunca reaparece.
