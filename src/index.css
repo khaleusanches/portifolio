@@ -15,8 +15,48 @@
 html, body {
   overflow-x: hidden;
 }
+
+/* ---------------------------------------------------------------------------
+   Tokens de tema.
+   Cada token é um PAPEL, não uma cor: os componentes pedem "a superfície base"
+   ou "o texto secundário", e o tema decide o valor. É o que permite a mesma
+   marcação servir aos dois temas — e o que impede a volta dos ~30 utilitários
+   crus (text-white, bg-gray-100, border-white/10) espalhados pelo JSX.
+
+   Claro é a base e escuro é a exceção: quando o navegador não informa
+   preferência, o site abre claro.
+
+   Guardados como canais RGB separados por espaço porque o Tailwind precisa
+   disso para aplicar opacidade (bg-base/50).
+   --------------------------------------------------------------------------- */
+:root {
+  --base: 255 255 255;          /* superfície principal da página */
+  --base-alt: 238 241 245;      /* a faixa que alterna com a base */
+  --ink: 15 19 25;              /* texto sobre a base */
+  --ink-alt: 15 19 25;          /* texto sobre a faixa alternada */
+  --muted: 107 114 128;         /* texto secundário, legendas, rótulos */
+  --line: 15 19 25;             /* bordas e divisores; sempre usados com opacidade */
+  --brand: 184 63 0;            /* acento da marca, escurecido para o fundo claro */
+  --card: 255 255 255;          /* cartões elevados sobre a faixa alternada */
+  --on-card: 15 19 25;
+  --scroll-track: 229 231 235;
+}
+
+[data-theme="dark"] {
+  --base: 15 19 25;
+  --base-alt: 243 244 246;
+  --ink: 255 255 255;
+  --ink-alt: 0 0 0;
+  --muted: 156 163 175;
+  --line: 255 255 255;
+  --brand: 254 88 0;
+  --card: 23 23 23;
+  --on-card: 255 255 255;
+  --scroll-track: 31 41 55;
+}
+
 #root{
-  background-color: #111827;
+  background-color: rgb(var(--base));
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -34,7 +74,7 @@ html {
 /* Container que terá scroll */
 body {
   scrollbar-width: thin; /* para compatibilidade com Firefox */
-  scrollbar-color: #fe5800 #1f2937; /* Firefox: thumb / track */
+  scrollbar-color: rgb(var(--brand)) rgb(var(--scroll-track)); /* Firefox: thumb / track */
 }
 
 /* Chrome, Edge, Safari */
@@ -43,16 +83,16 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #1f2937; /* cor do fundo da barra */
+  background: rgb(var(--scroll-track)); /* cor do fundo da barra */
   border-radius: 5px; /* arredondamento do track */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #fe5800; /* cor da parte que se move */
+  background-color: rgb(var(--brand)); /* cor da parte que se move */
   border-radius: 5px; /* arredondamento do thumb */
-  border: 2px solid #1f2937; /* espaço entre thumb e track */
+  border: 2px solid rgb(var(--scroll-track)); /* espaço entre thumb e track */
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background-color: #fe5800; /* cor ao passar o mouse */
+  background-color: rgb(var(--brand)); /* cor ao passar o mouse */
 }

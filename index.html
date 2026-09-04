@@ -4,7 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>KHSoftwares</title>
+    <script>
+      /*
+        Decide o tema antes da primeira pintura, senão a tela pisca no tema errado
+        até o React montar.
+
+        A regra está duplicada de src/theme/tema.js de propósito: este script roda
+        antes de existir bundle para importar. A duplicação é pequena e a chave que
+        os dois compartilham está travada por teste (tema.test.js).
+      */
+      (function () {
+        try {
+          var salvo = localStorage.getItem("tema")
+          var escolhaValida = salvo === "light" || salvo === "dark"
+          var sistemaEscuro =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          document.documentElement.setAttribute(
+            "data-theme",
+            escolhaValida ? salvo : sistemaEscuro ? "dark" : "light"
+          )
+        } catch (erro) {
+          document.documentElement.setAttribute("data-theme", "light")
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root" ></div>

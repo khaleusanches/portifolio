@@ -23,7 +23,9 @@ const StyledWrapper = styled.div`
     width: 17em;
     height: 24.5em;
     padding-top: 8px;
-    background: #171717;
+    background: rgb(var(--card));
+    border: 1px solid rgb(var(--line) / 0.12);
+    color: rgb(var(--on-card));
     transition: 1s ease-in-out;
     clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
     border-top-right-radius: 20px;
@@ -34,7 +36,7 @@ const StyledWrapper = styled.div`
 
   .card span {
     font-weight: bold;
-    color: white;
+    color: rgb(var(--on-card));
     text-align: center;
     display: block;
     font-size: 1em;
@@ -42,7 +44,7 @@ const StyledWrapper = styled.div`
 
   .card .info {
     font-weight: 400;
-    color: white;
+    color: rgb(var(--on-card));
     display: block;
     text-align: center;
     font-size: 0.79em;
@@ -66,7 +68,7 @@ const StyledWrapper = styled.div`
   }
 
   .card a {
-    color: white;
+    color: rgb(var(--on-card));
     transition: .4s ease-in-out;
   }
 
@@ -82,14 +84,17 @@ const StyledWrapper = styled.div`
     border-radius: 25px;
     border: none;
     font-weight: bold;
-    background: #ffffff;
-    color: rgb(0, 0, 0);
+    /* O botão é o inverso do cartão, então funciona nos dois temas: cartão escuro
+       com botão claro, cartão claro com botão escuro. */
+    background: rgb(var(--on-card));
+    color: rgb(var(--card));
     transition: .4s ease-in-out;
   }
 
   .card .button:hover {
-    background: #171717;
-    color: white;
+    background: transparent;
+    color: rgb(var(--on-card));
+    box-shadow: inset 0 0 0 2px rgb(var(--on-card));
     cursor: pointer;
   }`;
 
