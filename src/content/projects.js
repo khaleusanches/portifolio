@@ -67,7 +67,7 @@ export const projects = {
             { image: RyccoEmergencias, caption: "Emergências: SOS e alertas de câmera veicular empilhados sobre qualquer tela" },
             { image: RyccoCercas, caption: "Cercas eletrônicas: áreas desenhadas no mapa registram entradas e saídas" },
             { image: RyccoPatrulha, caption: "Patrulha: rotas, pontos no mapa e horários da ronda do dia" },
-            { image: RyccoOrdemServico, caption: "Ordens de serviço: trabalhos atribuídos a rádios, com progresso do checklist e validade" },
+            { image: RyccoOrdemServico, caption: "Ordens de serviço: checklist com campos de texto, número e escolha, com foto e vídeo obrigatórios" },
             { image: RyccoCameras, caption: "Histórico das câmeras veiculares: fadiga do motorista, uso de celular e colisão iminente" }
         ]
     },

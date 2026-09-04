@@ -13,7 +13,7 @@ function ProjectScreenshotsComponent({ project }){
                         src={screenshot.image}
                         alt={screenshot.caption}
                         onClick={() => setSelectedImage(screenshot.image)}
-                        className="cursor-pointer p-4 md:w-[45vw] md:h-[59vh] m-auto mt-8 rounded-[32px]"
+                        className="cursor-pointer object-contain p-4 md:w-[45vw] md:h-[59vh] m-auto mt-8 rounded-[32px]"
                     />
 
                     <p className="text-white text-center mb-8 mt-2">
