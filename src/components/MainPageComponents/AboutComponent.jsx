@@ -2,7 +2,7 @@ function AboutComponent(){
     return(
         <div id="about" className="w-screen md:h-[110vh] p-8 mt-[6vh] pt-[8vh] bg-gray-100">
             <div className="flex justify-between items-center ">
-                <h3 className="text-black text-3xl ml-[5vw] mb-2 font-['Libre_Baskerville'] overflow-hidden">Sobre nós</h3>
+                <h3 className="text-black text-3xl ml-[5vw] mb-2 font-baskerville overflow-hidden">Sobre nós</h3>
                 <div className="share flex mr-[5vw] space-x-2">
                     <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" className="bi bi-twitter" viewBox="0 0 16 16">

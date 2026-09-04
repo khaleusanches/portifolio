@@ -5,10 +5,12 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        // Acento único da marca (ver Q9 / spec 0001). Antes era literal repetido.
+        brand: '#fe5800'
+      },
       fontFamily: {
-        // Define 'baskerville' como o nome da classe utilitária
-        baskerville: ['"Libre Baskerville"', 'serif'],
-        alice: ['"Alice BC"', 'serif']
+        baskerville: ['"Libre Baskerville"', 'serif']
       },
     },
   },

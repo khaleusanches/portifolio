@@ -1,20 +1,20 @@
-import { useNavigate, useParams } from "react-router-dom"
-import ProjectScreenshotsComponent from "../../components/ProjectsComponents/ProjectScreenshotsComponent"
-import ProjectDescriptionComponent from "../../components/ProjectsComponents/ProjectDescriptionComponent"
+import { useParams } from "react-router-dom"
+import ProjectChainComponent from "../../components/ProjectsComponents/ProjectChainComponent"
+import ProjectHeaderComponent from "../../components/ProjectsComponents/ProjectHeaderComponent"
+import ProjectFooterComponent from "../../components/ProjectsComponents/ProjectFooterComponent"
 import { getProject } from "../../content/projects"
 
 function ProjectPage(){
-    const navigate = useNavigate()
     const { slug } = useParams()
     const project = getProject(slug)
 
+    if (!project) return null
+
     return(
-        <div className="w-full h-screen overflow-x-auto">
-            <div className="block md:flex h-full">
-                <ProjectDescriptionComponent project={project}/>
-                <ProjectScreenshotsComponent project={project}/>
-            </div>
-            <button onClick={() => {navigate("/")}} className="text-white absolute right-6 top-4 border-[1px] rounded-full px-4 py-2 hover:bg-white hover:border-gray-800 hover:text-gray-800">X</button>
+        <div className="w-full h-screen overflow-y-auto bg-gradient-to-b from-black to-gray-900 text-white">
+            <ProjectHeaderComponent project={project}/>
+            <ProjectChainComponent project={project}/>
+            <ProjectFooterComponent project={project}/>
         </div>
     )
 }

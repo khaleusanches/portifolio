@@ -51,9 +51,11 @@ _Avoid_: último, recente, destaque, LastProject
 ### Identidade e texto
 
 **Slug**:
-O identificador de um Project ou Service. No Project é o que vai na URL
-(`OlimpicLink`, `Launa`, `SystemERP`, `AHM`). É também como a Brand se refere à coisa ao
-falar dela — não existe nome separado do Slug.
+O identificador de um Project, de um Service ou de uma Screenshot. No Project é o que vai
+na URL (`OlimpicLink`, `Launa`, `SystemERP`, `AHM`). É também como a Brand se refere à
+coisa ao falar dela — não existe nome separado do Slug. Na Screenshot ele não aparece em
+nenhuma tela: existe para que uma Capability possa apontar para ela sem depender da
+ordem da lista nem do texto da Caption.
 _Avoid_: nome, id, key, nameProject
 
 **Pitch**:
@@ -87,17 +89,28 @@ _Avoid_: tags, hashtags, categorias
 
 ### Conteúdo de um Project
 
+**Capability**:
+Uma capacidade do sistema que a Brand escolhe contar ("Voz em Tempo Real", "Gestão de
+Licenças"), com título e texto próprios, e opcionalmente a Screenshot que a demonstra.
+É curadoria, não a lista completa do que o sistema faz. Uma Capability sem Screenshot é
+legítima, e uma Screenshot que nenhuma Capability reivindicou também: as contagens não
+fecham na maioria dos Projects.
+_Avoid_: funcionalidade, feature, recurso, módulo, highlight
+
 **Description**:
-O texto longo da página de detalhe, que explica o que o Project resolve e como.
-_Avoid_: texto, corpo, conteúdo
+O parágrafo de abertura da página de detalhe: o que o Project resolve e para quem. Não é
+o texto longo — o detalhe vive nas Capabilities.
+_Avoid_: texto, corpo, conteúdo, descrição longa
 
 **Screenshot**:
 Uma imagem de tela do Project exibida na página de detalhe.
 _Avoid_: imagem, foto, print
 
 **Caption**:
-A linha que explica o que um Screenshot mostra ("Tela de perfil da comunidade").
-Obrigatória: Screenshot sem Caption não entra na página.
+A linha que descreve **o que a imagem mostra** ("Grupos e rádios à esquerda; viaturas
+posicionadas no mapa em tempo real"). Nunca renomeia a Capability ao lado: quando as
+duas dizem a mesma coisa, é a Caption que está errada. Obrigatória — Screenshot sem
+Caption não entra na página.
 _Avoid_: id, legenda, título da imagem
 
 ## Fora deste contexto

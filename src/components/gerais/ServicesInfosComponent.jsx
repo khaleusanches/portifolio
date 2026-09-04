@@ -1,18 +1,25 @@
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { projectsEvidencing } from "../../content/projects"
+import { formatText } from "./formatText"
+import { useServiceNaUrl } from "./useServiceNaUrl"
 
 function ServicesInfosComponent({service}){
     const navigate = useNavigate()
     const evidence = projectsEvidencing(service.slug)
 
-    function formatText(text) {
-        return text.split("**").map((part, index) => 
-            index % 2 === 1 
-                ? <strong className="text-[#fe5800]" key={index}>{part}</strong> 
-                : part
-        )
-    }
     const id = `configuration-${service.slug}`
+    const slugNaUrl = useServiceNaUrl()
+
+    /* Abre este Service quando a URL o pede. É como a Evidence da página de
+       Project chega até aqui (ticket 12): o Client clica no Service que o
+       Project comprova e cai na home com o detalhe já aberto. */
+    useEffect(() => {
+        if (slugNaUrl !== service.slug) return
+        const dialogo = document.getElementById(id)
+        if (dialogo && !dialogo.open) dialogo.showModal()
+    }, [slugNaUrl, service.slug, id])
+
      return(
         <div>
             <button command="show-modal" commandfor={id} className="button">{service.cta}</button>
