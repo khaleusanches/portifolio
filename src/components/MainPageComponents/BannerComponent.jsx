@@ -22,19 +22,20 @@ function BannerComponent() {
 
     const step = () => {
       if (!isHovering) {
-        // A lista é renderizada duas vezes; uma volta completa é a distância
-        // até o primeiro card da segunda cópia. Medida assim, e não por
-        // scrollHeight / 2, não depende de como as margens caem nas pontas.
-        const first = el.children[0];
-        const firstOfSecondCopy = el.children[el.children.length / 2];
-        const loopHeight = firstOfSecondCopy
-          ? firstOfSecondCopy.offsetTop - first.offsetTop
-          : 0;
-        if (loopHeight > 0) {
+        // Filhos: [espaçador, cópia 1 (N cards), cópia 2 (N cards)].
+        // Uma volta é a distância entre o primeiro card de cada cópia, medida
+        // por offsetTop — não por scrollHeight / 2, que depende de como as
+        // margens caem nas pontas do container.
+        const count = (el.children.length - 1) / 2;
+        const first = el.children[1];
+        const firstOfSecondCopy = el.children[1 + count];
+        if (first && firstOfSecondCopy) {
+          const loopHeight = firstOfSecondCopy.offsetTop - first.offsetTop;
           pos += speed;
-          // Ao terminar a primeira cópia, recua uma volta inteira: o que está
-          // na tela é idêntico, então a emenda não aparece.
-          if (pos >= loopHeight) pos -= loopHeight;
+          // Ao alcançar a segunda cópia, recua uma volta: o conteúdo na tela é
+          // idêntico, então a emenda não aparece. E como o recuo para no
+          // primeiro card real, o espaçador do topo nunca reaparece.
+          if (pos >= firstOfSecondCopy.offsetTop) pos -= loopHeight;
           el.scrollTop = pos;
         }
       }
@@ -57,6 +58,10 @@ function BannerComponent() {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
+          {/* Espaçador: a coluna começa vazia e os projetos entram rolando.
+              Fica acima da primeira cópia, então sai de cena na primeira volta
+              e não reaparece. */}
+          <div aria-hidden="true" className="h-[30vh]" />
           {[...featured, ...featured].map((project, i) => (
             <ProjectCardComponent key={`${project.slug}-${i}`} project={project} />
           ))}
