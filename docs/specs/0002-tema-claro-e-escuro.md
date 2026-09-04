@@ -40,10 +40,20 @@ mantém nos dois temas, com os papéis invertidos.
 passa. Sobre `gray-100` dá 2,89:1 e reprova. No tema claro o acento é `#b83f00`, que dá
 5,09:1 sobre a faixa alternada e 5,60:1 sobre o branco, mantendo a mesma família de cor.
 
-**O que não segue o tema.** O herói da home é uma imagem escura, e continua escuro nos
-dois temas — inverter exigiria um segundo arquivo de imagem que não existe. Por isso o
-texto sobre ele é branco fixo, assim como o card de Project, que só aparece ali. Os véus
-de modal e de ampliação de imagem escurecem em qualquer tema, como é convenção.
+**O herói tem uma imagem por tema.** O fundo da home é uma composição geométrica sobre
+campo quase preto. A versão clara foi derivada da original por transformação de pixel,
+não redesenhada: o campo `#171717`, que ocupa 76% da imagem, vira branco, e cada forma
+laranja mantém a distância que tinha do campo — a que mais saltava do fundo escuro é a
+que mais salta do fundo branco, agora no acento do tema claro. Preservar a hierarquia,
+em vez de simplesmente inverter a luminosidade, é o que impede as formas discretas de
+virarem as mais visíveis. Os cinzas neutros do fundo viram cinzas claros levemente
+quentes, para nenhuma área ficar fria no meio dos laranjas.
+
+Como o herói passa a ser claro no tema claro, o texto sobre ele segue o tema. Fixá-lo em
+branco, como era antes de existir a segunda imagem, o tornaria invisível.
+
+**O que não segue o tema.** Os véus de modal e de ampliação de imagem escurecem em
+qualquer tema, como é convenção.
 
 ## Arquitetura
 

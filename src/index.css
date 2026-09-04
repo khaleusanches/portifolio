@@ -37,6 +37,7 @@ html, body {
   --muted: 107 114 128;         /* texto secundário, legendas, rótulos */
   --line: 15 19 25;             /* bordas e divisores; sempre usados com opacidade */
   --brand: 184 63 0;            /* acento da marca, escurecido para o fundo claro */
+  --banner: url("/bg3-claro.png"); /* herói da home; ver spec 0002 */
   --card: 255 255 255;          /* cartões elevados sobre a faixa alternada */
   --on-card: 15 19 25;
   --scroll-track: 229 231 235;
@@ -50,6 +51,7 @@ html, body {
   --muted: 156 163 175;
   --line: 255 255 255;
   --brand: 254 88 0;
+  --banner: url("/bg3.png");
   --card: 23 23 23;
   --on-card: 255 255 255;
   --scroll-track: 31 41 55;

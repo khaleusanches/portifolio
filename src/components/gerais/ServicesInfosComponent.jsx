@@ -37,8 +37,11 @@ function ServicesInfosComponent({service}){
                                             <button type="button" command="close" commandfor={id} className="inline-flex w-[10vw] justify-center rounded-md bg-red-600 px-2 py-1 text-sm font-semibold text-white hover:bg-red-700 md:mt-0 sm:w-auto">X</button>
                                         </div>
                                         <hr className="mt-2 mb-4 border-line/25" />
-                                        <div className="w-full flex h-[40vh] md:h-[60vh]">
-                                            <div className="ml-[1vw] w-full">
+                                        {/* Altura máxima com rolagem, e não altura fixa: com altura fixa o que passasse
+                                            do limite era cortado pelo overflow-hidden do painel e ficava
+                                            inalcançável — foi o que aconteceu quando a lista de Evidence cresceu. */}
+                                        <div className="w-full max-h-[60vh] overflow-y-auto pr-3">
+                                            <div className="ml-[1vw]">
                                                 <label className="text-md text-ink border-b-2 border-line/40 pb-1 text-start">Informações Técnicas</label>
                                                 <div className="flex items-center mt-[2vh] gap-x-[1vw] mb-[4vh]">
                                                     <label className="text-sm text-justify block text-ink/85">{formatText(service.description)}</label>

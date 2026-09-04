@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import icon from "../../assets/k-icon.png"
 import ProjectCardComponent from "../gerais/ProjectCardComponent";
-import bg from "../../../public/bg3.png"
 import { featuredProjects } from "../../content/projects"
 function BannerComponent() {
   const scrollRef = useRef(null);
@@ -49,7 +48,7 @@ function BannerComponent() {
   }, [isHovering]); // isHovering vai pausar o scroll ao passar mouse
 
   return (
-    <div style={{ backgroundImage: `url(${bg})` }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 text-white m-auto font-baskerville overflow-hidden">
+    <div style={{ backgroundImage: "var(--banner)" }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 text-ink m-auto font-baskerville overflow-hidden">
       <p className="-rotate-90 relative left-[60px] text-2xl w-[15vw] h-0 ml-[-20vw] ">Últimos Trabalhos</p>
       <div className="hidden md:block h-[88vh] shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px] relative left-0 mt-[12vh]">
         <div
@@ -71,7 +70,7 @@ function BannerComponent() {
                 <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] lg:mt-16 w-[90vw] md:w-[62.5vw] overflow-hidden">
                     <h1 className="mb-2 text-5xl font-bold tracking-tight md:text-5xl lg:text-7xl font-['Arial'] overflow-hidden"><strong>KH</strong> <strong className="text-brand">SOFTWARES</strong></h1>
                     <h1 className="text-3xl font-bold tracking-tight md:text-5xl lg:text-4xl overflow-hidden mb-8" >Construímos aplicações eficiêntes para sua empresa</h1>
-                    <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="border-2 border-b-8 border-white font-bold rounded-[16px] p-4 hover:bg-white hover:border-gray-800 hover:text-gray-800 mb-8">Entre em Contato</a>
+                    <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="border-2 border-b-8 border-ink font-bold rounded-[16px] p-4 hover:bg-ink hover:text-base mb-8">Entre em Contato</a>
                     <p className="block h-8"></p>
                 </div>
                 <div className="w-full flex justify-end">
