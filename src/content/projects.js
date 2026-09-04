@@ -1,3 +1,4 @@
+import RyccoDespachadorCover from "../../public/RyccoDespachador.webp"
 import OlimpicLinkCover from "../../public/Olimpiclink.png"
 import LaunaCover from "../../public/launa.png"
 import SystemERPCover from "../../public/ERPSystem.png"
@@ -14,6 +15,13 @@ import LaunaTwo from "../../public/LaunaTwo.png"
 
 import SystemERPOne from "../../public/SystemERPOne.png"
 import SystemERPTwo from "../../public/SystemERPTwo.png"
+
+import RyccoMapa from "../../public/RyccoDespachadorMapa.webp"
+import RyccoEmergencias from "../../public/RyccoDespachadorEmergencias.webp"
+import RyccoCercas from "../../public/RyccoDespachadorCercas.webp"
+import RyccoPatrulha from "../../public/RyccoDespachadorPatrulha.webp"
+import RyccoOrdemServico from "../../public/RyccoDespachadorOrdemServico.webp"
+import RyccoCameras from "../../public/RyccoDespachadorCameras.webp"
 
 import AHMOne from "../../public/ahmum.jpg"
 import AHMTwo from "../../public/ahmdois.jpg"
@@ -35,6 +43,26 @@ import AHMThree from "../../public/ahmtres.jpg"
  * screenshots telas com legenda obrigatória
  */
 export const projects = {
+    RyccoDespachador: {
+        slug: "RyccoDespachador",
+        pitch: "Console de despacho com voz PTT, GPS e vídeo ao vivo",
+        headline: "RyccoDespachador — Central de Operação para Comunicação e Monitoramento de Frotas",
+        stack: ["React", "Tailwind", "C#", "WebRTC", "Leaflet"],
+        marks: ["#TempoReal", "#Geolocalização", "#MissãoCrítica", "#Escalável"],
+        evidence: ["website", "automacao"],
+        liveDemo: null,
+        cover: RyccoDespachadorCover,
+        description: "Console desenvolvido para a **Rycco Telecom**, central de operação usada pelo despachador para comandar equipes em campo: fala por voz com os grupos, acompanha onde cada rádio está no mapa, recebe emergências e consulta tudo o que aconteceu. Roda no navegador, sem instalação, e conversa com rádios POC — celulares e aparelhos com o aplicativo da operadora — pela internet móvel ou Wi-Fi.\n\n**Voz em Tempo Real:** Comunicação PTT com grupos inteiros e chamada privada rádio a rádio, com sinalização e identificação de usuários em servidor próprio construído em **C#** sobre **WebRTC** e **WebSockets**.\n\n**Monitoramento por GPS:** Posição das equipes em tempo real e histórico de trajeto sobre mapa **Leaflet**, com painel de quem está online e offline.\n\n**Emergências:** Recebimento de SOS acionado pelo botão de pânico do rádio e alertas das câmeras veiculares — fadiga do motorista, uso de celular e risco de colisão — empilhados sobre qualquer tela do console.\n\n**Automação Operacional:** Cercas eletrônicas que registram entradas e saídas sozinhas, patrulhas com pontos e horários conferidos automaticamente, e ordens de serviço com checklist que exige foto e vídeo de comprovação da equipe em campo.\n\n**Vídeo e Câmeras:** Abertura da câmera de um rádio ou de câmera veicular ao vivo, com grade de várias câmeras simultâneas.\n\n**Controle de Acesso:** Três níveis de licença combinados com permissões por operador, definindo o que cada despachador enxerga.\n\n**Tecnologia Utilizada:** Frontend em **React** e **Tailwind**; backend, APIs, WebSockets e servidor de sinalização em **C#**.",
+        screenshots: [
+            { image: RyccoMapa, caption: "Tela principal: grupos e rádios à esquerda, posição das viaturas em tempo real no mapa" },
+            { image: RyccoEmergencias, caption: "Emergências: SOS e alertas de câmera veicular empilhados sobre qualquer tela" },
+            { image: RyccoCercas, caption: "Cercas eletrônicas: áreas desenhadas no mapa registram entradas e saídas" },
+            { image: RyccoPatrulha, caption: "Patrulha: rotas, pontos no mapa e horários da ronda do dia" },
+            { image: RyccoOrdemServico, caption: "Ordens de serviço: progresso, tarefas e as mídias enviadas pela equipe em campo" },
+            { image: RyccoCameras, caption: "Histórico das câmeras veiculares: fadiga do motorista, uso de celular e colisão iminente" }
+        ]
+    },
+
     OlimpicLink: {
         slug: "OlimpicLink",
         pitch: "Rede Social para esportistas da região de Diadema",
@@ -105,7 +133,7 @@ export const projects = {
 }
 
 /** Featured: a lista ordenada de Projects da vitrine da home. */
-export const featured = ["OlimpicLink", "Launa", "SystemERP", "AHM"]
+export const featured = ["RyccoDespachador", "OlimpicLink", "Launa", "SystemERP", "AHM"]
 
 export const getProject = (slug) => projects[slug] ?? null
 
