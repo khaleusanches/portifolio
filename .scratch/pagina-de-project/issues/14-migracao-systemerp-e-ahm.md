@@ -11,13 +11,13 @@ qual está certo — é fato que só quem construiu o sistema sabe.
 
 **Blocked by:** 09 (precisa do modelo e da corrente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Os dois Projects têm Capabilities declaradas, com título e texto em campos próprios
-- [ ] Toda Screenshot dos dois tem Slug e Caption reescrita
-- [ ] As quatro Capabilities do ERP web sem tela associada renderizam sem espaço vazio
+- [x] Os dois Projects têm Capabilities declaradas, com título e texto em campos próprios
+- [x] Toda Screenshot dos dois tem Slug e Caption reescrita
+- [x] As quatro Capabilities do ERP web sem tela associada renderizam sem espaço vazio
       estranho
-- [ ] A divergência C# / Java do ERP web é resolvida pelo dono do conteúdo e o Stack passa a
+- [x] A divergência C# / Java do ERP web é resolvida pelo dono do conteúdo e o Stack passa a
       refletir a resposta
-- [ ] Os blocos de tecnologia em prosa saem das duas Descriptions
-- [ ] Os testes de invariante continuam passando
+- [x] Os blocos de tecnologia em prosa saem das duas Descriptions
+- [x] Os testes de invariante continuam passando

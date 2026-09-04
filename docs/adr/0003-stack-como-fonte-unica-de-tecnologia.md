@@ -27,13 +27,18 @@ A informação de tecnologia deixa de aparecer no corpo do texto e passa a apare
 como ficha técnica. Quem estiver acostumado à Description antiga vai achar que a página
 "perdeu" a seção de tecnologia. É deliberado.
 
-A decisão vale a partir de agora, mas a invariante que a torna executável só entra
-quando o último Project tiver migrado: enquanto houver Description em prosa no caminho de
-renderização antigo, um teste que proíba o bloco de tecnologia falharia por conteúdo que
-ainda não foi recortado. Até lá isto é disciplina manual — e disciplina manual é
-justamente o modo de falha que o ADR 0001 documentou, então a invariante não é opcional,
-é a última etapa da migração.
+A invariante que proíbe bloco de tecnologia em qualquer Description é executável e está
+no seam de teste do módulo de conteúdo, junto com um limite de tamanho da Description e a
+proibição de blocos titulados dentro dela — sem isso a Description volta a crescer e a
+estrutura volta a ficar codificada em convenção de negrito. Não é disciplina manual, que
+é justamente o modo de falha que o ADR 0001 documentou.
 
-Ao recortar a prosa do SystemERP foi preciso decidir qual das duas versões estava certa,
-C# ou Java. Essa é uma decisão de fato sobre o sistema, não de modelagem, e cabe a quem o
-construiu.
+O Launa não tinha um bloco chamado "Tecnologia Utilizada", mas tinha dois equivalentes
+sob outros títulos — "Backend Development" e "Database Management" —, que eram tecnologia
+em prosa sob outro nome. A invariante nomeia os três.
+
+A divergência C# / Java do SystemERP resolveu-se por consequência, não por escolha: a
+prosa que dizia Java desapareceu, e o Stack estruturado, que é agora a única fonte, já
+dizia C#. Fica em aberto uma pergunta de fato que só quem construiu o sistema responde —
+se o Stack está certo. Se o backend era Java, é o `stack` que precisa mudar, não a prosa,
+que não existe mais.

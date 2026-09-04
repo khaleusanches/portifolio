@@ -16,10 +16,10 @@ visitante abre.
 **Blocked by:** 09 (precisa do modelo e da corrente). Depende também de conteúdo escrito
 pelo dono do domínio, não derivável do que existe.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] As Capabilities são escritas pelo dono do conteúdo, dizendo o que o sistema faz
-- [ ] Toda Screenshot tem Slug e Caption reescrita
-- [ ] A Description fica reduzida ao parágrafo de abertura
-- [ ] A página renderiza a corrente como os demais
-- [ ] Os testes de invariante continuam passando
+- [x] As Capabilities são escritas pelo dono do conteúdo, dizendo o que o sistema faz
+- [x] Toda Screenshot tem Slug e Caption reescrita
+- [x] A Description fica reduzida ao parágrafo de abertura
+- [x] A página renderiza a corrente como os demais
+- [x] Os testes de invariante continuam passando

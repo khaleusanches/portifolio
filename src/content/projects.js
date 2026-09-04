@@ -121,15 +121,42 @@ export const projects = {
         cover: RyccoManagerCover,
         coverWidth: 810,
         coverHeight: 821,
-        description: "Painel administrativo desenvolvido para a **Rycco Telecom**, onde se administra tudo o que faz os rádios POC funcionarem: quais empresas são clientes, quantas licenças cada distribuidor possui, que aparelhos estão cadastrados, em que grupos de conversa eles entram e até quando a licença de cada um vale. Roda no navegador, em produção, no endereço manager.ryccotelecom.com.\n\n**Hierarquia Multiempresa:** Estrutura em camadas — distribuidor, empresa cliente, grupo e rádio — em que cada nível enxerga apenas o que lhe pertence, permitindo que uma mesma instalação atenda vários distribuidores sem que um veja os dados do outro.\n\n**Gestão de Licenças:** Controle de licenças por versão e validade, com aviso de vencimento que leva direto aos rádios afetados, além de renovação e troca de licença em lote.\n\n**Cadastro em Escala:** Cadastro de aparelhos por IMEI com empresa, tipo de conta, licença e grupos definidos de uma vez, e ativação do rádio em campo pela leitura de um **QR Code**.\n\n**Controle do que o Despachador Vê:** É aqui que se define quais funcionalidades a licença de cada rádio libera no console de operação — mapa, vídeo, patrulha, cercas, mensagens e ordens de serviço.\n\n**Assistente com LLM Próprio:** Assistente virtual embutido no painel, atendido por um modelo de linguagem treinado sob medida e hospedado no servidor da empresa, que tira dúvidas sobre o sistema e automatiza parte das tarefas administrativas.\n\n**Tecnologia Utilizada:** Frontend em **React** e **Tailwind**; backend e integração com o assistente em **C#**.",
+        description: "Painel administrativo desenvolvido para a **Rycco Telecom**, onde se administra tudo o que faz os rádios POC funcionarem: quais empresas são clientes, quantas licenças cada distribuidor possui, que aparelhos estão cadastrados, em que grupos de conversa eles entram e até quando a licença de cada um vale. Roda no navegador, em produção, no endereço manager.ryccotelecom.com.",
+        capabilities: [
+            {
+                title: "Hierarquia Multiempresa",
+                text: "Estrutura em camadas — distribuidor, empresa cliente, grupo e rádio — em que cada nível enxerga apenas o que lhe pertence, permitindo que uma mesma instalação atenda vários distribuidores sem que um veja os dados do outro.",
+                screenshot: "empresas"
+            },
+            {
+                title: "Gestão de Licenças",
+                text: "Controle de licenças por versão e validade, com aviso de vencimento que leva direto aos rádios afetados, além de renovação e troca de licença em lote.",
+                screenshot: "visao-geral"
+            },
+            {
+                title: "Cadastro em Escala",
+                text: "Cadastro de aparelhos por IMEI com empresa, tipo de conta, licença e grupos definidos de uma vez, e ativação do rádio em campo pela leitura de um **QR Code**.",
+                screenshot: "cadastro"
+            },
+            {
+                title: "Controle do que o Despachador Vê",
+                text: "É aqui que se define quais funcionalidades a licença de cada rádio libera no console de operação — mapa, vídeo, patrulha, cercas, mensagens e ordens de serviço.",
+                screenshot: "licencas"
+            },
+            {
+                title: "Assistente com LLM Próprio",
+                text: "Assistente virtual embutido no painel, atendido por um modelo de linguagem treinado sob medida e hospedado no servidor da empresa, que tira dúvidas sobre o sistema e automatiza parte das tarefas administrativas.",
+                screenshot: "assistente"
+            }
+        ],
         screenshots: [
-            { slug: "visao-geral", image: ManagerVisaoGeral, width: 1362, height: 854, caption: "Visão geral: indicadores do ecossistema e licenças disponíveis por versão e validade" },
-            { slug: "empresas", image: ManagerEmpresas, width: 1362, height: 854, caption: "Empresas: cadastro dos clientes finais, com agente responsável e rádios online" },
-            { slug: "grupos", image: ManagerGrupos, width: 1362, height: 854, caption: "Grupos: canais de conversa, com gestão de membros separada da edição do grupo" },
-            { slug: "equipamentos", image: ManagerEquipamentos, width: 1362, height: 854, caption: "Equipamentos: filtros, seleção múltipla e ações em lote sobre os rádios" },
-            { slug: "cadastro", image: ManagerCadastro, width: 1362, height: 854, caption: "Cadastro de rádios: empresa, tipo de conta, licença e grupos definidos antes da lista de aparelhos" },
-            { slug: "licencas", image: ManagerLicencas, width: 1362, height: 854, caption: "Funcionalidades por licença: em cinza, o que a licença do rádio não libera no despachador" },
-            { slug: "assistente", image: ManagerAssistente, width: 1362, height: 852, caption: "Assistente Rycco: assistente virtual embutido, atendido por um LLM próprio no servidor da empresa" }
+            { slug: "visao-geral", image: ManagerVisaoGeral, width: 1362, height: 854, caption: "Indicadores do ecossistema e as licenças disponíveis por versão e validade" },
+            { slug: "empresas", image: ManagerEmpresas, width: 1362, height: 854, caption: "Os clientes finais cadastrados, com agente responsável e contagem de rádios online" },
+            { slug: "grupos", image: ManagerGrupos, width: 1362, height: 854, caption: "Canais de conversa, com a gestão de membros separada da edição do grupo" },
+            { slug: "equipamentos", image: ManagerEquipamentos, width: 1362, height: 854, caption: "Filtros, seleção múltipla e as ações em lote sobre os rádios" },
+            { slug: "cadastro", image: ManagerCadastro, width: 1362, height: 854, caption: "Empresa, tipo de conta, licença e grupos definidos antes da lista de aparelhos" },
+            { slug: "licencas", image: ManagerLicencas, width: 1362, height: 854, caption: "Em cinza, o que a licença daquele rádio não libera no console do despachador" },
+            { slug: "assistente", image: ManagerAssistente, width: 1362, height: 852, caption: "O assistente embutido no painel, atendido pelo modelo hospedado no servidor da empresa" }
         ]
     },
 
@@ -144,12 +171,39 @@ export const projects = {
         cover: OlimpicLinkCover,
         coverWidth: 810,
         coverHeight: 821,
-        description: "O OlimpicLink é uma plataforma social desenvolvida com foco em performance, escalabilidade e experiência do usuário, projetada para conectar pessoas apaixonadas por esportes em um ambiente totalmente interativo e moderno.\n\nA aplicação foi construída utilizando uma arquitetura moderna baseada em API REST, garantindo uma comunicação eficiente entre frontend e backend, além de permitir fácil expansão e integração com novos serviços.\n\nNo desenvolvimento mobile, foi utilizada Kotlin, proporcionando alta performance e uma experiência fluida e responsiva. No backend, a aplicação foi estruturada com Java e Python, garantindo segurança, organização e alta capacidade de processamento. O banco de dados SQL Server foi utilizado para gerenciar grandes volumes de dados com consistência e confiabilidade.\n\nEntre as principais funcionalidades estão autenticação segura de usuários, feed dinâmico de conteúdo, criação e gerenciamento de eventos, comunidades e publicações, além de um sistema completo de interações sociais.\n\nO projeto foi pensado para suportar crescimento, com uma base sólida e preparada para escalar conforme a demanda, sendo ideal para soluções que exigem alto nível de engajamento, performance e confiabilidade.\n\nO OlimpicLink demonstra na prática a aplicação de boas práticas de desenvolvimento, arquitetura bem definida e foco total na experiência do usuário — características essenciais para sistemas modernos e competitivos.",
+        description: "Rede social mobile para o ecossistema esportivo da região de Diadema: cada modalidade e cada grupo tem a sua comunidade, com publicações, agenda de eventos e perfil dos participantes.",
+        capabilities: [
+            {
+                title: "Comunidades por Modalidade",
+                text: "Cada grupo tem comunidade própria, com capa, descrição, regras fixadas, participantes e seguidores — e a entrada pode depender de pedido para participar.",
+                screenshot: "comunidade"
+            },
+            {
+                title: "Criação e Descoberta",
+                text: "Qualquer participante cria a sua comunidade, e encontra as existentes e outros esportistas pela busca.",
+                screenshot: "inicio-e-comunidades"
+            },
+            {
+                title: "Agenda de Eventos",
+                text: "Cada comunidade tem calendário próprio, onde os eventos ficam marcados no dia com foto e descrição.",
+                screenshot: "perfil-da-comunidade"
+            },
+            {
+                title: "Perfil do Esportista",
+                text: "Perfil com amigos e seguidores, as modalidades que a pessoa acompanha e as comunidades de que participa.",
+                screenshot: "perfil-do-usuario"
+            },
+            {
+                title: "Feed e Interações",
+                text: "Publicações dentro da comunidade, com curtida, comentário e compartilhamento.",
+                screenshot: null
+            }
+        ],
         screenshots: [
-            { slug: "comunidade", image: OlimpicLinkTwo, width: 1536, height: 1024, caption: "Tela de comunidade" },
-            { slug: "inicio-e-comunidades", image: OlimpicLinkThree, width: 1536, height: 1024, caption: "Tela inicial e tela com todas as comunidades" },
-            { slug: "perfil-da-comunidade", image: OlimpicLinkFour, width: 1536, height: 1024, caption: "Tela de perfil da comunidade | Tela de eventos da comunidade" },
-            { slug: "perfil-do-usuario", image: OlimpicLinkOne, width: 1536, height: 1024, caption: "Tela de perfil do usuário" }
+            { slug: "comunidade", image: OlimpicLinkTwo, width: 1536, height: 1024, caption: "Uma comunidade de torcida: capa, participantes e seguidores, regras fixadas e as publicações dos membros" },
+            { slug: "inicio-e-comunidades", image: OlimpicLinkThree, width: 1536, height: 1024, caption: "Abertura do app à esquerda; à direita a lista de comunidades, com busca e o botão de criar" },
+            { slug: "perfil-da-comunidade", image: OlimpicLinkFour, width: 1536, height: 1024, caption: "Perfil de uma comunidade à esquerda; à direita o calendário dela, com um evento marcado no dia 14" },
+            { slug: "perfil-do-usuario", image: OlimpicLinkOne, width: 1536, height: 1024, caption: "Perfil do esportista: amigos e seguidores, as modalidades que ele salvou e as comunidades de que participa" }
         ]
     },
 
@@ -164,11 +218,23 @@ export const projects = {
         cover: LaunaCover,
         coverWidth: 810,
         coverHeight: 821,
-        description: "Sistema completo para gestão de uma loja de tintas, integrando processos essenciais como estoque, vendas e financeiro em uma única plataforma.\n\n**Automação e Processamento:** Integração com **Python** para execução de rotinas automatizadas e processamento inteligente de dados.\n\n**Arquitetura Moderna:** Estruturação do sistema com uma arquitetura escalável e organizada, garantindo fácil manutenção, expansão futura e alto desempenho.\n\n**Backend Development:** Implementação da aplicação utilizando **C#**, assegurando robustez, segurança e eficiência no processamento de dados.\n\n**Database Management:** Modelagem e gerenciamento de dados com **SQL Server**, garantindo consistência, confiabilidade e performance em operações complexas.\n\n**Gestão e Controle:** Desenvolvimento de funcionalidades como controle de estoque em tempo real, gestão de vendas, acompanhamento financeiro e geração de relatórios estratégicos.\n\n**Escalabilidade e Performance:** Projeto desenvolvido com foco em crescimento, preparado para suportar aumento de demanda e evolução do negócio.",
+        description: "Sistema completo para gestão de uma loja de tintas, integrando estoque, vendas e financeiro numa única plataforma.",
+        capabilities: [
+            {
+                title: "Gestão e Controle",
+                text: "Controle de estoque em tempo real, gestão de vendas, acompanhamento financeiro e geração de relatórios estratégicos.",
+                screenshot: "dashboard-financeiro"
+            },
+            {
+                title: "Automação e Processamento",
+                text: "Rotinas automatizadas e processamento de dados por integração com **Python**, tirando da mão o que era repetitivo.",
+                screenshot: null
+            }
+        ],
         screenshots: [
-            { slug: "dashboard-financeiro", image: LaunaDashboard, width: 1536, height: 1024, caption: "Dashboard financeiro" },
-            { slug: "pedidos-a-fornecedores", image: LaunaOne, width: 1536, height: 1024, caption: "Tela de pedidos feitos a fornecedores" },
-            { slug: "funcionarios", image: LaunaTwo, width: 1536, height: 1024, caption: "Tela de gerenciamento de funcionários" }
+            { slug: "dashboard-financeiro", image: LaunaDashboard, width: 1536, height: 1024, caption: "O resultado do semestre por mês, com a legenda das linhas do DRE ao lado" },
+            { slug: "lotes", image: LaunaOne, width: 1536, height: 1024, caption: "Cadastro de lotes: nota fiscal, fornecedor, datas de fabricação e validade, e os lotes recebidos ao lado" },
+            { slug: "funcionarios", image: LaunaTwo, width: 1536, height: 1024, caption: "Cadastro de funcionários com cargo, setor, admissão e salário, e a folha completa abaixo" }
         ]
     },
 
@@ -183,10 +249,27 @@ export const projects = {
         cover: SystemERPCover,
         coverWidth: 810,
         coverHeight: 821,
-        description: "Sistema ERP web capaz de centralizar e controlar todas as áreas da empresa em uma única plataforma, proporcionando mais organização, produtividade e visão estratégica do negócio.\n\n**Controle Total do Negócio:** Gerenciamento integrado de financeiro, funcionários, estoque, vendas, compras, fornecedores, produtos e processos de fabricação, eliminando retrabalho e reduzindo erros operacionais.\n\n**Dashboards Inteligentes:** Criação de painéis visuais com dados em tempo real, facilitando a análise de resultados e auxiliando na tomada de decisões rápidas e estratégicas.\n\n**Integração de Processos:** Todos os setores conectados em um único sistema, permitindo um fluxo de informações contínuo e eficiente entre as áreas da empresa.\n\n**Escalabilidade e Crescimento:** Sistema desenvolvido para acompanhar a evolução do negócio, suportando aumento de demanda e novas funcionalidades conforme necessário.\n\n**Arquitetura Moderna:** Estrutura robusta e organizada, garantindo estabilidade, segurança e alta performance mesmo com grande volume de dados.\n\n**Tecnologia Utilizada:** Aplicação web desenvolvida com **React** no frontend e **Python** e **Java** no backend, garantindo uma experiência moderna, rápida e confiável.",
+        description: "Sistema ERP web que centraliza as áreas de uma empresa numa única plataforma, do estoque ao financeiro, com os setores enxergando os mesmos dados.",
+        capabilities: [
+            {
+                title: "Controle Total do Negócio",
+                text: "Gerenciamento integrado de financeiro, funcionários, estoque, vendas, compras, fornecedores, produtos e processos de fabricação, eliminando retrabalho e reduzindo erros operacionais.",
+                screenshot: "compras"
+            },
+            {
+                title: "Dashboards Inteligentes",
+                text: "Painéis visuais com dados em tempo real, para analisar resultado e decidir sem esperar relatório.",
+                screenshot: "dashboards"
+            },
+            {
+                title: "Integração de Processos",
+                text: "Todos os setores num único sistema, com o fluxo de informação passando de uma área para a outra sem digitação repetida.",
+                screenshot: null
+            }
+        ],
         screenshots: [
-            { slug: "dashboards", image: SystemERPOne, width: 1536, height: 1024, caption: "Tela de dashboards" },
-            { slug: "compras", image: SystemERPTwo, width: 1536, height: 1024, caption: "Tela de compras de produtos" }
+            { slug: "dashboards", image: SystemERPOne, width: 1536, height: 1024, caption: "Receita, pedidos, estoque baixo e produção no topo; receita mensal e vendas por categoria abaixo" },
+            { slug: "compras", image: SystemERPTwo, width: 1536, height: 1024, caption: "Pedidos de compra com fornecedor, entrega prevista, prazo de pagamento e status de aprovação" }
         ]
     },
 
@@ -201,11 +284,28 @@ export const projects = {
         cover: AHMCover,
         coverWidth: 810,
         coverHeight: 821,
-        description: "Desenvolvimento de uma landing page institucional moderna para a empresa AHM, com foco em apresentação profissional, fortalecimento da marca e geração de leads.\n\n**Design Estratégico:** Interface planejada para transmitir credibilidade e profissionalismo, utilizando um layout limpo, responsivo e alinhado à identidade visual da empresa.\n\n**Alta Conversão:** Estrutura otimizada com foco em conversão, incluindo chamadas para ação (CTAs) bem posicionadas, navegação intuitiva e seções organizadas para guiar o usuário até o contato.\n\n**Performance e Responsividade:** Página leve e altamente otimizada, garantindo carregamento rápido e excelente experiência em dispositivos móveis, tablets e desktops.\n\n**Experiência do Usuário (UX):** Desenvolvimento centrado no usuário, proporcionando navegação fluida, leitura agradável e fácil acesso às principais informações.\n\n**Tecnologia Utilizada:** Implementação utilizando React, garantindo flexibilidade, componentização e facilidade de manutenção futura.\n\n**Objetivo do Projeto:** Criar uma presença digital sólida para a AHM, destacando seus serviços e facilitando o contato com potenciais clientes de forma eficiente e estratégica.",
+        description: "Landing page institucional para a **AHM Conservadora e Portaria**, que atua em conservação, limpeza, zeladoria, portaria e administração de condomínios. Existe para apresentar a empresa e gerar contato.",
+        capabilities: [
+            {
+                title: "Design Estratégico",
+                text: "Interface planejada para transmitir credibilidade, com layout limpo, responsivo e alinhado à identidade visual da empresa.",
+                screenshot: "home"
+            },
+            {
+                title: "Alta Conversão",
+                text: "Estrutura com chamadas para ação bem posicionadas, navegação direta e seções organizadas para levar o visitante até o contato.",
+                screenshot: "contato"
+            },
+            {
+                title: "Performance e Responsividade",
+                text: "Página leve, com carregamento rápido e a mesma experiência em celular, tablet e desktop.",
+                screenshot: null
+            }
+        ],
         screenshots: [
-            { slug: "home", image: AHMOne, width: 1536, height: 1024, caption: "Home do site" },
-            { slug: "servicos", image: AHMTwo, width: 1536, height: 1024, caption: "Serviços oferecidos" },
-            { slug: "contato", image: AHMThree, width: 1536, height: 1024, caption: "Tela de contato" }
+            { slug: "home", image: AHMOne, width: 1536, height: 1024, caption: "Topo do site: a chamada, o WhatsApp e o botão de orçamento sobre a fachada da empresa" },
+            { slug: "servicos", image: AHMTwo, width: 1536, height: 1024, caption: "Os serviços em cartões: portaria social, conservação e limpeza, recepção e vigilância desarmada" },
+            { slug: "contato", image: AHMThree, width: 1536, height: 1024, caption: "Formulário com assunto, nome, telefone, e-mail e mensagem, com alternativa por WhatsApp" }
         ]
     }
 }
@@ -267,12 +367,18 @@ export const projectChain = (project) => {
     }
 
     for (const capability of capabilities) {
-        if (!capability.screenshot) {
+        const tela = capability.screenshot ? porSlug.get(capability.screenshot) : null
+
+        /* Sem tela — ou apontando para uma que não existe — a Capability vira bloco de
+           texto. A invariante de referência impede o segundo caso no conteúdo, mas a
+           função não pode devolver um par sem imagem: quebraria a renderização. */
+        if (!tela) {
             corrente.push({ kind: "capability", capability })
             continue
         }
+
         emitirNaoReivindicadasAntesDe(capability.screenshot)
-        corrente.push({ kind: "pair", capability, screenshot: porSlug.get(capability.screenshot) })
+        corrente.push({ kind: "pair", capability, screenshot: tela })
         emitidas.add(capability.screenshot)
     }
 

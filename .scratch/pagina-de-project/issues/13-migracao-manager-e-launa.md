@@ -12,12 +12,12 @@ associada.
 
 **Blocked by:** 09 (precisa do modelo e da corrente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Os dois Projects têm Capabilities declaradas, com título e texto em campos próprios
-- [ ] Toda Screenshot dos dois tem Slug e Caption reescrita
-- [ ] As telas não reivindicadas aparecem como blocos só-imagem em largura cheia
-- [ ] As Capabilities sem tela associada renderizam corretamente, sem espaço vazio estranho
-- [ ] Os blocos de tecnologia em prosa saem das duas Descriptions
-- [ ] A Description de cada um fica reduzida ao parágrafo de abertura
-- [ ] Os testes de invariante continuam passando
+- [x] Os dois Projects têm Capabilities declaradas, com título e texto em campos próprios
+- [x] Toda Screenshot dos dois tem Slug e Caption reescrita
+- [x] As telas não reivindicadas aparecem como blocos só-imagem em largura cheia
+- [x] As Capabilities sem tela associada renderizam corretamente, sem espaço vazio estranho
+- [x] Os blocos de tecnologia em prosa saem das duas Descriptions
+- [x] A Description de cada um fica reduzida ao parágrafo de abertura
+- [x] Os testes de invariante continuam passando

@@ -12,13 +12,13 @@ exatamente o modo de falha que o ADR 0001 documentou.
 
 **Blocked by:** 13, 14, 15 (todos os Projects precisam ter migrado).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Nenhum Project depende do caminho de renderização antigo
-- [ ] O caminho antigo é removido, junto com a reconstrução de estrutura por manipulação de
+- [x] Nenhum Project depende do caminho de renderização antigo
+- [x] O caminho antigo é removido, junto com a reconstrução de estrutura por manipulação de
       string na página de Project
-- [ ] Teste: nenhuma Description contém bloco de tecnologia em prosa
-- [ ] O ADR 0003 é escrito, com a divergência C# / Java como evidência
-- [ ] O ADR 0001 recebe o adendo: ele não previa que o conteúdo de um campo ganharia
+- [x] Teste: nenhuma Description contém bloco de tecnologia em prosa
+- [x] O ADR 0003 é escrito, com a divergência C# / Java como evidência
+- [x] O ADR 0001 recebe o adendo: ele não previa que o conteúdo de um campo ganharia
       estrutura própria
-- [ ] A suíte completa passa
+- [x] A suíte completa passa

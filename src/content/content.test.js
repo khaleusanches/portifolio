@@ -35,6 +35,23 @@ describe("Screenshot", () => {
     })
 })
 
+describe("Description", () => {
+    it.each(everyProject)("a Description de %s não repete tecnologia em prosa", (slug, project) => {
+        // ADR 0003: o Stack estruturado é a única fonte sobre tecnologia. A prosa
+        // divergia — um Project dizia Java no texto e C# no Stack.
+        expect(project.description, `bloco de tecnologia na Description de ${slug}`)
+            .not.toMatch(/Tecnologia Utilizada|Backend Development|Database Management/)
+    })
+
+    it.each(everyProject)("a Description de %s é o parágrafo de abertura, não o texto longo", (slug, project) => {
+        // O detalhe vive nas Capabilities. Sem limite, a Description volta a crescer
+        // e a estrutura volta a ficar codificada em convenção de negrito.
+        expect(project.description.length, `Description longa em ${slug}`).toBeLessThan(500)
+        expect(project.description, `Description com bloco titulado em ${slug}`)
+            .not.toMatch(/\*\*[^*]+:\*\*/)
+    })
+})
+
 describe("Cover", () => {
     it.each(everyProject)("%s tem cover com dimensões explícitas", (slug, project) => {
         expect(project.cover, `Project sem cover: ${slug}`).toBeTruthy()
@@ -76,8 +93,10 @@ describe("Slug", () => {
 describe("Capability", () => {
     const comCapabilities = everyProject.filter(([, project]) => project.capabilities?.length)
 
-    it("ao menos um Project já declara Capabilities", () => {
-        expect(comCapabilities.length).toBeGreaterThan(0)
+    it("todo Project declara Capabilities", () => {
+        // Não há mais caminho de renderização alternativo: um Project sem Capability
+        // renderizaria uma página só de imagens, sem argumento nenhum.
+        expect(comCapabilities.length).toBe(everyProject.length)
     })
 
     it.each(everyProject)("toda Capability de %s tem título e texto", (slug, project) => {
@@ -130,11 +149,27 @@ describe("corrente de blocos", () => {
     })
 
     it("um Project sem Capability produz uma corrente só de telas", () => {
-        const corrente = projectChain(projects.OlimpicLink)
-        expect(corrente).toHaveLength(projects.OlimpicLink.screenshots.length)
-        expect(corrente.every((bloco) => bloco.kind === "screenshot")).toBe(true)
-        expect(corrente.map((bloco) => bloco.screenshot))
-            .toEqual(projects.OlimpicLink.screenshots)
+        // Contra objeto sintético, não contra conteúdo real: depois da migração todos
+        // os Projects declaram Capabilities, mas a propriedade continua sendo da
+        // função — foi ela que permitiu migrar um Project por vez.
+        const telas = [{ slug: "a" }, { slug: "b" }]
+        expect(projectChain({ screenshots: telas })).toEqual([
+            { kind: "screenshot", screenshot: telas[0] },
+            { kind: "screenshot", screenshot: telas[1] }
+        ])
+    })
+
+    it("uma Capability que aponta para tela inexistente não some da corrente", () => {
+        // A invariante de referência impede isto no conteúdo, mas a função não deve
+        // engolir a Capability em silêncio se acontecer.
+        const corrente = projectChain({
+            screenshots: [],
+            capabilities: [{ title: "X", text: "y", screenshot: "naoexiste" }]
+        })
+        expect(corrente).toHaveLength(1)
+        expect(corrente[0].kind).toBe("capability")
+        expect(corrente[0].capability.title).toBe("X")
+        expect(corrente[0].screenshot).toBeUndefined()
     })
 
     it("toda Screenshot do Project aparece exatamente uma vez na corrente", () => {
