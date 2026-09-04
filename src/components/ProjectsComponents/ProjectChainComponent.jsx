@@ -15,6 +15,12 @@ import { projectChain } from "../../content/projects"
  * A regra que monta a corrente não vive aqui — vive no módulo de conteúdo, onde é
  * testada sem renderizar nada.
  */
+
+/**
+ * A borda de 1px não é enfeite: as Screenshots são claras e o fundo é escuro, então sem
+ * ela a imagem encosta no fundo sem nada que a contenha — e a sombra, sendo preta sobre
+ * escuro, não cumpre esse papel.
+ */
 function Tela({ screenshot, prioritaria, onAmpliar }) {
     return (
         <figure className="m-0">
@@ -27,17 +33,23 @@ function Tela({ screenshot, prioritaria, onAmpliar }) {
                 fetchPriority={prioritaria ? "high" : "auto"}
                 decoding="async"
                 onClick={() => onAmpliar(screenshot)}
-                className="w-full h-auto rounded-2xl cursor-pointer shadow-[0_12px_34px_-12px_rgba(0,0,0,0.75)]"
+                className="w-full h-auto rounded-2xl cursor-pointer ring-1 ring-white/10 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)]"
             />
             <figcaption className="mt-3 text-sm text-gray-400">{screenshot.caption}</figcaption>
         </figure>
     )
 }
 
+/**
+ * O título fica branco, e não no acento da marca. As Screenshots são o argumento da
+ * página; com os títulos também em laranja o acento aparecia em dezessete lugares na
+ * mesma tela — Marks, títulos, ênfase no texto e o botão — e deixava de acentuar. A
+ * serifa e o corpo já hierarquizam sem cor.
+ */
 function Capacidade({ capability }) {
     return (
         <>
-            <h2 className="font-baskerville text-2xl md:text-3xl text-brand">{capability.title}</h2>
+            <h2 className="font-baskerville text-2xl md:text-3xl text-white">{capability.title}</h2>
             <p className="mt-3 text-gray-300 leading-relaxed">{formatText(capability.text)}</p>
         </>
     )

@@ -7,6 +7,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+/* O corte horizontal vive aqui, e nunca no seletor universal: com overflow-x
+   escondido o eixo Y deixa de ser visible e passa a auto, então qualquer elemento
+   com 1px de sobra vira container rolável e ganha barra — era o que acontecia com
+   o h1 e com todos os h2 da página de Project. */
+html, body {
   overflow-x: hidden;
 }
 #root{
