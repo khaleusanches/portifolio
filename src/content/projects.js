@@ -1,4 +1,5 @@
 import RyccoDespachadorCover from "../../public/RyccoDespachador.webp"
+import RyccoManagerCover from "../../public/RyccoManager.webp"
 import OlimpicLinkCover from "../../public/Olimpiclink.png"
 import LaunaCover from "../../public/launa.png"
 import SystemERPCover from "../../public/ERPSystem.png"
@@ -22,6 +23,15 @@ import RyccoCercas from "../../public/RyccoDespachadorCercas.webp"
 import RyccoPatrulha from "../../public/RyccoDespachadorPatrulha.webp"
 import RyccoOrdemServico from "../../public/RyccoDespachadorOrdemServico.webp"
 import RyccoCameras from "../../public/RyccoDespachadorCameras.webp"
+
+import ManagerVisaoGeral from "../../public/RyccoManagerVisaoGeral.webp"
+import ManagerEmpresas from "../../public/RyccoManagerEmpresas.webp"
+import ManagerGrupos from "../../public/RyccoManagerGrupos.webp"
+import ManagerEquipamentos from "../../public/RyccoManagerEquipamentos.webp"
+import ManagerCadastro from "../../public/RyccoManagerCadastro.webp"
+import ManagerQRCode from "../../public/RyccoManagerQRCode.webp"
+import ManagerLicencas from "../../public/RyccoManagerLicencas.webp"
+import ManagerAssistente from "../../public/RyccoManagerAssistente.webp"
 
 import AHMOne from "../../public/ahmum.jpg"
 import AHMTwo from "../../public/ahmdois.jpg"
@@ -60,6 +70,28 @@ export const projects = {
             { image: RyccoPatrulha, caption: "Patrulha: rotas, pontos no mapa e horários da ronda do dia" },
             { image: RyccoOrdemServico, caption: "Ordens de serviço: progresso, tarefas e as mídias enviadas pela equipe em campo" },
             { image: RyccoCameras, caption: "Histórico das câmeras veiculares: fadiga do motorista, uso de celular e colisão iminente" }
+        ]
+    },
+
+    RyccoManager: {
+        slug: "RyccoManager",
+        pitch: "Painel de gestão de licenças, empresas e rádios",
+        headline: "RyccoManager — Painel Administrativo da Plataforma de Rádios POC",
+        stack: ["React", "Tailwind", "C#", "LLM próprio"],
+        marks: ["#PainelAdministrativo", "#GestãoDeLicenças", "#MultiEmpresa", "#Escalável"],
+        evidence: ["website", "automacao"],
+        liveDemo: null,
+        cover: RyccoManagerCover,
+        description: "Painel administrativo desenvolvido para a **Rycco Telecom**, onde se administra tudo o que faz os rádios POC funcionarem: quais empresas são clientes, quantas licenças cada distribuidor possui, que aparelhos estão cadastrados, em que grupos de conversa eles entram e até quando a licença de cada um vale. Roda no navegador, em produção, no endereço manager.ryccotelecom.com.\n\n**Hierarquia Multiempresa:** Estrutura em camadas — distribuidor, empresa cliente, grupo e rádio — em que cada nível enxerga apenas o que lhe pertence, permitindo que uma mesma instalação atenda vários distribuidores sem que um veja os dados do outro.\n\n**Gestão de Licenças:** Controle de licenças por versão e validade, com aviso de vencimento que leva direto aos rádios afetados, além de renovação e troca de licença em lote.\n\n**Cadastro em Escala:** Cadastro de aparelhos por IMEI com empresa, tipo de conta, licença e grupos definidos de uma vez, e ativação do rádio em campo pela leitura de um **QR Code**.\n\n**Controle do que o Despachador Vê:** É aqui que se define quais funcionalidades a licença de cada rádio libera no console de operação — mapa, vídeo, patrulha, cercas, mensagens e ordens de serviço.\n\n**Assistente com LLM Próprio:** Assistente virtual embutido no painel, atendido por um modelo de linguagem treinado sob medida e hospedado no servidor da empresa, que tira dúvidas sobre o sistema e automatiza parte das tarefas administrativas.\n\n**Tecnologia Utilizada:** Frontend em **React** e **Tailwind**; backend e integração com o assistente em **C#**.",
+        screenshots: [
+            { image: ManagerVisaoGeral, caption: "Visão geral: indicadores do ecossistema e licenças disponíveis por versão e validade" },
+            { image: ManagerEmpresas, caption: "Empresas: cadastro dos clientes finais, com agente responsável e rádios online" },
+            { image: ManagerGrupos, caption: "Grupos: canais de conversa, com gestão de membros separada da edição do grupo" },
+            { image: ManagerEquipamentos, caption: "Equipamentos: filtros, seleção múltipla e ações em lote sobre os rádios" },
+            { image: ManagerCadastro, caption: "Cadastro de rádios: empresa, tipo de conta, licença e grupos definidos antes da lista de aparelhos" },
+            { image: ManagerQRCode, caption: "QR Code de ativação: o rádio entra na plataforma lendo o código" },
+            { image: ManagerLicencas, caption: "Funcionalidades por licença: em cinza, o que a licença do rádio não libera no despachador" },
+            { image: ManagerAssistente, caption: "Assistente Rycco: assistente virtual embutido, atendido por um LLM próprio no servidor da empresa" }
         ]
     },
 
@@ -133,7 +165,7 @@ export const projects = {
 }
 
 /** Featured: a lista ordenada de Projects da vitrine da home. */
-export const featured = ["RyccoDespachador", "OlimpicLink", "Launa", "SystemERP", "AHM"]
+export const featured = ["RyccoDespachador", "OlimpicLink", "Launa", "RyccoManager", "SystemERP", "AHM"]
 
 export const getProject = (slug) => projects[slug] ?? null
 
