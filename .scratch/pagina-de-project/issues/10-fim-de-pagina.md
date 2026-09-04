@@ -12,12 +12,12 @@ e circular reiniciaria o argumento de venda mascarando o fim da lista.
 
 **Blocked by:** 09 (a corrente precisa existir para haver um fim de página).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A derivação do próximo Project vive no módulo de conteúdo e segue a ordem de curadoria
-- [ ] Teste: o próximo Project segue a ordem da vitrine
-- [ ] Teste: o último Project da vitrine não tem próximo
-- [ ] O fim da página oferece o próximo Project, e no último oferece só a volta à vitrine
-- [ ] O caminho de volta é explícito e diz para onde vai, no topo e no fim
-- [ ] O "X" solto deixa de existir
-- [ ] O pedido de orçamento aparece uma única vez, no fim, no laranja da marca
+- [x] A derivação do próximo Project vive no módulo de conteúdo e segue a ordem de curadoria
+- [x] Teste: o próximo Project segue a ordem da vitrine
+- [x] Teste: o último Project da vitrine não tem próximo
+- [x] O fim da página oferece o próximo Project, e no último oferece só a volta à vitrine
+- [x] O caminho de volta é explícito e diz para onde vai, no topo e no fim
+- [x] O "X" solto deixa de existir
+- [x] O pedido de orçamento aparece uma única vez, no fim, no laranja da marca

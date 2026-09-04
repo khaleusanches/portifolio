@@ -124,6 +124,14 @@ export const services = {
 
 export const serviceList = Object.values(services)
 
+/**
+ * Os Services que um Project comprova. Derivado da Evidence declarada no Project — é o
+ * inverso de projectsEvidencing, e é o caminho que faltava: o Service já listava os
+ * Projects que o comprovam, e o Project não listava os Services que comprova.
+ */
+export const servicesEvidencedBy = (project) =>
+    (project?.evidence ?? []).map((slug) => services[slug]).filter(Boolean)
+
 /** Ausência para Slug desconhecido, como getProject. Devolver um Service de
   * fallback exibiria silenciosamente o Service errado — e o ticket 08 torna esse
   * caminho alcançável pelo Client, via parâmetro de URL. */

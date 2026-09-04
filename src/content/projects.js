@@ -218,6 +218,20 @@ export const getProject = (slug) => projects[slug] ?? null
 export const featuredProjects = () => featured.map((slug) => projects[slug])
 
 /**
+ * O próximo Project na ordem de curadoria da vitrine, ou ausência no último.
+ *
+ * O fim da lista é o fim do caminho: a ordem de Featured é curadoria da Brand e decai de
+ * propósito — do console de missão crítica à landing page institucional. Circular de
+ * volta ao primeiro reiniciaria o argumento de venda e mascararia para o Client o fato de
+ * que ele já viu tudo.
+ */
+export const nextFeatured = (slug) => {
+    const posicao = featured.indexOf(slug)
+    if (posicao === -1) return null
+    return projects[featured[posicao + 1]] ?? null
+}
+
+/**
  * A corrente de blocos de um Project: a sequência que a página de detalhe renderiza.
  *
  * As Capabilities mandam na ordem — elas são o argumento que a Brand faz. Uma

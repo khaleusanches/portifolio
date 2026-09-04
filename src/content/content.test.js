@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest"
-import { projects, featured, getProject, projectChain } from "./projects"
+import { projects, featured, getProject, projectChain, nextFeatured, projectsEvidencing } from "./projects"
+import { servicesEvidencedBy } from "./services"
 import { services, getService } from "./services"
 
 /**
@@ -158,6 +159,42 @@ describe("corrente de blocos", () => {
 
     it("Project ausente produz corrente vazia", () => {
         expect(projectChain(null)).toEqual([])
+    })
+})
+
+describe("próximo Project", () => {
+    it("segue a ordem de curadoria da vitrine", () => {
+        expect(featured.slice(0, -1).map((slug) => nextFeatured(slug).slug))
+            .toEqual(featured.slice(1))
+    })
+
+    it("o último da vitrine não tem próximo", () => {
+        // A ordem de curadoria decai de propósito: circular reiniciaria o argumento
+        // de venda e mascararia o fim da lista.
+        expect(nextFeatured(featured[featured.length - 1])).toBeNull()
+    })
+
+    it("Slug desconhecido não tem próximo", () => {
+        expect(nextFeatured("NaoExiste")).toBeNull()
+    })
+})
+
+describe("Services comprovados por um Project", () => {
+    it.each(everyProject)("%s devolve os Services que sua Evidence declara", (slug, project) => {
+        expect(servicesEvidencedBy(project).map((service) => service.slug))
+            .toEqual(project.evidence)
+    })
+
+    it("Project ausente não comprova nada", () => {
+        expect(servicesEvidencedBy(null)).toEqual([])
+    })
+
+    it("é o inverso de projectsEvidencing", () => {
+        for (const [, project] of everyProject) {
+            for (const service of servicesEvidencedBy(project)) {
+                expect(projectsEvidencing(service.slug)).toContain(project)
+            }
+        }
     })
 })
 

@@ -12,9 +12,9 @@ a prova não leva à coisa que se pode contratar.
 **Blocked by:** 08 (o destino precisa existir), 11 (o link precisa de um lugar no topo para
 morar).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A página do Project lista os Services que ele comprova, derivados de Evidence
-- [ ] Clicar num deles leva ao detalhe daquele Service, com Tiers e faixa de preço visíveis
-- [ ] Um Project que comprova mais de um Service lista todos
-- [ ] A navegação funciona no desktop e no celular
+- [x] A página do Project lista os Services que ele comprova, derivados de Evidence
+- [x] Clicar num deles leva ao detalhe daquele Service, com Tiers e faixa de preço visíveis
+- [x] Um Project que comprova mais de um Service lista todos
+- [x] A navegação funciona no desktop e no celular

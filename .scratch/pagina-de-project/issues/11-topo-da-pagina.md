@@ -14,9 +14,9 @@ O parágrafo de abertura da Description dá contexto curto antes do detalhe.
 
 **Blocked by:** 09 (precisa do novo formato de página).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Marks aparece em destaque logo abaixo da Headline, no acento da marca
-- [ ] Stack aparece discreto em cinza e nunca recebe o acento
-- [ ] O parágrafo de abertura da Description aparece antes da corrente
-- [ ] A distinção visual entre Marks e Stack é inconfundível
+- [x] Marks aparece em destaque logo abaixo da Headline, no acento da marca
+- [x] Stack aparece discreto em cinza e nunca recebe o acento
+- [x] O parágrafo de abertura da Description aparece antes da corrente
+- [x] A distinção visual entre Marks e Stack é inconfundível
