@@ -17,9 +17,19 @@ function BannerComponent() {
 
     let rafId;
     let pos = el.scrollTop;
-    const speed = 0.8;
+    let anterior = null;
 
-    const step = () => {
+    // Pixels por segundo, e não por quadro: com valor por quadro a vitrine corre
+    // ao dobro num monitor de 120Hz e a "velocidade" deixa de ser um número
+    // comparável.
+    const VELOCIDADE = 150;
+
+    const step = (agora) => {
+      // Um salto grande significa aba oculta ou travamento; avançar o equivalente
+      // faria a vitrine pular vários cards de uma vez ao voltar.
+      const decorrido = anterior === null ? 0 : Math.min(agora - anterior, 100);
+      anterior = agora;
+
       if (!isHovering) {
         // Filhos: [espaçador, cópia 1 (N cards), cópia 2 (N cards)].
         // Uma volta é a distância entre o primeiro card de cada cópia, medida
@@ -30,7 +40,7 @@ function BannerComponent() {
         const firstOfSecondCopy = el.children[1 + count];
         if (first && firstOfSecondCopy) {
           const loopHeight = firstOfSecondCopy.offsetTop - first.offsetTop;
-          pos += speed;
+          pos += (VELOCIDADE * decorrido) / 1000;
           // Ao alcançar a segunda cópia, recua uma volta: o conteúdo na tela é
           // idêntico, então a emenda não aparece. E como o recuo para no
           // primeiro card real, o espaçador do topo nunca reaparece.
