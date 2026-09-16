@@ -97,6 +97,11 @@ html, body {
 html {
   scroll-behavior: smooth;
 }
+/* A navbar é fixa: sem esta margem o link âncora leva a seção para debaixo dela e o
+   título da seção fica coberto. É a altura da barra mais um respiro. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
 /* Container que terá scroll */
 body {
   scrollbar-width: thin; /* para compatibilidade com Firefox */

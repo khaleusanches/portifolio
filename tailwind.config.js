@@ -59,7 +59,7 @@ export default {
         // A escala mora aqui, e não repetida a cada componente. `rotulo` é a linha
         // em caixa alta que abre uma seção; `display` é a headline do herói.
         rotulo: ['0.75rem', { lineHeight: '1', letterSpacing: '0.18em' }],
-        display: ['clamp(2.5rem, 6vw, 4.5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        display: ['clamp(2.25rem, 5vw, 3.75rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
         titulo: ['clamp(1.75rem, 3vw, 2.75rem)', { lineHeight: '1.15', letterSpacing: '-0.01em' }]
       },
     },

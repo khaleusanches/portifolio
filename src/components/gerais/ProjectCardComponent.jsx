@@ -1,33 +1,44 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-function ProjectCardComponent({ project, onMouseEnter, onMouseLeave }) {
-    const navigate = useNavigate()
-    const [isHovered, setIsHovered] = useState(false);
-
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-        onMouseEnter?.();
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-        onMouseLeave?.();
-    };
-
+/**
+ * O cartão de um Project: capa, Pitch e Stack.
+ *
+ * É um link e não uma `div` com `onClick`. Três coisas vinham de graça e faltavam:
+ * o teclado alcança e aciona, o botão do meio abre em nova aba, e — o que mais importa
+ * para ser achado — o rastreador de busca enxerga um caminho até a página do Project.
+ * Um `onClick` em `div` não é um link para ninguém além do mouse.
+ *
+ * A largura vem de quem o coloca. O mesmo cartão serve à coluna da vitrine, à faixa
+ * horizontal do celular e à grade de Projects, e cada uma dessas tem uma largura certa
+ * diferente — decidi-la aqui obrigaria a desfazê-la três vezes.
+ *
+ * `duplicata` existe por causa da vitrine, que renderiza a lista duas vezes para a
+ * emenda não aparecer. A segunda cópia é a mesma coisa outra vez: anunciá-la faria o
+ * leitor de tela ler cada Project em dobro.
+ */
+function ProjectCardComponent({ project, onMouseEnter, onMouseLeave, duplicata = false }) {
     return (
-        <div onClick={() => navigate(`/project/${project.slug}`)}
-            className={`flex-shrink-0 md:flex-shrink mt-4 transition-all w-[50vw] md:w-[17vw] m-auto duration-300 cursor-pointer relative ${
-                isHovered ? "translate-y-4 scale-100" : "scale-95"
-            }`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+        <Link
+            to={`/project/${project.slug}`}
+            aria-hidden={duplicata || undefined}
+            tabIndex={duplicata ? -1 : undefined}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            className="group block w-full py-4 focus:outline-none"
         >
-            <img className="rounded-card" src={project.cover} alt=""
-                 width={project.coverWidth} height={project.coverHeight} decoding="async" />
-            <h2 className="mt-2 font-bold tracking-tight text-xl ml-1">{project.pitch}</h2>
-            <p className="text-muted font-bold mt-2 text-sm ml-1">{project.stack.join(" | ")}</p>
-        </div>
+            <img
+                src={project.cover}
+                alt={`Tela do ${project.slug}: ${project.pitch}`}
+                width={project.coverWidth}
+                height={project.coverHeight}
+                loading="lazy"
+                decoding="async"
+                className="w-full rounded-card shadow-card transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card-hover group-focus-visible:-translate-y-1 group-focus-visible:ring-2 group-focus-visible:ring-brand"
+            />
+            <h3 className="mt-3 text-lg font-bold leading-snug tracking-tight">{project.pitch}</h3>
+            <p className="mt-1 text-sm text-muted">{project.stack.join(" · ")}</p>
+        </Link>
     )
 }
+
 export default ProjectCardComponent

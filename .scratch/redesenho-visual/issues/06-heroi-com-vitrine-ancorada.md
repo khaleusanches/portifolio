@@ -13,15 +13,15 @@ celular ela continua horizontal, como já é.
 
 **Blocked by:** 01 (sistema tipográfico), 02 (container e tokens), 03 (vocabulário de movimento).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A headline entra palavra a palavra, e a grafia "eficiêntes" é corrigida
-- [ ] A vitrine sangra até a borda direita, com máscara de fade no topo e na base
-- [ ] Nenhuma sombra pesada sobra no herói
-- [ ] O rótulo vertical é um elemento posicionado no grid, sem altura zero nem margem negativa
-- [ ] O bloco vazio com `<h2>` sem texto some
-- [ ] A vitrine continua pausando ao passar o mouse
-- [ ] Uma volta completa continua levando o mesmo tempo, em qualquer tela e em 60 ou 120Hz
-- [ ] No celular a vitrine continua horizontal e rolável
-- [ ] O herói é `<section>` com título acessível, e toda imagem tem `alt`
-- [ ] Nenhum teste existente quebra
+- [x] A headline entra palavra a palavra, e a grafia "eficiêntes" é corrigida
+- [x] A vitrine sangra até a borda direita, com máscara de fade no topo e na base
+- [x] Nenhuma sombra pesada sobra no herói
+- [x] O rótulo vertical é um elemento posicionado no grid, sem altura zero nem margem negativa
+- [x] O bloco vazio com `<h2>` sem texto some
+- [x] A vitrine continua pausando ao passar o mouse
+- [x] Uma volta completa continua levando o mesmo tempo, em qualquer tela e em 60 ou 120Hz
+- [x] No celular a vitrine continua horizontal e rolável
+- [x] O herói é `<section>` com título acessível, e toda imagem tem `alt`
+- [x] Nenhum teste existente quebra
