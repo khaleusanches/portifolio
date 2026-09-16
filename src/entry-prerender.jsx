@@ -22,4 +22,4 @@ export function render(rota) {
     )
 }
 
-export { rotas, metadadosDaRota, jsonLdOrganizacao } from './content/seo'
+export { rotas, metadadosDaRota, jsonLdOrganizacao, sitemapXml, robotsTxt } from './content/seo'

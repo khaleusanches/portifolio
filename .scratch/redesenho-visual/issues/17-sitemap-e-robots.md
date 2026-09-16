@@ -8,11 +8,11 @@ porque sitemap não aceita caminho relativo.
 
 **Blocked by:** 16 (pré-renderização no build).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] `npm run build` gera `sitemap.xml` e `robots.txt` no `dist`
-- [ ] O sitemap lista a home e todas as páginas de Project, com URL absoluta
-- [ ] As rotas do sitemap são exatamente as rotas pré-renderizadas, da mesma fonte
-- [ ] O `robots.txt` libera o rastreamento e aponta para o sitemap
-- [ ] A origem canônica vem da mesma constante do ticket 05
-- [ ] Um Project novo no conteúdo entra no sitemap sem nenhuma outra mudança
+- [x] `npm run build` gera `sitemap.xml` e `robots.txt` no `dist`
+- [x] O sitemap lista a home e todas as páginas de Project, com URL absoluta
+- [x] As rotas do sitemap são exatamente as rotas pré-renderizadas, da mesma fonte
+- [x] O `robots.txt` libera o rastreamento e aponta para o sitemap
+- [x] A origem canônica vem da mesma constante do ticket 05
+- [x] Um Project novo no conteúdo entra no sitemap sem nenhuma outra mudança

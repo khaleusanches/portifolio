@@ -66,9 +66,8 @@ const arquivoDaRota = (rota) =>
     rota === "/" ? join(saida, "index.html") : join(saida, rota.replace(/^\//, ""), "index.html")
 
 async function main() {
-    const { render, rotas, metadadosDaRota, jsonLdOrganizacao } = await import(
-        pathToFileURL(bundleSsr).href
-    )
+    const { render, rotas, metadadosDaRota, jsonLdOrganizacao, sitemapXml, robotsTxt } =
+        await import(pathToFileURL(bundleSsr).href)
 
     const modelo = await readFile(join(saida, "index.html"), "utf-8")
     const jsonLd = jsonLdOrganizacao()
@@ -96,6 +95,12 @@ async function main() {
         await writeFile(destino, html, "utf-8")
         console.log(`  ${rota} → ${destino.replace(raiz + "/", "")}`)
     }
+
+    // Mesma lista de rotas das páginas acima: se as duas divergissem, o sitemap
+    // apontaria para página que não existe.
+    await writeFile(join(saida, "sitemap.xml"), sitemapXml(), "utf-8")
+    await writeFile(join(saida, "robots.txt"), robotsTxt(), "utf-8")
+    console.log("  sitemap.xml e robots.txt")
 
     // O bundle de SSR é ferramenta de build, não coisa a publicar.
     await rm(join(raiz, "dist-ssr"), { recursive: true, force: true })

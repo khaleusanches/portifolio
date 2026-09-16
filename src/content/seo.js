@@ -98,3 +98,34 @@ export function jsonLdOrganizacao() {
         },
     }
 }
+
+/**
+ * O sitemap, derivado das mesmas rotas que a pré-renderização escreve.
+ *
+ * A URL de cada entrada é a canonical da própria página, e não uma montada aqui: se as
+ * duas fossem construídas em lugares diferentes, o sitemap apontaria para um endereço
+ * e a página declararia outro como canônico — e o buscador teria de escolher.
+ *
+ * Sem `lastmod`: o modelo não tem data (ver CONTEXT.md, Featured é curadoria e não
+ * recência), e uma data inventada a cada build diz ao buscador que tudo mudou sempre.
+ */
+export function sitemapXml() {
+    const urls = rotas()
+        .map((rota) => `  <url>\n    <loc>${metadadosDaRota(rota).canonical}</loc>\n  </url>`)
+        .join("\n")
+
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`
+}
+
+/** O robots.txt: tudo liberado, e o caminho do sitemap. */
+export function robotsTxt() {
+    return `User-agent: *
+Allow: /
+
+Sitemap: ${ORIGEM}/sitemap.xml
+`
+}

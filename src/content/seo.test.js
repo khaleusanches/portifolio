@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest"
 import { projects } from "./projects"
 import { marca } from "./marca"
-import { ORIGEM, rotas, metadadosDaRota, jsonLdOrganizacao, absoluta } from "./seo"
+import { ORIGEM, rotas, metadadosDaRota, jsonLdOrganizacao, absoluta, sitemapXml, robotsTxt } from "./seo"
 
 /**
  * Invariantes dos metadados. Como o resto do módulo de conteúdo, isto é derivação
@@ -118,5 +118,37 @@ describe("JSON-LD", () => {
 
     it("declara a área de atuação", () => {
         expect(dados.areaServed).toBeTruthy()
+    })
+})
+
+describe("sitemap.xml", () => {
+    const xml = sitemapXml()
+
+    it("é um urlset bem formado", () => {
+        expect(xml.startsWith("<?xml")).toBe(true)
+        expect(xml).toContain("<urlset")
+        expect(xml.trimEnd().endsWith("</urlset>")).toBe(true)
+    })
+
+    it("lista exatamente as rotas publicadas, e todas absolutas", () => {
+        const listadas = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+        // Mesma fonte que a pré-renderização: se divergirem, o sitemap aponta para
+        // página que não existe.
+        expect(listadas.sort()).toEqual(rotas().map((rota) => metadadosDaRota(rota).canonical).sort())
+        for (const url of listadas) expect(url.startsWith(`${ORIGEM}/`)).toBe(true)
+    })
+})
+
+describe("robots.txt", () => {
+    const txt = robotsTxt()
+
+    it("libera o rastreamento", () => {
+        expect(txt).toContain("User-agent: *")
+        expect(txt).toContain("Allow: /")
+        expect(txt).not.toContain("Disallow: /\n")
+    })
+
+    it("aponta para o sitemap, com URL absoluta", () => {
+        expect(txt).toContain(`Sitemap: ${ORIGEM}/sitemap.xml`)
     })
 })
