@@ -7,10 +7,15 @@ import { CASCATA, DESLOCAMENTO, DURACAO_ENTRADA, EASE } from "../../theme/movime
  * Usada na headline do herói e em nenhum outro lugar: repetida, a mesma entrada deixa
  * de ser abertura e vira maneirismo.
  *
- * A frase continua sendo uma frase para quem não a vê. O texto inteiro está no
- * `aria-label` do bloco e as palavras são `aria-hidden` — sem isso o leitor de tela
- * anunciaria cada palavra como um item próprio, com pausa entre elas, e a frase
+ * A frase continua sendo uma frase para quem não a vê: ela existe uma vez inteira, num
+ * span só para leitor de tela, e as palavras visíveis são `aria-hidden`. Sem isso o
+ * leitor anunciaria cada palavra como um item próprio, com pausa entre elas, e a frase
  * chegaria picada.
+ *
+ * O texto tem de estar no conteúdo, e não num `aria-label`: um `<span>` é um elemento
+ * genérico, e o ARIA proíbe nomear genéricos. O rótulo era ignorado, e como todas as
+ * palavras estão escondidas, o `<h1>` do herói ficava sem nome acessível nenhum — e a
+ * `<section>` que se rotula por ele, também.
  *
  * O espaço entre palavras é um NBSP (U+00A0) dentro do span, e não um espaço entre
  * spans: como cada palavra é `inline-block` para poder ser deslocada, um espaço de
@@ -30,7 +35,6 @@ function SplitText({ children, className = "", as = "span" }) {
     return (
         <Elemento
             className={className}
-            aria-label={texto}
             initial="oculto"
             animate="visivel"
             variants={{
@@ -38,6 +42,7 @@ function SplitText({ children, className = "", as = "span" }) {
                 visivel: { transition: { staggerChildren: semMovimento ? 0 : CASCATA } },
             }}
         >
+            <span className="sr-only">{texto}</span>
             {palavras.map((palavra, indice) => (
                 <motion.span
                     key={`${palavra}-${indice}`}

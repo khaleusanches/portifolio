@@ -12,6 +12,9 @@ import { contato, marca } from "../../content/marca"
  *
  * Não há formulário. O pedido de orçamento é a saída do site e não uma entidade dele —
  * ver CONTEXT.md.
+ *
+ * O texto secundário é a tinta da superfície esmaecida, e não `muted`: o rodapé mora em
+ * `base-alt`, que no tema escuro é quase branca, e ali `muted` dá 2,3:1.
  */
 
 const SECOES = [
@@ -29,7 +32,7 @@ function RodapeComponent() {
                     <div>
                         <p className="rotulo-secao">Fale conosco</p>
                         <h2 className="mt-3 font-baskerville text-2xl">{marca.nome}</h2>
-                        <p className="mt-4 text-sm text-muted">
+                        <p className="mt-4 text-sm opacity-70">
                             {contato.cidade}
                             <br />
                             {contato.abrangencia}
@@ -68,7 +71,7 @@ function RodapeComponent() {
                                 <li key={secao.href}>
                                     <a
                                         href={secao.href}
-                                        className="text-muted transition-colors hover:text-ink-alt"
+                                        className="opacity-70 transition-opacity hover:opacity-100"
                                     >
                                         {secao.rotulo}
                                     </a>
@@ -78,7 +81,7 @@ function RodapeComponent() {
                     </nav>
                 </div>
 
-                <p className="mt-12 border-t border-line/10 pt-8 text-sm text-muted">
+                <p className="mt-12 border-t border-line/10 pt-8 text-sm opacity-70">
                     Copyright © 2026 Khaléu Sanches Mancini
                 </p>
             </Container>

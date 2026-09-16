@@ -1,6 +1,10 @@
 import { projects } from "./projects"
 import { contato, marca } from "./marca"
-import logo from "../../public/logo.png"
+// Pelo caminho público, e não por `../../public/logo.png`: importar de dentro do
+// publicDir faz o Vite emitir uma segunda cópia com hash, e a og:image passaria a
+// apontar para uma URL que muda a cada alteração do arquivo — o que derruba o cache
+// dos leitores de prévia de link.
+import logo from "/logo.png"
 
 /**
  * Os metadados de cada rota, derivados do conteúdo que já existe.

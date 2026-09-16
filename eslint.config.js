@@ -7,6 +7,12 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 export default defineConfig([
   globalIgnores(['dist']),
   {
+    // Os scripts de build rodam em Node, e não no navegador: sem isto `process` e
+    // `console` são reportados como indefinidos.
+    files: ['scripts/**/*.js'],
+    languageOptions: { globals: globals.node },
+  },
+  {
     files: ['**/*.{js,jsx}'],
     extends: [
       js.configs.recommended,

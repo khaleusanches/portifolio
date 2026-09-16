@@ -5,6 +5,7 @@ import PageTransition from './components/PageTransition.jsx'
 import MainPage from './pages/MainPage/MainPage.jsx'
 import AboutPage from './pages/AboutPage/AboutPage.jsx'
 import ProjectPage from './pages/ProjectPage/ProjectPage.jsx'
+import NaoEncontradaPage from './pages/NaoEncontradaPage/NaoEncontradaPage.jsx'
 
 /**
  * As rotas do site, num lugar só.
@@ -33,6 +34,10 @@ function App() {
             <Route path="/services" element={<AboutPage />} />
             <Route path="/contact" element={<AboutPage />} />
             <Route path="/project/:slug" element={<ProjectPage />} />
+            {/* Coringa obrigatório: o vercel.json devolve o index.html da home para
+                qualquer caminho sem arquivo, e sem uma rota que case, o React não
+                renderiza nada sobre a marcação pré-renderizada — página branca. */}
+            <Route path="*" element={<NaoEncontradaPage />} />
           </Routes>
         </PageTransition>
       </AnimatePresence>

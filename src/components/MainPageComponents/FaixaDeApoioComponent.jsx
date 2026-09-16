@@ -12,6 +12,11 @@ import { Cascata, Reveal } from "../gerais/Reveal"
  * mesmo arquivo serve aos dois temas. Um SVG escuro posto como imagem some no tema
  * escuro, e manter duas versões de cada marca é o tipo de duplicação que a ADR 0005
  * tirou das cores.
+ *
+ * Marca e nome herdam a tinta da superfície e são esmaecidos por opacidade, em vez de
+ * usarem `muted` e `ink`. Esses dois são os tokens da superfície `base`: sobre
+ * `base-alt`, que no tema escuro é quase branca, `muted` reprova em contraste e o
+ * hover para `ink` pinta de branco sobre branco — o logo sumiria ao passar o mouse.
  */
 function FaixaDeApoioComponent({ id, rotulo, titulo, logos, nomes, className = "" }) {
     const tituloId = `titulo-${id}`
@@ -47,14 +52,14 @@ function FaixaDeApoioComponent({ id, rotulo, titulo, logos, nomes, className = "
                                     maskSize: "contain",
                                     WebkitMaskSize: "contain",
                                 }}
-                                className="block h-8 w-28 bg-muted transition-colors hover:bg-ink sm:h-10 sm:w-32"
+                                className="block h-8 w-28 bg-current opacity-60 transition-opacity hover:opacity-100 sm:h-10 sm:w-32"
                             />
                         </Cascata.Item>
                     ))}
 
                     {nomes?.map((nome) => (
                         <Cascata.Item as="li" key={nome}>
-                            <span className="text-lg font-semibold text-muted transition-colors hover:text-ink sm:text-xl">
+                            <span className="text-lg font-semibold opacity-60 transition-opacity hover:opacity-100 sm:text-xl">
                                 {nome}
                             </span>
                         </Cascata.Item>

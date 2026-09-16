@@ -3,12 +3,14 @@ import ProjectChainComponent from "../../components/ProjectsComponents/ProjectCh
 import ProjectHeaderComponent from "../../components/ProjectsComponents/ProjectHeaderComponent"
 import ProjectFooterComponent from "../../components/ProjectsComponents/ProjectFooterComponent"
 import { getProject } from "../../content/projects"
+import NaoEncontradaPage from "../NaoEncontradaPage/NaoEncontradaPage"
 
 function ProjectPage(){
     const { slug } = useParams()
     const project = getProject(slug)
 
-    if (!project) return null
+    // Slug inexistente é endereço inexistente: devolver null deixaria a página em branco.
+    if (!project) return <NaoEncontradaPage />
 
     return(
         <div className="w-full bg-base text-ink">

@@ -37,7 +37,7 @@ function RedesSociaisComponent({ className = "" }) {
                         // O rótulo diz para onde leva, e não só o nome da rede: quem usa
                         // leitor de tela ouve o destino antes de decidir sair do site.
                         aria-label={`${rede.nome} da KH Softwares (abre em nova aba)`}
-                        className="inline-flex text-muted hover:text-ink transition-colors"
+                        className="inline-flex opacity-70 transition-opacity hover:opacity-100"
                     >
                         <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             {desenhos[rede.slug]}

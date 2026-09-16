@@ -22,8 +22,9 @@ import {
  * diferença de estrutura entre o HTML servido e a primeira renderização no navegador
  * quebra a hidratação — o React joga fora o documento pronto e redesenha tudo.
  *
- * `useReducedMotion` do framer-motion assina a media query, então mudar a preferência
- * do sistema durante a visita reflete sem recarregar a página.
+ * `useReducedMotion` do framer-motion lê a media query uma vez, ao montar — a versão
+ * instalada carrega um TODO dizendo que ainda não acompanha mudanças. Trocar a
+ * preferência durante a visita só passa a valer ao recarregar a página.
  */
 
 const variantes = (duracao) => ({

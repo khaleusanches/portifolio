@@ -20,6 +20,13 @@ import { contato } from "../../content/marca"
  * No desktop a coluna é posicionada fora do Container de propósito — é a única exceção
  * declarada à regra de que ninguém define a própria margem horizontal. No celular ela
  * volta para o fluxo, como faixa horizontal.
+ *
+ * Ela precisa ficar ACIMA do Container na pilha. O `pr-[38%]` do Container reserva o
+ * espaço da coluna aos olhos, mas o elemento continua ocupando a largura inteira: sem
+ * o z-20, o Container fica por cima e come todo clique na vitrine e todo hover que a
+ * pausaria. O clique só não cai no vazio porque a coluna inteira é
+ * `pointer-events-none` e só o rolador reativa — assim o texto do herói continua
+ * selecionável sob a faixa transparente à esquerda dela.
  */
 
 /* A vitrine é regulada por tempo de volta, não por velocidade: é assim que a duração
@@ -120,7 +127,7 @@ function BannerComponent() {
             </Container>
 
             {/* Vitrine — desktop. Ancorada na borda, fora do Container. */}
-            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[34%] items-center gap-6 pr-5 md:flex lg:w-[30%] lg:pr-12">
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-[34%] items-center gap-6 pr-5 md:flex lg:w-[30%] lg:pr-12">
                 {/* O rótulo vertical é um elemento de verdade, com altura própria: antes
                     era um <p> de altura zero girado e empurrado com margem negativa, que
                     não ocupava lugar nenhum no layout. */}

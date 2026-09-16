@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { useReducedMotion } from "framer-motion"
 import Container from "./Container"
 import ThemeToggleComponent from "./ThemeToggleComponent"
 import { useSecaoAtiva } from "./useSecaoAtiva"
@@ -27,7 +26,6 @@ const IDS = ["inicio", ...SECOES.map((secao) => secao.id)]
 function NavBarComponent() {
     const [rolou, setRolou] = useState(false)
     const ativa = useSecaoAtiva(IDS)
-    const semMovimento = useReducedMotion()
 
     useEffect(() => {
         const aoRolar = () => setRolou(window.scrollY > 24)
@@ -41,16 +39,21 @@ function NavBarComponent() {
     return (
         <nav
             aria-label="Navegação principal"
-            className={`fixed inset-x-0 top-0 z-50 bg-base/90 backdrop-blur border-b border-line/10 ${
-                semMovimento ? "" : "transition-[height,box-shadow] duration-300"
-            } ${rolou ? "h-16 shadow-card" : "h-24"}`}
+            /* A preferência por menos movimento é atendida pelo `motion-reduce:` do
+               CSS, e não por um ramo em JavaScript: a página é pré-renderizada em
+               Node, onde a preferência não existe, e ramificar a marcação faria o HTML
+               servido divergir da primeira renderização no navegador — quebrando a
+               hidratação para justamente quem pediu menos movimento. */
+            className={`fixed inset-x-0 top-0 z-50 border-b border-line/10 bg-base/90 backdrop-blur transition-[height,box-shadow] duration-300 motion-reduce:transition-none ${
+                rolou ? "h-16 shadow-card" : "h-24"
+            }`}
         >
             <Container className="flex h-full items-center justify-between gap-6">
                 <a href="#inicio" className="shrink-0" aria-label="KH Softwares, início">
                     <img
                         src={logo}
                         alt="KH Softwares"
-                        className={`w-auto ${semMovimento ? "" : "transition-[height] duration-300"} ${
+                        className={`w-auto transition-[height] duration-300 motion-reduce:transition-none ${
                             rolou ? "h-8" : "h-11"
                         }`}
                     />

@@ -8,9 +8,14 @@
 @layer components {
   /* A camada de hierarquia que faltava acima do título de seção: o rótulo em caixa
      alta. Vive aqui e não repetido no JSX porque é uma decisão de tipografia, e
-     mudar o tracking em um lugar tem de mudar em todas as seções. */
+     mudar o tracking em um lugar tem de mudar em todas as seções.
+
+     A cor é a tinta da superfície, esmaecida — e nunca `text-muted`. O rótulo aparece
+     tanto sobre `base` quanto sobre `base-alt`, e os papéis das duas se invertem entre
+     os temas: no escuro, `base-alt` é quase branca, e ali `muted` (cinza-400) dá 2,3:1
+     e reprova. Herdando a tinta, o rótulo acerta nas duas superfícies e nos dois temas. */
   .rotulo-secao {
-    @apply text-rotulo font-semibold uppercase text-muted;
+    @apply text-rotulo font-semibold uppercase opacity-60;
   }
 
   /* O espaço vertical entre seções. Vem de um lugar só: antes cada seção trazia o
