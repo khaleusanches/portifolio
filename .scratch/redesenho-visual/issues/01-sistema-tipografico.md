@@ -10,12 +10,12 @@ que é a camada que hoje falta acima do título.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A fonte de corpo é carregada junto com a Baskerville, e as duas têm fallback declarado
-- [ ] Nenhum `font-['...']` literal sobra no JSX
-- [ ] Título de seção, headline do herói e headline de Project usam Baskerville
-- [ ] Corpo de texto, cards, navegação e botões usam a sans
-- [ ] Existe um estilo de rótulo de seção (caixa alta, tracking largo) reutilizável
-- [ ] A escala de tamanhos é declarada no tema, não repetida a cada componente
-- [ ] Os dois temas continuam legíveis, e nenhum teste existente quebra
+- [x] A fonte de corpo é carregada junto com a Baskerville, e as duas têm fallback declarado
+- [x] Nenhum `font-['...']` literal sobra no JSX
+- [x] Título de seção, headline do herói e headline de Project usam Baskerville
+- [x] Corpo de texto, cards, navegação e botões usam a sans
+- [x] Existe um estilo de rótulo de seção (caixa alta, tracking largo) reutilizável
+- [x] A escala de tamanhos é declarada no tema, não repetida a cada componente
+- [x] Os dois temas continuam legíveis, e nenhum teste existente quebra

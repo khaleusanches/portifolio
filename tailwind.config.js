@@ -35,7 +35,19 @@ export default {
         'on-card': token('on-card')
       },
       fontFamily: {
-        baskerville: ['"Libre Baskerville"', 'serif']
+        // A voz padrão do site. Cai no `font-sans` do Tailwind, então todo elemento
+        // que não pede nada herda Inter — é o que dispensa escrever a fonte no JSX.
+        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        // A voz dos títulos: headline do herói, título de seção, headline de Project
+        // e de Service. Em nenhum outro lugar.
+        baskerville: ['"Libre Baskerville"', 'Georgia', 'serif']
+      },
+      fontSize: {
+        // A escala mora aqui, e não repetida a cada componente. `rotulo` é a linha
+        // em caixa alta que abre uma seção; `display` é a headline do herói.
+        rotulo: ['0.75rem', { lineHeight: '1', letterSpacing: '0.18em' }],
+        display: ['clamp(2.5rem, 6vw, 4.5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        titulo: ['clamp(1.75rem, 3vw, 2.75rem)', { lineHeight: '1.15', letterSpacing: '-0.01em' }]
       },
     },
   },
