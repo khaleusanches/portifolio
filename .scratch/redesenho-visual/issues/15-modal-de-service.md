@@ -8,13 +8,13 @@ ADR 0004 decidiu.
 
 **Blocked by:** 01 (sistema tipográfico), 02 (container e tokens).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] O modal usa a tipografia, o espaçamento, a sombra e o raio do sistema
-- [ ] Os três Tiers são comparáveis lado a lado, com preço em destaque
-- [ ] No celular os Tiers empilham sem cortar preço nem horas
-- [ ] O modal continua abrindo e fechando por parâmetro de URL
-- [ ] O modal fecha com escape e clique fora, e devolve o foco a quem o abriu
-- [ ] O foco fica preso dentro do modal enquanto ele está aberto
-- [ ] A formatação de negrito da descrição continua funcionando
-- [ ] Nenhum teste existente quebra
+- [x] O modal usa a tipografia, o espaçamento, a sombra e o raio do sistema
+- [x] Os três Tiers são comparáveis lado a lado, com preço em destaque
+- [x] No celular os Tiers empilham sem cortar preço nem horas
+- [x] O modal continua abrindo e fechando por parâmetro de URL
+- [x] O modal fecha com escape e clique fora, e devolve o foco a quem o abriu
+- [x] O foco fica preso dentro do modal enquanto ele está aberto
+- [x] A formatação de negrito da descrição continua funcionando
+- [x] Nenhum teste existente quebra
