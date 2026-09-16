@@ -8,11 +8,12 @@ function ServicesComponent(){
         <section id="services" aria-labelledby="titulo-servicos" className="secao bg-base-alt text-ink-alt">
             <Container>
             <Reveal>
-                <h2 id="titulo-servicos" className="font-baskerville text-titulo">Serviços</h2>
+                <p className="rotulo-secao">O que fazemos</p>
+                <h2 id="titulo-servicos" className="mt-3 font-baskerville text-titulo">Serviços</h2>
             </Reveal>
-            <Cascata className="mt-12 flex flex-wrap justify-center gap-8">
+            <Cascata className="mt-12 grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {serviceList.map((service) => (
-                    <Cascata.Item key={service.slug}>
+                    <Cascata.Item key={service.slug} className="h-full">
                         <ServicesCard service={service}/>
                     </Cascata.Item>
                 ))}

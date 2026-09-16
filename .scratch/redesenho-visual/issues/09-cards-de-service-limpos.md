@@ -8,14 +8,14 @@ um `border-2` que sobrou de depuração e desenha uma moldura em volta de tudo.
 
 **Blocked by:** 01 (sistema tipográfico), 02 (container e tokens).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] O chanfro `clip-path` sai, e o raio é o do sistema
-- [ ] O `border-2` de depuração some do contêiner da grade
-- [ ] Os cards de uma linha têm a mesma altura, qualquer que seja o tamanho do texto
-- [ ] Nenhum pitch é cortado por altura fixa
-- [ ] Nenhuma cor literal sobra no `styled-components` do card; tudo vem de token
-- [ ] O fundo do ícone funciona nos dois temas
-- [ ] O hover do card e o do botão seguem a mesma linguagem do resto do site
-- [ ] O ícone de cada Service tem `alt`
-- [ ] O botão continua abrindo o detalhe do Service
+- [x] O chanfro `clip-path` sai, e o raio é o do sistema
+- [x] O `border-2` de depuração some do contêiner da grade
+- [x] Os cards de uma linha têm a mesma altura, qualquer que seja o tamanho do texto
+- [x] Nenhum pitch é cortado por altura fixa
+- [x] Nenhuma cor literal sobra no `styled-components` do card; tudo vem de token
+- [x] O fundo do ícone funciona nos dois temas
+- [x] O hover do card e o do botão seguem a mesma linguagem do resto do site
+- [x] O ícone de cada Service tem `alt`
+- [x] O botão continua abrindo o detalhe do Service
