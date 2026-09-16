@@ -15,13 +15,13 @@ vestibular.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] `Reveal`, `Stagger` e `SplitText` existem como componentes reutilizáveis
-- [ ] Duração e curva saem de constantes únicas, coerentes com a transição de página já existente
-- [ ] A entrada dispara uma vez por elemento, e não se repete ao rolar de volta
-- [ ] Sob `prefers-reduced-motion: reduce` as três peças mostram o estado final sem transição
-- [ ] Sob `prefers-reduced-motion: reduce` a vitrine não rola sozinha
-- [ ] A preferência é respeitada se mudar durante a visita, sem recarregar a página
-- [ ] `SplitText` não quebra a leitura por leitor de tela: a frase continua sendo uma frase
-- [ ] As seções existentes da home entram com `Reveal`, e nenhum teste existente quebra
+- [x] `Reveal`, `Stagger` e `SplitText` existem como componentes reutilizáveis
+- [x] Duração e curva saem de constantes únicas, coerentes com a transição de página já existente
+- [x] A entrada dispara uma vez por elemento, e não se repete ao rolar de volta
+- [x] Sob `prefers-reduced-motion: reduce` as três peças mostram o estado final sem transição
+- [x] Sob `prefers-reduced-motion: reduce` a vitrine não rola sozinha
+- [x] A preferência é respeitada se mudar durante a visita, sem recarregar a página
+- [x] `SplitText` não quebra a leitura por leitor de tela: a frase continua sendo uma frase
+- [x] As seções existentes da home entram com `Reveal`, e nenhum teste existente quebra

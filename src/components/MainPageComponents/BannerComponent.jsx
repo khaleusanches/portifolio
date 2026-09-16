@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import icon from "../../assets/k-icon.png"
 import ProjectCardComponent from "../gerais/ProjectCardComponent";
 import { featuredProjects } from "../../content/projects"
@@ -6,10 +7,16 @@ function BannerComponent() {
   const scrollRef = useRef(null);
   const featured = featuredProjects();
   const [isHovering, setIsHovering] = useState(false);
+  const semMovimento = useReducedMotion();
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
+
+    // A vitrine é movimento contínuo e automático, e é o pior elemento da página
+    // para quem tem sensibilidade vestibular: sob a preferência por menos
+    // movimento ela não rola, e a coluna vira uma lista comum, rolável à mão.
+    if (semMovimento) return;
 
     // O scroll é dirigido por script: qualquer scroll-behavior herdado do CSS
     // transformaria cada atribuição em animação e impediria o reposicionamento.
@@ -59,7 +66,7 @@ function BannerComponent() {
     rafId = requestAnimationFrame(step);
 
     return () => cancelAnimationFrame(rafId);
-  }, [isHovering]); // isHovering vai pausar o scroll ao passar mouse
+  }, [isHovering, semMovimento]); // isHovering pausa ao passar o mouse
 
   return (
     <div style={{ backgroundImage: "var(--banner)" }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 text-ink m-auto overflow-hidden">

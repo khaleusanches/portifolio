@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { DURACAO_PAGINA, EASE } from '../theme/movimento';
 
 const pageVariants = {
   initial: (direction) => ({
@@ -29,8 +30,8 @@ const pageVariants = {
    componente global. */
 const pageTransition = {
   type: 'tween',
-  ease: 'easeOut',
-  duration: 0.2
+  ease: EASE,
+  duration: DURACAO_PAGINA
 };
 
 export default function PageTransition({ children }) {
