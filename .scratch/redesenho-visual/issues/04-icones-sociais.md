@@ -12,12 +12,12 @@ lugar deles é o rodapé, e é lá que o ticket 13 os coloca.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Existe um componente único de redes sociais, e nenhuma cópia de SVG sobra no JSX
-- [ ] As URLs vêm de uma fonte única de conteúdo
-- [ ] Nenhum `href=""` sobra em lugar nenhum do site
-- [ ] Uma rede sem URL declarada simplesmente não aparece
-- [ ] Cada ícone tem rótulo acessível dizendo para onde leva
-- [ ] Links externos abrem em nova aba com `rel="noopener noreferrer"`
-- [ ] Os blocos duplicados saem de "Serviços" e de "Sobre nós"
+- [x] Existe um componente único de redes sociais, e nenhuma cópia de SVG sobra no JSX
+- [x] As URLs vêm de uma fonte única de conteúdo
+- [x] Nenhum `href=""` sobra em lugar nenhum do site
+- [x] Uma rede sem URL declarada simplesmente não aparece
+- [x] Cada ícone tem rótulo acessível dizendo para onde leva
+- [x] Links externos abrem em nova aba com `rel="noopener noreferrer"`
+- [x] Os blocos duplicados saem de "Serviços" e de "Sobre nós"
