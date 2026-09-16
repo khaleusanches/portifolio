@@ -16,13 +16,13 @@ que é o que o robô lê.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Existe uma função que, dada uma rota, devolve os metadados dela
-- [ ] O `title` e a `description` de um Project derivam de `headline` e `pitch`, sem texto paralelo
-- [ ] A origem canônica é uma constante única
-- [ ] Toda URL de Open Graph é absoluta, inclusive a imagem
-- [ ] A imagem de Open Graph de um Project é a `cover` dele
-- [ ] A home tem JSON-LD de `Organization` com nome, logo, e-mail e área de atuação
-- [ ] Navegar entre home e Project troca os metadados, sem acumular tags repetidas
-- [ ] Um teste cobre a derivação dos metadados a partir do conteúdo
+- [x] Existe uma função que, dada uma rota, devolve os metadados dela
+- [x] O `title` e a `description` de um Project derivam de `headline` e `pitch`, sem texto paralelo
+- [x] A origem canônica é uma constante única
+- [x] Toda URL de Open Graph é absoluta, inclusive a imagem
+- [x] A imagem de Open Graph de um Project é a `cover` dele
+- [x] A home tem JSON-LD de `Organization` com nome, logo, e-mail e área de atuação
+- [x] Navegar entre home e Project troca os metadados, sem acumular tags repetidas
+- [x] Um teste cobre a derivação dos metadados a partir do conteúdo
