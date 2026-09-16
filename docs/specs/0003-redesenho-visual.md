@@ -96,8 +96,19 @@ multiplicados pela distância maior. Nada de `spring`, nada de `backOut` — o h
 visível em vez de fixo. Hoje `active="home"` é passado como literal e nunca muda.
 
 **Acessibilidade.** Sob `prefers-reduced-motion: reduce`, `Reveal`, `Stagger` e
-`SplitText` renderizam o estado final sem transição, e a vitrine para. A vitrine é
-movimento contínuo e automático; deixá-la rolando sob essa preferência é o pior caso.
+`SplitText` renderizam o estado final sem transição, e a navbar não anima a altura.
+
+**A vitrine é a exceção, e rola sempre.** A regra original era pará-la — é a prática
+usual para carrossel automático, e ela é o elemento mais agressivo da página para quem
+tem sensibilidade vestibular. A Brand decidiu o contrário depois de ver o resultado: a
+vitrine é a identidade da home, e parada ela passa a impressão de site quebrado. A
+compensação é que a coluna continua rolável à mão, clicável, e pausa ao passar o mouse.
+
+**A marcação não pode variar com a preferência.** O que muda sob `reduce` é sempre a
+duração, ou uma variante `motion-reduce:` do CSS — nunca a estrutura renderizada. As
+páginas são pré-renderizadas em Node, onde a preferência não existe: marcação diferente
+no navegador quebra a hidratação e o React descarta o documento pronto, justamente para
+quem pediu menos movimento.
 
 ## Decisões — home
 

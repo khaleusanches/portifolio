@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import { useReducedMotion } from "framer-motion"
 import Container from "../gerais/Container"
 import SplitText from "../gerais/SplitText"
 import ProjectCardComponent from "../gerais/ProjectCardComponent"
@@ -16,6 +15,12 @@ import { contato } from "../../content/marca"
  *
  * O esmaecimento é máscara, e não gradiente sobreposto: sobre uma imagem de fundo que
  * troca com o tema, um gradiente teria de conhecer a cor de trás e erraria num dos dois.
+ *
+ * A vitrine rola sempre, inclusive sob `prefers-reduced-motion`. É decisão explícita
+ * da Brand, contra a prática usual para carrossel automático: ela é a identidade da
+ * home, e parada passa a impressão de site quebrado. O resto do movimento do site —
+ * entradas ao rolar, headline palavra a palavra, altura da navbar — continua
+ * respeitando a preferência, e a coluna segue rolável à mão e clicável.
  *
  * No desktop a coluna é posicionada fora do Container de propósito — é a única exceção
  * declarada à regra de que ninguém define a própria margem horizontal. No celular ela
@@ -46,16 +51,10 @@ function BannerComponent() {
     const scrollRef = useRef(null)
     const featured = featuredProjects()
     const [isHovering, setIsHovering] = useState(false)
-    const semMovimento = useReducedMotion()
 
     useEffect(() => {
         const el = scrollRef.current
         if (!el) return
-
-        // A vitrine é movimento contínuo e automático, e é o pior elemento da página
-        // para quem tem sensibilidade vestibular: sob a preferência por menos
-        // movimento ela não rola, e a coluna vira uma lista comum, rolável à mão.
-        if (semMovimento) return
 
         // O scroll é dirigido por script: qualquer scroll-behavior herdado do CSS
         // transformaria cada atribuição em animação e impediria o reposicionamento.
@@ -96,7 +95,7 @@ function BannerComponent() {
         rafId = requestAnimationFrame(step)
 
         return () => cancelAnimationFrame(rafId)
-    }, [isHovering, semMovimento])
+    }, [isHovering])
 
     return (
         <section

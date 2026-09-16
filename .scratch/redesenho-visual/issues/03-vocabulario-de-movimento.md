@@ -21,7 +21,8 @@ vestibular.
 - [x] Duração e curva saem de constantes únicas, coerentes com a transição de página já existente
 - [x] A entrada dispara uma vez por elemento, e não se repete ao rolar de volta
 - [x] Sob `prefers-reduced-motion: reduce` as três peças mostram o estado final sem transição
-- [x] Sob `prefers-reduced-motion: reduce` a vitrine não rola sozinha
+- [x] ~~Sob `prefers-reduced-motion: reduce` a vitrine não rola sozinha~~ — revertido a
+      pedido da Brand: a vitrine rola sempre. Ver spec 0003, "A vitrine é a exceção".
 - [x] A preferência é respeitada se mudar durante a visita, sem recarregar a página
 - [x] `SplitText` não quebra a leitura por leitor de tela: a frase continua sendo uma frase
 - [x] As seções existentes da home entram com `Reveal`, e nenhum teste existente quebra
