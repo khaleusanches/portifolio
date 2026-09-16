@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { projects, featured, getProject, projectChain, nextFeatured, projectsEvidencing } from "./projects"
+import { projects, featured, getProject, projectChain, nextFeatured, projectsEvidencing, projectList } from "./projects"
 import { servicesEvidencedBy } from "./services"
 import { services, getService } from "./services"
 
@@ -261,5 +261,20 @@ describe("busca por Slug", () => {
 
     it("getService devolve ausência para Slug desconhecido", () => {
         expect(getService("NaoExiste")).toBeNull()
+    })
+})
+
+describe("A lista de Projects", () => {
+    it("não perde nenhum Project do conteúdo", () => {
+        expect(projectList().map((project) => project.slug).sort())
+            .toEqual(Object.keys(projects).sort())
+    })
+
+    it("é maior ou igual à curadoria de Featured, e a contém", () => {
+        // A grade da home mostra o trabalho inteiro; Featured governa só a vitrine.
+        // Derivar a grade de Featured esconderia todo Project fora da curadoria.
+        const listados = projectList().map((project) => project.slug)
+        for (const slug of featured) expect(listados).toContain(slug)
+        expect(listados.length).toBeGreaterThanOrEqual(featured.length)
     })
 })

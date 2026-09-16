@@ -8,12 +8,12 @@ página — hoje ela ocupa `12vh` fixos o tempo inteiro.
 
 **Blocked by:** 02 (container e tokens).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] O item ativo reflete a seção visível, e muda ao rolar
-- [ ] Clicar num item leva à seção, e o item correspondente acende
-- [ ] A barra encolhe ao rolar e volta ao topo
-- [ ] A transição de altura respeita `prefers-reduced-motion`
-- [ ] A barra é `<nav>`, e o item ativo é anunciado como tal por leitor de tela
-- [ ] Os novos itens de seção da home aparecem na navegação
-- [ ] O comportamento é correto no celular
+- [x] O item ativo reflete a seção visível, e muda ao rolar
+- [x] Clicar num item leva à seção, e o item correspondente acende
+- [x] A barra encolhe ao rolar e volta ao topo
+- [x] A transição de altura respeita `prefers-reduced-motion`
+- [x] A barra é `<nav>`, e o item ativo é anunciado como tal por leitor de tela
+- [x] Os novos itens de seção da home aparecem na navegação
+- [x] O comportamento é correto no celular

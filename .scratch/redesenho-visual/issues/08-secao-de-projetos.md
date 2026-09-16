@@ -10,13 +10,13 @@ nova não o consulta.
 
 **Blocked by:** 02 (container e tokens), 03 (vocabulário de movimento).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A grade mostra todos os Projects, não só os `Featured`
-- [ ] Cada card leva à página do Project correspondente
-- [ ] Os cards entram em cascata ao chegar na viewport
-- [ ] A grade reflui para uma coluna no celular
-- [ ] A capa de cada Project tem `alt` descritivo, e as dimensões declaradas para não pular o layout
-- [ ] A seção é `<section>` com título acessível
-- [ ] O card é navegável por teclado e acionável por Enter
-- [ ] Um teste garante que a grade não perde nenhum Project do conteúdo
+- [x] A grade mostra todos os Projects, não só os `Featured`
+- [x] Cada card leva à página do Project correspondente
+- [x] Os cards entram em cascata ao chegar na viewport
+- [x] A grade reflui para uma coluna no celular
+- [x] A capa de cada Project tem `alt` descritivo, e as dimensões declaradas para não pular o layout
+- [x] A seção é `<section>` com título acessível
+- [x] O card é navegável por teclado e acionável por Enter
+- [x] Um teste garante que a grade não perde nenhum Project do conteúdo

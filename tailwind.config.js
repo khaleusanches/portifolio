@@ -19,6 +19,12 @@ export default {
         // então o tema claro usa uma variante fechada. Ver spec 0002.
         brand: token('brand'),
         // Superfície principal da página.
+        //
+        // ATENÇÃO: `text-base` é a COR desta superfície, e não o tamanho de fonte
+        // padrão do Tailwind — a cor vence a colisão de nome. `hover:text-base`
+        // pinta o texto da cor do fundo (botão invertido) e é uso legítimo; como
+        // tamanho, `text-base` pinta o texto de branco no tema claro e some. Para
+        // tamanho de corpo, não escreva classe nenhuma: 1rem já é o padrão.
         base: token('base'),
         // A faixa que alterna com a base e dá ritmo à home. Os papéis se invertem
         // entre os temas; a alternância é a mesma.

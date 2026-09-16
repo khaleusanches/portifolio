@@ -33,7 +33,7 @@ function ServicesInfosComponent({service}){
                                 <div className="sm:flex sm:items-start w-full">
                                     <div className="mt-3 justify-between w-full text-center sm:mt-0 sm:ml-0 sm:text-left">
                                         <div className="flex justify-between items-center">
-                                            <h3 id="dialog-title" className="text-base font-semibold text-ink">{service.headline}</h3>
+                                            <h3 id="dialog-title" className="font-semibold text-ink">{service.headline}</h3>
                                             <button type="button" command="close" commandfor={id} className="inline-flex w-[10vw] justify-center rounded-md bg-red-600 px-2 py-1 text-sm font-semibold text-white hover:bg-red-700 md:mt-0 sm:w-auto">X</button>
                                         </div>
                                         <hr className="mt-2 mb-4 border-line/25" />

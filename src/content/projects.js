@@ -382,6 +382,16 @@ export const featured = ["RyccoDespachador", "OlimpicLink", "RyccoPTT", "Launa",
 
 export const getProject = (slug) => projects[slug] ?? null
 
+/**
+ * Todos os Projects, na ordem em que são declarados.
+ *
+ * Distinta de featuredProjects de propósito: `featured` é curadoria da vitrine e
+ * governa quem aparece rolando no herói. A grade da home mostra o trabalho inteiro, e
+ * derivá-la de `featured` esconderia todo Project fora da curadoria — que hoje é a
+ * única forma de ele não existir para quem visita.
+ */
+export const projectList = () => Object.values(projects)
+
 export const featuredProjects = () => featured.map((slug) => projects[slug])
 
 /**

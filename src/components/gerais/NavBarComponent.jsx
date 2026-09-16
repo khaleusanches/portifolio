@@ -1,34 +1,98 @@
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useReducedMotion } from "framer-motion"
+import Container from "./Container"
 import ThemeToggleComponent from "./ThemeToggleComponent"
-import icon from "../../assets/k-icon.png"
-import logo from "../../../public/logo.png"
-function NavBarComponent({active}){
-    var navigate = useNavigate();
-    return(
-        <div>
-            <nav className="flex justify-center items-center w-full h-[12vh] mb-8 no-scrollbar fixed top-0 left-0 right-0 z-50 bg-base border-b border-line/10 pb-8">
-                <ul className="flex items-center justify-between w-full mt-8">
-                    <li className="md:ml-8 hidden mr-2 md:block"><img src={logo} alt="Ícone" className="w-[10vw] ml-[0vw]"/></li>
-                    <div className="flex space-x-8 ml-[8vw] md:ml-0">
-                        <li className="no-scrollbar"><a href="#" className={` border-brand hover:border-b-2 ${active === "home" ? "border-b-2" : ""}`}>Home</a></li>
-                       {/*  <li><a href="#" onClick={() => navigate("/portifolio")} className={`hover:border-b-2 border-blue-800 py-3 ${active === "portifolio" ? "border-b-2" : ""}`}>Success Cases</a></li>*/}
-                        <li className="no-scrollbar"><a href="#services" className={`hover:border-b-2 border-brand ${active === "services" ? "border-b-2" : ""}`}>Serviços</a></li> 
-                        <li className="no-scrollbar"><a href="#about" className={`hover:border-b-2 border-brand ${active === "about" ? "border-b-2" : ""}`}>Sobre</a></li>
-                       {/*  <li><a href="#" onClick={() => navigate("/contact")} className={`hover:border-b-2 border-blue-800 py-3 ${active === "contact" ? "border-b-2" : ""}`}>Contact</a></li>*/}
+import { useSecaoAtiva } from "./useSecaoAtiva"
+import { contato } from "../../content/marca"
+import logo from "/logo.png"
 
-                    </div>
-                        <li className="no-scrollbar flex items-center gap-3 py-4 md:py-2 ml-4 h-[10vh] mr-[1vw] mt-8 sm:mt-4"><ThemeToggleComponent/><a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className={`hover:bg-ink hover:text-base font-bold border-2 rounded-[32px] pl-4 pr-4 py-2 hover:border-b-2 border-ink ${active === "orcamento" ? "border-b-2" : ""}`}>Orçamento</a></li>
+/**
+ * A navegação da home.
+ *
+ * Duas coisas que faltavam: ela diz onde o visitante está, derivando o item ativo da
+ * seção visível em vez de receber `active="home"` como literal; e encolhe ao rolar,
+ * devolvendo à página a altura que antes ocupava o tempo inteiro.
+ *
+ * A lista é a mesma fonte para os links e para o observador de seções — se fossem duas,
+ * uma seção nova entraria na barra e nunca acenderia.
+ */
+const SECOES = [
+    { id: "projetos", rotulo: "Projetos" },
+    { id: "services", rotulo: "Serviços" },
+    { id: "about", rotulo: "Sobre" },
+]
 
-                    {/*     <div className="w-8 h-8 border-2 border-white rounded-full"></div>
-                       <div>
-                            <select id="countries" className="block bg-transparent w-12 px-0 py-1 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
-                                <option value="en" selected>En</option>
-                                <option value="pt-br">Pt</option>
-                            </select>
-                        </div> */}
+const IDS = ["inicio", ...SECOES.map((secao) => secao.id)]
+
+function NavBarComponent() {
+    const [rolou, setRolou] = useState(false)
+    const ativa = useSecaoAtiva(IDS)
+    const semMovimento = useReducedMotion()
+
+    useEffect(() => {
+        const aoRolar = () => setRolou(window.scrollY > 24)
+        aoRolar()
+        // Passivo: o ouvinte não cancela o scroll, e declarar isso evita que o
+        // navegador espere por ele antes de rolar.
+        window.addEventListener("scroll", aoRolar, { passive: true })
+        return () => window.removeEventListener("scroll", aoRolar)
+    }, [])
+
+    return (
+        <nav
+            aria-label="Navegação principal"
+            className={`fixed inset-x-0 top-0 z-50 bg-base/90 backdrop-blur border-b border-line/10 ${
+                semMovimento ? "" : "transition-[height,box-shadow] duration-300"
+            } ${rolou ? "h-16 shadow-card" : "h-24"}`}
+        >
+            <Container className="flex h-full items-center justify-between gap-6">
+                <a href="#inicio" className="shrink-0" aria-label="KH Softwares, início">
+                    <img
+                        src={logo}
+                        alt="KH Softwares"
+                        className={`w-auto ${semMovimento ? "" : "transition-[height] duration-300"} ${
+                            rolou ? "h-8" : "h-11"
+                        }`}
+                    />
+                </a>
+
+                <ul className="flex items-center gap-6 sm:gap-8">
+                    {SECOES.map((secao) => {
+                        const atual = ativa === secao.id
+                        return (
+                            <li key={secao.id}>
+                                <a
+                                    href={`#${secao.id}`}
+                                    // A seção atual é anunciada como tal: sem isto, quem
+                                    // usa leitor de tela ouve uma lista de links iguais e
+                                    // a marca visual não chega até ele.
+                                    aria-current={atual ? "location" : undefined}
+                                    className={`border-b-2 pb-1 text-sm transition-colors sm:text-[1rem] ${
+                                        atual
+                                            ? "border-brand text-ink"
+                                            : "border-transparent text-muted hover:text-ink"
+                                    }`}
+                                >
+                                    {secao.rotulo}
+                                </a>
+                            </li>
+                        )
+                    })}
                 </ul>
-            </nav>
-        </div>
+
+                <div className="flex shrink-0 items-center gap-3">
+                    <ThemeToggleComponent />
+                    <a
+                        href={contato.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden rounded-full border-2 border-ink px-5 py-2 font-bold transition hover:bg-ink hover:text-base sm:inline-block"
+                    >
+                        Orçamento
+                    </a>
+                </div>
+            </Container>
+        </nav>
     )
 }
 
