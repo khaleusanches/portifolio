@@ -10,12 +10,12 @@ isto é uma peça e não dois componentes.
 
 **Blocked by:** 02 (container e tokens), 03 (vocabulário de movimento).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Existe uma faixa de logos reutilizável, que recebe rótulo e lista
-- [ ] A lista de parceiros vem do módulo de conteúdo, não do componente
-- [ ] Os logos são tingidos por token e ficam legíveis nos dois temas
-- [ ] Os logos entram em cascata ao chegar na viewport
-- [ ] Cada logo tem `alt` com o nome do parceiro
-- [ ] A faixa reflui no celular sem cortar nenhum logo
-- [ ] A seção é `<section>` com título acessível
+- [x] Existe uma faixa de logos reutilizável, que recebe rótulo e lista
+- [x] A lista de parceiros vem do módulo de conteúdo, não do componente
+- [x] Os logos são tingidos por token e ficam legíveis nos dois temas
+- [x] Os logos entram em cascata ao chegar na viewport
+- [x] Cada logo tem `alt` com o nome do parceiro
+- [x] A faixa reflui no celular sem cortar nenhum logo
+- [x] A seção é `<section>` com título acessível

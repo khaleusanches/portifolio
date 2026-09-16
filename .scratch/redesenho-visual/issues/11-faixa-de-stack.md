@@ -10,11 +10,11 @@ faixas da mesma página.
 
 **Blocked by:** 10 (faixa de logos).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A faixa de Stack reusa o componente do ticket 10 sem alterá-lo
-- [ ] A lista de tecnologias vem do módulo de conteúdo
-- [ ] Nenhum logo aparece nas duas faixas
-- [ ] Os logos ficam legíveis nos dois temas
-- [ ] Cada logo tem `alt` com o nome da tecnologia
-- [ ] A seção é `<section>` com título acessível
+- [x] A faixa de Stack reusa o componente do ticket 10 sem alterá-lo
+- [x] A lista de tecnologias vem do módulo de conteúdo
+- [x] Nenhum logo aparece nas duas faixas
+- [x] Os logos ficam legíveis nos dois temas
+- [x] Cada logo tem `alt` com o nome da tecnologia
+- [x] A seção é `<section>` com título acessível

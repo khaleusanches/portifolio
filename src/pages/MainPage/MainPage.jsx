@@ -1,9 +1,11 @@
 import NavBarComponent from "../../components/gerais/NavBarComponent";
 import ProjectsComponent from "../../components/MainPageComponents/ProjectsComponent";
+import FaixaDeApoioComponent from "../../components/MainPageComponents/FaixaDeApoioComponent";
 import AboutComponent from "../../components/MainPageComponents/AboutComponent";
 import BannerComponent from "../../components/MainPageComponents/BannerComponent";
 import RodapeComponent from "../../components/MainPageComponents/RodapeComponent";
 import ServicesComponent from "../../components/MainPageComponents/ServicesComponent";
+import { parceiros, stack } from "../../content/apoio";
 
 function MainPage() {
     return(
@@ -16,6 +18,19 @@ function MainPage() {
             <BannerComponent/>
             <ProjectsComponent/>
             <ServicesComponent/>
+            <FaixaDeApoioComponent
+                id="parceiros"
+                rotulo="Quem está com a gente"
+                titulo="Plataformas em que nos apoiamos"
+                logos={parceiros}
+            />
+            <FaixaDeApoioComponent
+                id="stack"
+                rotulo="Tecnologia"
+                titulo="Com o que construímos"
+                nomes={stack}
+                className="bg-base-alt text-ink-alt"
+            />
             <AboutComponent/>
             <RodapeComponent/>
         </div>
