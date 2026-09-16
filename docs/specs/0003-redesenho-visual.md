@@ -141,6 +141,12 @@ uma tabela de três colunas legível, com a faixa de preço em destaque.
 
 ## Decisões — indexação
 
+**Origem canônica.** O site é servido estático pela Vercel em
+`https://khsoftwares.vercel.app`. Essa é a origem que entra em `canonical`, no
+`sitemap.xml`, no `robots.txt` e nas URLs absolutas de Open Graph — robô e prévia de link
+não resolvem caminho relativo. Ela vive numa constante única: o dia em que houver domínio
+próprio, muda num lugar só.
+
 **Pré-renderização no build.** O build passa a gerar HTML real para `/` e para cada
 `/project/<slug>`, com o conteúdo já no documento. As rotas saem de `projects.js`: uma
 lista escrita à mão sairia do ar no dia em que um Project entrasse.
