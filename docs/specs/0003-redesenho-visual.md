@@ -180,6 +180,12 @@ faz o link ter prévia no WhatsApp, que é para onde todo CTA aponta.
 
 **`sitemap.xml` e `robots.txt`** gerados no build a partir da mesma lista de rotas.
 
+**Endereço inexistente devolve 404 de verdade**, com a página da marca (`404.html`, que a
+Vercel serve sozinha). Não há fallback de SPA: todas as páginas publicadas existem como
+arquivo, e servir a home com status 200 em qualquer endereço errado cria soft-404 — que é
+pior que o erro, porque o buscador passa a desconfiar de todo o site. A página de 404
+leva `noindex` e fica fora do sitemap: ela não é conteúdo publicado.
+
 **HTML semântico e `alt`.** As seções viram `<section>` com título acessível; a navegação
 vira `<nav>`; o rodapé vira `<footer>`. Toda imagem ganha `alt` — hoje `cover` e ícone de
 Service usam `alt=""`, e a Caption da Screenshot, que já descreve a imagem, é o texto

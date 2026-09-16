@@ -41,8 +41,12 @@ cd dist && python3 -m http.server 5201
 # http://localhost:5201/project/Launa/
 ```
 
-Em produção, o `vercel.json` garante a ordem certa: arquivo estático primeiro,
-fallback para `index.html` só quando nenhum existe.
+Em produção não há fallback de SPA, e isso é de propósito: todas as páginas publicadas
+existem como arquivo, e um endereço que não existe deve devolver **404 de verdade**. A
+Vercel serve o `dist/404.html` gerado pelo build. Servir a home com status 200 em
+qualquer endereço errado cria soft-404, e o buscador despreza o site que faz isso.
+
+`trailingSlash: false` evita que a mesma página responda em dois endereços.
 
 ## Coisas que mordem
 

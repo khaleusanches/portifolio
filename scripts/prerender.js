@@ -61,6 +61,22 @@ function cabecalho(meta, ehHome, jsonLd) {
     return tags.map((tag) => tag.replace(/^<(\w+)/, '<$1 data-seo=""')).join("\n    ")
 }
 
+/**
+ * A página de endereço inexistente.
+ *
+ * Vira `404.html`, que a Vercel serve automaticamente — com status 404 de verdade, e
+ * não a home com status 200. Servir a home em qualquer endereço errado cria soft-404, e
+ * o buscador despreza o site que faz isso.
+ *
+ * Não entra em `rotas()`: ela é a lista do que o site publica, e é dela que saem o
+ * sitemap e as páginas indexáveis. Um 404 não é nem uma coisa nem outra.
+ */
+const META_404 = {
+    title: "Página não encontrada | KH Softwares",
+    description: "O endereço não existe neste site.",
+    type: "website",
+}
+
 /** Onde o arquivo de uma rota mora, para que o servidor estático a encontre. */
 const arquivoDaRota = (rota) =>
     rota === "/" ? join(saida, "index.html") : join(saida, rota.replace(/^\//, ""), "index.html")
@@ -95,6 +111,17 @@ async function main() {
         await writeFile(destino, html, "utf-8")
         console.log(`  ${rota} → ${destino.replace(raiz + "/", "")}`)
     }
+
+    // O 404 usa o mesmo modelo e o mesmo App: o visitante que erra o endereço vê a
+    // marca, e não a tela crua da hospedagem.
+    const meta404 = { ...META_404, canonical: metadadosDaRota("/").canonical, image: metadadosDaRota("/").image }
+    const html404 = modelo
+        .replace(/<title>[^<]*<\/title>/, `<title>${escapar(meta404.title)}</title>`)
+        .replace(/\n\s*<meta name="description"[^>]*>/, "")
+        .replace("</head>", `  <meta name="robots" content="noindex">\n    ${cabecalho(meta404, false, null)}\n  </head>`)
+        .replace('<div id="root" ></div>', `<div id="root">${render("/404")}</div>`)
+    await writeFile(join(saida, "404.html"), html404, "utf-8")
+    console.log("  404.html")
 
     // Mesma lista de rotas das páginas acima: se as duas divergissem, o sitemap
     // apontaria para página que não existe.
