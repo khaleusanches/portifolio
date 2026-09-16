@@ -39,12 +39,7 @@ function NavBarComponent() {
     return (
         <nav
             aria-label="Navegação principal"
-            /* A preferência por menos movimento é atendida pelo `motion-reduce:` do
-               CSS, e não por um ramo em JavaScript: a página é pré-renderizada em
-               Node, onde a preferência não existe, e ramificar a marcação faria o HTML
-               servido divergir da primeira renderização no navegador — quebrando a
-               hidratação para justamente quem pediu menos movimento. */
-            className={`fixed inset-x-0 top-0 z-50 border-b border-line/10 bg-base/90 backdrop-blur transition-[height,box-shadow] duration-300 motion-reduce:transition-none ${
+            className={`fixed inset-x-0 top-0 z-50 border-b border-line/10 bg-base/90 backdrop-blur transition-[height,box-shadow] duration-300 ${
                 rolou ? "h-16 shadow-card" : "h-24"
             }`}
         >
@@ -53,7 +48,7 @@ function NavBarComponent() {
                     <img
                         src={logo}
                         alt="KH Softwares"
-                        className={`w-auto transition-[height] duration-300 motion-reduce:transition-none ${
+                        className={`w-auto transition-[height] duration-300 ${
                             rolou ? "h-8" : "h-11"
                         }`}
                     />

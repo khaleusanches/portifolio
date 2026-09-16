@@ -95,20 +95,27 @@ multiplicados pela distância maior. Nada de `spring`, nada de `backOut` — o h
 **Navegação.** A navbar encolhe ao rolar, e o item ativo passa a ser derivado da seção
 visível em vez de fixo. Hoje `active="home"` é passado como literal e nunca muda.
 
-**Acessibilidade.** Sob `prefers-reduced-motion: reduce`, `Reveal`, `Stagger` e
-`SplitText` renderizam o estado final sem transição, e a navbar não anima a altura.
+**O movimento não se reduz.** O site não consulta `prefers-reduced-motion`: todas as
+animações rodam para todo visitante, independentemente da configuração do sistema.
 
-**A vitrine é a exceção, e rola sempre.** A regra original era pará-la — é a prática
-usual para carrossel automático, e ela é o elemento mais agressivo da página para quem
-tem sensibilidade vestibular. A Brand decidiu o contrário depois de ver o resultado: a
-vitrine é a identidade da home, e parada ela passa a impressão de site quebrado. A
-compensação é que a coluna continua rolável à mão, clicável, e pausa ao passar o mouse.
+A regra original era o contrário, e ela é a prática usual — entradas ao rolar, texto
+palavra a palavra e sobretudo um carrossel automático são o que essa preferência existe
+para desligar, e quem tem sensibilidade vestibular a liga por necessidade. A Brand
+decidiu assim mesmo, depois de ver as duas versões: o movimento é o que distingue o site
+dos concorrentes, e sem ele a home parece estática a ponto de sugerir defeito. A decisão
+é dela e está registrada aqui para que não se perca — quem for reconsiderar, comece pela
+vitrine, que é o elemento mais agressivo.
 
-**A marcação não pode variar com a preferência.** O que muda sob `reduce` é sempre a
-duração, ou uma variante `motion-reduce:` do CSS — nunca a estrutura renderizada. As
-páginas são pré-renderizadas em Node, onde a preferência não existe: marcação diferente
-no navegador quebra a hidratação e o React descarta o documento pronto, justamente para
-quem pediu menos movimento.
+O que sobra em compensação: nenhuma animação bloqueia conteúdo — o texto está todo no
+HTML servido —, a vitrine pausa ao passar o mouse e é rolável à mão, e as entradas
+disparam uma vez só, sem repetir a cada passagem.
+
+**Nenhum ramo pode depender do ambiente.** Sem consulta à preferência, sobra a regra
+geral: a marcação não pode variar com nada que exista só no navegador — preferência de
+movimento, tema, largura de tela medida em JavaScript. As páginas são pré-renderizadas
+em Node, e marcação diferente no navegador quebra a hidratação, fazendo o React
+descartar o documento pronto. O tema é resolvido por CSS, a partir do `data-theme` que o
+script do `index.html` grava antes da primeira pintura.
 
 ## Decisões — home
 

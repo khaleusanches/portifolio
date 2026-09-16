@@ -1,4 +1,4 @@
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, MotionConfig } from 'framer-motion'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Metadados from './components/gerais/Metadados.jsx'
 import PageTransition from './components/PageTransition.jsx'
@@ -19,7 +19,13 @@ function App() {
   const location = useLocation()
 
   return (
-    <>
+    /* O framer-motion atende `prefers-reduced-motion` por conta própria: sem isto, para
+       quem tem a preferência ligada ele pula direto ao estado final e as entradas nunca
+       acontecem — foi o que manteve os blocos com opacidade 1 fora da viewport. Desligar
+       é decisão explícita da Brand (spec 0003, "O movimento não se reduz"), e também é o
+       que mantém cliente e pré-renderização idênticos: em Node a preferência não existe,
+       então "nunca reduzir" é o único valor que os dois lados compartilham. */
+    <MotionConfig reducedMotion="never">
       {/* Fora do AnimatePresence: dentro, seria desmontado e remontado a cada
           navegação, e o head ficaria sem metadados durante a transição. */}
       <Metadados />
@@ -41,7 +47,7 @@ function App() {
           </Routes>
         </PageTransition>
       </AnimatePresence>
-    </>
+    </MotionConfig>
   )
 }
 

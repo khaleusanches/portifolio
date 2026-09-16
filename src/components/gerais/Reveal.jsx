@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion"
+import { motion } from "framer-motion"
 import {
     CASCATA,
     DESLOCAMENTO,
@@ -16,24 +16,18 @@ import {
  * apareceriam em cascata dentro de um bloco que já está entrando, e as duas animações
  * se somariam.
  *
- * Quem pediu menos movimento recebe o estado final sem transição. Isso é feito
- * zerando a DURAÇÃO, e nunca trocando as variantes ou a marcação: o build
- * pré-renderiza a página em Node, onde não existe preferência de movimento, e qualquer
- * diferença de estrutura entre o HTML servido e a primeira renderização no navegador
- * quebra a hidratação — o React joga fora o documento pronto e redesenha tudo.
- *
- * `useReducedMotion` do framer-motion lê a media query uma vez, ao montar — a versão
- * instalada carrega um TODO dizendo que ainda não acompanha mudanças. Trocar a
- * preferência durante a visita só passa a valer ao recarregar a página.
+ * O movimento não consulta `prefers-reduced-motion`. É decisão explícita da Brand,
+ * contra a prática usual — ver spec 0003, "O movimento não se reduz". O efeito colateral
+ * é bom para a pré-renderização: sem nenhum ramo que dependa do ambiente, o HTML gerado
+ * em Node e a primeira renderização no navegador são necessariamente idênticos.
  */
 
-const variantes = (duracao) => ({
+const entrada = {
     oculto: { opacity: 0, y: DESLOCAMENTO },
-    visivel: { opacity: 1, y: 0, transition: { duration: duracao, ease: EASE } },
-})
+    visivel: { opacity: 1, y: 0, transition: { duration: DURACAO_ENTRADA, ease: EASE } },
+}
 
 export function Reveal({ as = "div", className = "", children, ...resto }) {
-    const semMovimento = useReducedMotion()
     const Elemento = motion[as] ?? motion.div
 
     return (
@@ -41,7 +35,7 @@ export function Reveal({ as = "div", className = "", children, ...resto }) {
             initial="oculto"
             whileInView="visivel"
             viewport={VIEWPORT}
-            variants={variantes(semMovimento ? 0 : DURACAO_ENTRADA)}
+            variants={entrada}
             className={className}
             {...resto}
         >
@@ -58,7 +52,6 @@ export function Reveal({ as = "div", className = "", children, ...resto }) {
  * parado enquanto o contêiner escalonasse o nada.
  */
 export function Cascata({ as = "div", className = "", children, ...resto }) {
-    const semMovimento = useReducedMotion()
     const Elemento = motion[as] ?? motion.div
 
     return (
@@ -66,10 +59,7 @@ export function Cascata({ as = "div", className = "", children, ...resto }) {
             initial="oculto"
             whileInView="visivel"
             viewport={VIEWPORT}
-            variants={{
-                oculto: {},
-                visivel: { transition: { staggerChildren: semMovimento ? 0 : CASCATA } },
-            }}
+            variants={{ oculto: {}, visivel: { transition: { staggerChildren: CASCATA } } }}
             className={className}
             {...resto}
         >
@@ -79,15 +69,10 @@ export function Cascata({ as = "div", className = "", children, ...resto }) {
 }
 
 Cascata.Item = function CascataItem({ as = "div", className = "", children, ...resto }) {
-    const semMovimento = useReducedMotion()
     const Elemento = motion[as] ?? motion.div
 
     return (
-        <Elemento
-            variants={variantes(semMovimento ? 0 : DURACAO_ENTRADA)}
-            className={className}
-            {...resto}
-        >
+        <Elemento variants={entrada} className={className} {...resto}>
             {children}
         </Elemento>
     )

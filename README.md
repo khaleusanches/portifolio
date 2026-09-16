@@ -52,12 +52,15 @@ fallback para `index.html` só quando nenhum existe.
 `text-base` pinta o texto de branco e ele some no tema claro — para corpo de texto,
 não escreva classe nenhuma: 1rem já é o padrão.
 
-**A marcação não pode mudar com o tema nem com `prefers-reduced-motion`.** As páginas
-são pré-renderizadas em Node, onde não existe nem um nem outro. Uma estrutura
-diferente no navegador quebra a hidratação e o React descarta o documento pronto. O
-que varia com a preferência é a *duração* (ver `src/theme/movimento.js`); o que varia
-com o tema é escolhido por CSS, a partir do `data-theme` que o script do `index.html`
-grava antes da primeira pintura.
+**A marcação não pode variar com nada que só exista no navegador.** As páginas são
+pré-renderizadas em Node: uma estrutura diferente no cliente quebra a hidratação e o
+React descarta o documento pronto. O tema é resolvido por CSS, a partir do `data-theme`
+que o script do `index.html` grava antes da primeira pintura — nunca por um ramo em
+JavaScript.
+
+**O site não consulta `prefers-reduced-motion`.** É decisão explícita da Brand, contra a
+prática usual; ver spec 0003, "O movimento não se reduz". Não reintroduza a consulta sem
+falar com ela.
 
 **Crase dentro de `styled-components`.** Um comentário CSS que cite código com crases
 encerra o template literal. Use aspas simples.

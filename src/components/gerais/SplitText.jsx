@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion"
+import { motion } from "framer-motion"
 import { CASCATA, DESLOCAMENTO, DURACAO_ENTRADA, EASE } from "../../theme/movimento"
 
 /**
@@ -21,16 +21,12 @@ import { CASCATA, DESLOCAMENTO, DURACAO_ENTRADA, EASE } from "../../theme/movime
  * spans: como cada palavra é `inline-block` para poder ser deslocada, um espaço de
  * texto entre elas some no colapso de espaço em branco e a frase sai grudada.
  *
- * Sob a preferência por menos movimento, o que muda é a duração e não a marcação: o
- * build pré-renderiza em Node, onde não há preferência nenhuma, e uma estrutura
- * diferente no navegador quebraria a hidratação da página pronta.
+ * Não consulta `prefers-reduced-motion`: ver spec 0003, "O movimento não se reduz".
  */
 function SplitText({ children, className = "", as = "span" }) {
-    const semMovimento = useReducedMotion()
     const Elemento = motion[as] ?? motion.span
     const texto = String(children ?? "")
     const palavras = texto.split(/\s+/).filter(Boolean)
-    const duracao = semMovimento ? 0 : DURACAO_ENTRADA
 
     return (
         <Elemento
@@ -39,7 +35,7 @@ function SplitText({ children, className = "", as = "span" }) {
             animate="visivel"
             variants={{
                 oculto: {},
-                visivel: { transition: { staggerChildren: semMovimento ? 0 : CASCATA } },
+                visivel: { transition: { staggerChildren: CASCATA } },
             }}
         >
             <span className="sr-only">{texto}</span>
@@ -50,7 +46,7 @@ function SplitText({ children, className = "", as = "span" }) {
                     className="inline-block"
                     variants={{
                         oculto: { opacity: 0, y: DESLOCAMENTO },
-                        visivel: { opacity: 1, y: 0, transition: { duration: duracao, ease: EASE } },
+                        visivel: { opacity: 1, y: 0, transition: { duration: DURACAO_ENTRADA, ease: EASE } },
                     }}
                 >
                     {palavra}
