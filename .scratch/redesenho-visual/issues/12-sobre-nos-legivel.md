@@ -9,11 +9,11 @@ são corrigidas: "espezializados" e "eficiêntes".
 
 **Blocked by:** 01 (sistema tipográfico), 02 (container e tokens).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A linha de texto não passa da medida de leitura confortável, em nenhuma largura de tela
-- [ ] O `text-justify` sai
-- [ ] Os parágrafos são parágrafos, e não um bloco quebrado por `<br/>`
-- [ ] "espezializados" vira "especializados" e "eficiêntes" vira "eficientes"
-- [ ] A seção é `<section>` com título acessível
-- [ ] O bloco duplicado de ícones sociais não está mais aqui
+- [x] A linha de texto não passa da medida de leitura confortável, em nenhuma largura de tela
+- [x] O `text-justify` sai
+- [x] Os parágrafos são parágrafos, e não um bloco quebrado por `<br/>`
+- [x] "espezializados" vira "especializados" e "eficiêntes" vira "eficientes"
+- [x] A seção é `<section>` com título acessível
+- [x] O bloco duplicado de ícones sociais não está mais aqui
