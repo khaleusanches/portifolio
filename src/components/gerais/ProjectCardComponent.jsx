@@ -23,7 +23,7 @@ function ProjectCardComponent({ project, onMouseEnter, onMouseLeave }) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <img className="rounded-[24px]" src={project.cover} alt=""
+            <img className="rounded-card" src={project.cover} alt=""
                  width={project.coverWidth} height={project.coverHeight} decoding="async" />
             <h2 className="mt-2 font-bold tracking-tight text-xl ml-1">{project.pitch}</h2>
             <p className="text-muted font-bold mt-2 text-sm ml-1">{project.stack.join(" | ")}</p>

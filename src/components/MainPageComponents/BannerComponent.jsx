@@ -64,7 +64,7 @@ function BannerComponent() {
   return (
     <div style={{ backgroundImage: "var(--banner)" }} className="w-[100vw] sm:bg-contain  block md:flex items-center justify-center space-x-0 md:h-[100vh] border-0 text-ink m-auto overflow-hidden">
       <p className="-rotate-90 relative left-[60px] text-2xl w-[15vw] h-0 ml-[-20vw] ">Últimos Trabalhos</p>
-      <div className="hidden md:block h-[88vh] shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px] relative left-0 mt-[12vh]">
+      <div className="hidden md:block h-[88vh] shadow-card p-4 rounded-card relative left-0 mt-[12vh]">
         <div
           ref={scrollRef}
           className="h-full overflow-auto no-scrollbar lg:w-[18vw] "
@@ -81,7 +81,7 @@ function BannerComponent() {
         </div>
       </div>
             <div className="w-[100vw] md:w-[70vw] flex justify-between items-center flex-col mt-[16vh] md:mt-0">
-                <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] lg:mt-16 w-[90vw] md:w-[62.5vw] overflow-hidden">
+                <div className="shadow-card p-4 rounded-card lg:mt-16 w-[90vw] md:w-[62.5vw] overflow-hidden">
                     <h1 className="mb-2 font-baskerville text-5xl font-bold tracking-tight md:text-5xl lg:text-7xl overflow-hidden"><strong>KH</strong> <strong className="text-brand">SOFTWARES</strong></h1>
                     <h1 className="font-baskerville text-3xl font-bold tracking-tight md:text-5xl lg:text-4xl overflow-hidden mb-8" >Construímos aplicações eficiêntes para sua empresa</h1>
                     <a href="https://wa.link/q560iy" target="_blank" rel="noopener noreferrer" className="border-2 border-b-8 border-ink font-bold rounded-[16px] p-4 hover:bg-ink hover:text-base mb-8">Entre em Contato</a>
@@ -89,14 +89,14 @@ function BannerComponent() {
                 </div>
                 <div className="w-full flex justify-end">
 
-                    <div className="shadow-[-6px_9px_16px_-1px_rgba(0,0,0,0.38)] p-4 rounded-[8px] lg:w-[20vw] mb-[2vh] md:mb-[10vh]">
+                    <div className="shadow-card p-4 rounded-card lg:w-[20vw] mb-[2vh] md:mb-[10vh]">
                         <div className="pb">
                             <h2 className="mb-4 text-3xl font-extralight tracking-tight md:text-3xl lg:text-3xl"></h2>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="flex md:hidden w-full shadow-[0px_0px_10px_7px_rgba(0,0,0,0.38)] p-4 rounded-[8px]">
+            <div className="flex md:hidden w-full shadow-card p-4 rounded-card">
             <div   
               className="h-[40vh] flex justify-around overflow-x-auto no-scrollbar w-[120vw] md:w-[18vw] "
             >

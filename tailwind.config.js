@@ -42,6 +42,19 @@ export default {
         // e de Service. Em nenhum outro lugar.
         baskerville: ['"Libre Baskerville"', 'Georgia', 'serif']
       },
+      boxShadow: {
+        // Dois níveis numa sombra só: 1px de contato, que assenta a peça na
+        // superfície, e um halo largo e curto de elevação. Substitui o
+        // `0 0 10px 7px rgba(0,0,0,.38)` que era a marca visual mais forte do
+        // herói — 38% de preto espalhado é o que mais fazia o site parecer datado.
+        card: '0 1px 3px rgb(0 0 0 / 0.07), 0 12px 32px -12px rgb(0 0 0 / 0.35)',
+        'card-hover': '0 1px 3px rgb(0 0 0 / 0.09), 0 20px 44px -16px rgb(0 0 0 / 0.42)'
+      },
+      borderRadius: {
+        // Um raio para tudo que é cartão ou imagem. O `rounded-[24px]` do card de
+        // Project e o `rounded-[8px]` do herói divergiam sem motivo.
+        card: '1rem'
+      },
       fontSize: {
         // A escala mora aqui, e não repetida a cada componente. `rotulo` é a linha
         // em caixa alta que abre uma seção; `display` é a headline do herói.

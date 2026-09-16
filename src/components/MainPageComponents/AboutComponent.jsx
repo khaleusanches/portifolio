@@ -1,9 +1,12 @@
+import Container from "../gerais/Container"
+
 function AboutComponent(){
     return(
-        <div id="about" className="w-screen md:h-[110vh] p-8 mt-[6vh] pt-[8vh] bg-base-alt text-ink-alt">
+        <section id="about" aria-labelledby="titulo-sobre" className="secao bg-base-alt text-ink-alt">
+            <Container>
             <div className="flex justify-between items-center ">
-                <h3 className="text-3xl ml-[5vw] mb-2 font-baskerville overflow-hidden">Sobre nós</h3>
-                <div className="share flex mr-[5vw] space-x-2">
+                <h2 id="titulo-sobre" className="font-baskerville text-titulo">Sobre nós</h2>
+                <div className="share flex space-x-2">
                     <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-twitter" viewBox="0 0 16 16">
                             <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
@@ -22,15 +25,16 @@ function AboutComponent(){
                 </div>
             </div>
             <div className="flex">
-                <p className="md:ml-[5vw] text-lg md:w-[40vw] text-justify">
+                <p className="text-lg">
                     Somos espezializados no desenvolvimento de sistemas e soluções digitais que ajudam empresas a otimizar processos, aumentar a produtividade e expandir seus negócios. Com expertise em softwares personalizados, ERPs, CRMs, automações, integrações e até soluções para redes sociais, transformamos ideias em tecnologia que gera resultados reais.
                     <br/> <br/>
                     Nossos <strong>Engenheiros de Software</strong> dominam tecnologias como Kotlin, C#, Java, SQL Server e MongoDB, garantindo soluções robustas, escaláveis e seguras. Cada projeto é desenvolvido sob medida, pensando na melhor experiência para o usuário e no crescimento do seu negócio.
                     <br/> <br/>
                     Acreditamos que tecnologia deve simplificar, não complicar. Por isso, trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e entregando sistemas que realmente fazem a diferença. Se você procura inovação, eficiência e confiabilidade, estamos prontos para transformar sua ideia em realidade.
                 </p>
-            </div>
-        </div>
+                </div>
+            </Container>
+        </section>
     )
 }
 

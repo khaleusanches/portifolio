@@ -1,12 +1,14 @@
+import Container from "../gerais/Container"
 import ServicesCard from "./ServicesCard"
 import { serviceList } from "../../content/services"
 
 function ServicesComponent(){
     return(
-        <div id="services" className="w-screen overflow-hidden mt-8 p-8 bg-base-alt text-ink-alt">
+        <section id="services" aria-labelledby="titulo-servicos" className="secao bg-base-alt text-ink-alt">
+            <Container>
             <div className="flex justify-between items-center ">
-                <h3 className="text-3xl ml-[5vw] font-baskerville overflow-hidden">Serviços</h3>
-                <div className="share flex mr-[5vw] space-x-2">
+                <h2 id="titulo-servicos" className="font-baskerville text-titulo">Serviços</h2>
+                <div className="share flex space-x-2">
                     <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-twitter" viewBox="0 0 16 16">
                             <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
@@ -24,12 +26,13 @@ function ServicesComponent(){
                     </a>
                 </div>
             </div>
-            <div className="flex ml-[-5vw] justify-center mt-8 border-2 w-[95vw] md:ml-0 md:w-[95vw] md:m-0 flex-wrap overflow-hidden md:justify-around md:mt-8">
+            <div className="mt-12 flex flex-wrap justify-center gap-8">
                 {serviceList.map((service) => (
                     <ServicesCard key={service.slug} service={service}/>
                 ))}
-            </div>
-        </div>
+                </div>
+            </Container>
+        </section>
     )
 }
 export default ServicesComponent

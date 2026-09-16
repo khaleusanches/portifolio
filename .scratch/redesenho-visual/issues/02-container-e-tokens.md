@@ -13,12 +13,12 @@ alinhada e com sombra suave.
 
 **Blocked by:** Nada (pode começar imediatamente).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Existe um `Container` único, usado por todas as seções da home
-- [ ] Nenhuma seção define a própria margem horizontal em medida de viewport
-- [ ] O espaço vertical entre seções vem de um token, e é o mesmo entre todas
-- [ ] Sombra e raio vêm de tokens; nenhum `shadow-[...]` literal sobra no JSX
-- [ ] A vitrine continua sangrando até a borda da tela, como exceção declarada em comentário
-- [ ] O layout continua correto em telas estreitas, largas e no celular
-- [ ] Os dois temas continuam corretos, e nenhum teste existente quebra
+- [x] Existe um `Container` único, usado por todas as seções da home
+- [x] Nenhuma seção define a própria margem horizontal em medida de viewport
+- [x] O espaço vertical entre seções vem de um token, e é o mesmo entre todas
+- [x] Sombra e raio vêm de tokens; nenhum `shadow-[...]` literal sobra no JSX
+- [x] A vitrine continua sangrando até a borda da tela, como exceção declarada em comentário
+- [x] O layout continua correto em telas estreitas, largas e no celular
+- [x] Os dois temas continuam corretos, e nenhum teste existente quebra

@@ -13,6 +13,13 @@
     @apply text-rotulo font-semibold uppercase text-muted;
   }
 
+  /* O espaço vertical entre seções. Vem de um lugar só: antes cada seção trazia o
+     seu (`mt-8`, `mt-[6vh] pt-[8vh]`, `pb-4`) e o ritmo da página dependia de qual
+     seção tinha vindo antes. */
+  .secao {
+    @apply py-20 md:py-28;
+  }
+
   /* A medida de leitura confortável. `max-w-prose` do Tailwind é calculada em `ch`
      da fonte padrão dele, não da nossa — esta fecha em ~68 caracteres com Inter. */
   .medida-leitura {
