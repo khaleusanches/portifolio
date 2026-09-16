@@ -5,6 +5,7 @@ import OlimpicLinkCover from "../../public/Olimpiclink.webp"
 import LaunaCover from "../../public/launa.webp"
 import SystemERPCover from "../../public/ERPSystem.webp"
 import AHMCover from "../../public/AHM.webp"
+import CommissionSchoolCover from "../../public/CommissionSchool.webp"
 
 import OlimpicLinkOne from "../../public/OlimpiclinkOne.webp"
 import OlimpicLinkTwo from "../../public/OlimpiclinkTwo.webp"
@@ -40,6 +41,12 @@ import ManagerCadastro from "../../public/RyccoManagerCadastro.webp"
 import ManagerLicencas from "../../public/RyccoManagerLicencas.webp"
 import ManagerAssistente from "../../public/RyccoManagerAssistente.webp"
 
+import CommissionPainel from "../../public/CommissionSchoolPainel.webp"
+import CommissionPresenca from "../../public/CommissionSchoolPresenca.webp"
+import CommissionRelatorios from "../../public/CommissionSchoolRelatorios.webp"
+import CommissionComercial from "../../public/CommissionSchoolComercial.webp"
+import CommissionChat from "../../public/CommissionSchoolChat.webp"
+
 import AHMOne from "../../public/ahmum.webp"
 import AHMTwo from "../../public/ahmdois.webp"
 import AHMThree from "../../public/ahmtres.webp"
@@ -64,6 +71,64 @@ import AHMThree from "../../public/ahmtres.webp"
  *             para que a caixa seja reservada antes de a imagem chegar
  */
 export const projects = {
+    CommissionSchool: {
+        slug: "CommissionSchool",
+        pitch: "Gestão pedagógica de uma escola de idiomas, da matrícula à presença",
+        headline: "Commission School — Plataforma de Gestão Pedagógica para Escolas de Idiomas",
+        stack: ["React", "TypeScript", "Tailwind", "Supabase", "PostgreSQL"],
+        marks: ["#MultiPerfil", "#Segurança", "#Escalável", "#ArquiteturaModerna"],
+        evidence: ["website", "automacao"],
+        liveDemo: null,
+        cover: CommissionSchoolCover,
+        coverWidth: 810,
+        coverHeight: 821,
+        description: "Plataforma interna da **Commission School**, escola de inglês com 39 turmas ativas e mais de 200 alunos matriculados. A coordenação acompanha ocupação e assiduidade turma a turma, o professor registra conteúdo e presença de cada aula, o comercial conduz o aluno novo até a primeira aula, e o próprio aluno acompanha sua turma, seu histórico e seu progresso.",
+        capabilities: [
+            {
+                title: "Painel da Coordenação",
+                text: "Os números da escola inteira numa tela, com cartões que apontam sozinhos a turma mais cheia, a mais assídua e a que está em risco — e abrem o ranking completo ao serem clicados. As turmas podem ser lidas como cartões, como lista ou sobre um calendário mensal.",
+                screenshot: "painel"
+            },
+            {
+                title: "Aula, Presença e Anexos",
+                text: "O professor registra o conteúdo do dia e marca a presença aluno a aluno no mesmo lugar, junto do comentário da aula e dos arquivos que ela gerou. A frequência de cada aluno e a assiduidade da turma saem daí, sem recontagem manual.",
+                screenshot: "presenca"
+            },
+            {
+                title: "Ocupação Cruzada com Assiduidade",
+                text: "A escola passa a distinguir turma cheia de turma saudável: a matriz cruza quantos alunos a turma tem com quantos de fato aparecem, e separa quem está cheia e defasada de quem está vazia e assídua. Cada situação pede uma decisão diferente.",
+                screenshot: "relatorios"
+            },
+            {
+                title: "Funil de Matrícula",
+                text: "O aluno novo entra antes da primeira aula, com a origem registrada e a matrícula gerada na hora, e só passa para a base de alunos quando a aula acontece. É o que separa quem procurou a escola de quem já é aluno dela.",
+                screenshot: "comercial"
+            },
+            {
+                title: "Conversa da Equipe",
+                text: "Canais e mensagens diretas dentro da própria plataforma, ao lado do dado que motivou a conversa. A coordenação discute a turma sem sair da tela onde ela é acompanhada.",
+                screenshot: "chat"
+            },
+            {
+                title: "Área do Aluno",
+                text: "O aluno vê a própria turma, o histórico de aulas, o progresso na jornada e envia a lição de casa amarrada à aula certa. A agenda das aulas pode ser sincronizada com o calendário dele.",
+                screenshot: null
+            },
+            {
+                title: "Autorização no Banco",
+                text: "Quem enxerga o quê é decidido por políticas do **PostgreSQL**, e não pela interface: o que a tela esconde continuaria acessível pela API, então a regra vive uma camada abaixo. A equipe entra por convite da coordenação, e não há auto-cadastro.",
+                screenshot: null
+            }
+        ],
+        screenshots: [
+            { slug: "painel", image: CommissionPainel, width: 1568, height: 626, caption: "Números da escola, os cartões de destaque com a turma mais cheia e a menos assídua, e as turmas em cartões abaixo" },
+            { slug: "presenca", image: CommissionPresenca, width: 1568, height: 626, caption: "Uma aula aberta: o conteúdo do dia no topo e a presença marcada nome a nome, com um ausente em vermelho" },
+            { slug: "relatorios", image: CommissionRelatorios, width: 1568, height: 626, caption: "Assiduidade de cada turma em barras ordenadas; em vermelho as que estão abaixo do mínimo aceitável" },
+            { slug: "comercial", image: CommissionComercial, width: 1568, height: 626, caption: "Alunos que ainda não fizeram a primeira aula, com a origem de cada um e o botão que os move para a base de alunos" },
+            { slug: "chat", image: CommissionChat, width: 1568, height: 626, caption: "Canal da coordenação discutindo a presença de duas turmas, com a lista de canais e conversas à esquerda" }
+        ]
+    },
+
     RyccoDespachador: {
         slug: "RyccoDespachador",
         pitch: "Console de despacho com voz PTT, GPS e vídeo ao vivo",
@@ -378,7 +443,7 @@ export const projects = {
 }
 
 /** Featured: a lista ordenada de Projects da vitrine da home. */
-export const featured = ["RyccoDespachador", "OlimpicLink", "RyccoPTT", "Launa", "RyccoManager", "SystemERP"]
+export const featured = ["RyccoDespachador", "CommissionSchool", "OlimpicLink", "RyccoPTT", "Launa", "RyccoManager", "SystemERP"]
 
 export const getProject = (slug) => projects[slug] ?? null
 
