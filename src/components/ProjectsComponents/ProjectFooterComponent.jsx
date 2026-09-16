@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import Container from "../gerais/Container"
+import { contato } from "../../content/marca"
 import { nextFeatured } from "../../content/projects"
 
 /**
@@ -15,10 +17,10 @@ function ProjectFooterComponent({ project }) {
     const proximo = nextFeatured(project.slug)
 
     return (
-        <footer className="mx-auto w-full max-w-[1400px] px-6 md:px-12 pb-24">
+        <Container as="footer" className="pb-24">
             <div className="pt-10 border-t border-line/10 flex flex-col items-center gap-8">
                 <a
-                    href="https://wa.link/q560iy"
+                    href={contato.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-brand text-white text-center hover:brightness-110 rounded-full font-bold px-10 py-4"
@@ -39,7 +41,7 @@ function ProjectFooterComponent({ project }) {
                     </Link>
                 )}
             </div>
-        </footer>
+        </Container>
     )
 }
 

@@ -8,15 +8,15 @@ ocupa a largura do texto: é estado legítimo do modelo, não falta de imagem.
 
 **Blocked by:** 01 (sistema tipográfico), 02 (container e tokens), 03 (vocabulário de movimento).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] O topo mostra headline, Marks e Stack do Project
-- [ ] Cada Capability aparece com a Screenshot que ela reivindica, alternando o lado
-- [ ] A Caption é apresentada como legenda da imagem
-- [ ] Capability sem Screenshot ocupa a largura do texto, sem espaço vazio
-- [ ] Screenshot que nenhuma Capability reivindicou continua aparecendo
-- [ ] A ampliação de Screenshot continua funcionando, com escape e clique fora
-- [ ] Cada Screenshot usa a Caption como `alt`
-- [ ] A ausência de Live Demo não gera espaço nem explicação na página
-- [ ] As faixas entram com `Reveal` ao rolar
-- [ ] Todos os Projects continuam renderizando, e nenhum teste existente quebra
+- [x] O topo mostra headline, Marks e Stack do Project
+- [x] Cada Capability aparece com a Screenshot que ela reivindica, alternando o lado
+- [x] A Caption é apresentada como legenda da imagem
+- [x] Capability sem Screenshot ocupa a largura do texto, sem espaço vazio
+- [x] Screenshot que nenhuma Capability reivindicou continua aparecendo
+- [x] A ampliação de Screenshot continua funcionando, com escape e clique fora
+- [x] Cada Screenshot usa a Caption como `alt`
+- [x] A ausência de Live Demo não gera espaço nem explicação na página
+- [x] As faixas entram com `Reveal` ao rolar
+- [x] Todos os Projects continuam renderizando, e nenhum teste existente quebra

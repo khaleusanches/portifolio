@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Container from "../gerais/Container"
 import ThemeToggleComponent from "../gerais/ThemeToggleComponent"
 import { formatText } from "../gerais/formatText"
 import { servicesEvidencedBy } from "../../content/services"
@@ -19,7 +20,7 @@ function ProjectHeaderComponent({ project }) {
     const services = servicesEvidencedBy(project)
 
     return (
-        <header className="mx-auto w-full max-w-[1400px] px-6 md:px-12 pt-8 pb-12 md:pb-16">
+        <Container as="header" className="pt-8 pb-12 md:pb-16">
             {/* A página de Project não tem NavBar, então o seletor de tema mora aqui. */}
             <div className="flex items-center justify-between gap-4">
                 <Link to="/" className="inline-block text-sm text-muted hover:text-ink">
@@ -28,7 +29,7 @@ function ProjectHeaderComponent({ project }) {
                 <ThemeToggleComponent/>
             </div>
 
-            <h1 className="mt-8 font-baskerville text-3xl md:text-5xl font-bold tracking-tight max-w-4xl">
+            <h1 className="mt-8 font-baskerville text-titulo font-bold max-w-4xl">
                 {project.headline}
             </h1>
 
@@ -62,7 +63,7 @@ function ProjectHeaderComponent({ project }) {
                     </p>
                 )}
             </div>
-        </header>
+        </Container>
     )
 }
 

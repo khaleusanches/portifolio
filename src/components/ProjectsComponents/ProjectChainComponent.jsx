@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Container from "../gerais/Container"
+import { Reveal } from "../gerais/Reveal"
 import ImagesMaximizeComponent from "../gerais/ImagesMaximizeComponent"
 import { formatText } from "../gerais/formatText"
 import { projectChain } from "../../content/projects"
@@ -38,7 +40,7 @@ function Tela({ screenshot, prioritaria, onAmpliar }) {
                 fetchPriority={prioritaria ? "high" : "auto"}
                 decoding="async"
                 onClick={() => onAmpliar(screenshot)}
-                className={`h-auto rounded-2xl cursor-pointer ring-1 ring-line/15 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)] ${
+                className={`h-auto rounded-card cursor-pointer ring-1 ring-line/15 shadow-card ${
                     retrato ? "mx-auto w-auto max-h-[70vh] max-w-full" : "w-full"
                 }`}
             />
@@ -79,30 +81,31 @@ function ProjectChainComponent({ project }) {
     const primeiraTela = corrente.find((bloco) => bloco.screenshot)?.screenshot.slug
 
     return (
-        <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12 pb-24 space-y-16 md:space-y-28">
+        <Container className="pb-24 space-y-16 md:space-y-28">
             {blocos.map((bloco, indice) => {
                 if (bloco.kind === "capability") {
                     return (
-                        <section key={`cap-${indice}`} className="mx-auto max-w-2xl">
+                        <Reveal as="section" key={`cap-${indice}`} className="mx-auto max-w-2xl">
                             <Capacidade capability={bloco.capability} />
-                        </section>
+                        </Reveal>
                     )
                 }
 
                 if (bloco.kind === "screenshot") {
                     return (
-                        <section key={bloco.screenshot.slug} className="w-full">
+                        <Reveal as="section" key={bloco.screenshot.slug} className="w-full">
                             <Tela
                                 screenshot={bloco.screenshot}
                                 prioritaria={bloco.screenshot.slug === primeiraTela}
                                 onAmpliar={setAmpliada}
                             />
-                        </section>
+                        </Reveal>
                     )
                 }
 
                 return (
-                    <section
+                    <Reveal
+                        as="section"
                         key={bloco.screenshot.slug}
                         className={`flex flex-col gap-8 md:gap-12 md:items-center ${
                             bloco.ordem % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
@@ -118,7 +121,7 @@ function ProjectChainComponent({ project }) {
                                 onAmpliar={setAmpliada}
                             />
                         </div>
-                    </section>
+                    </Reveal>
                 )
             })}
 
@@ -127,7 +130,7 @@ function ProjectChainComponent({ project }) {
                 isOpen={!!ampliada}
                 onClose={() => setAmpliada(null)}
             />
-        </div>
+        </Container>
     )
 }
 
