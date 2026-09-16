@@ -9,12 +9,12 @@ navegação secundária para as seções da home.
 
 **Blocked by:** 02 (container e tokens), 04 (ícones sociais).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] O e-mail é um `mailto:` que abre o cliente de e-mail
-- [ ] O WhatsApp leva ao mesmo destino dos CTAs da página
-- [ ] A localização e a abrangência de atendimento aparecem
-- [ ] As redes sociais usam o componente do ticket 04, sem link vazio
-- [ ] A navegação secundária leva às seções da home
-- [ ] O rodapé é `<footer>` e reflui para uma coluna no celular
-- [ ] Os dados de contato vêm do módulo de conteúdo, não estão cravados no JSX
+- [x] O e-mail é um `mailto:` que abre o cliente de e-mail
+- [x] O WhatsApp leva ao mesmo destino dos CTAs da página
+- [x] A localização e a abrangência de atendimento aparecem
+- [x] As redes sociais usam o componente do ticket 04, sem link vazio
+- [x] A navegação secundária leva às seções da home
+- [x] O rodapé é `<footer>` e reflui para uma coluna no celular
+- [x] Os dados de contato vêm do módulo de conteúdo, não estão cravados no JSX
