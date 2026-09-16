@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-prerender.jsx --outDir dist-ssr && node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "build:spa": "vite build"
   },
   "dependencies": {
     "framer-motion": "^12.34.0",

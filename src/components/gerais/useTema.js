@@ -23,6 +23,11 @@ import {
  */
 export function useTema() {
     const [tema, setTema] = useState(() => {
+        // A pré-renderização do build roda em Node, onde não há documento. O tema real
+        // é decidido no navegador pelo script do index.html, antes da primeira pintura;
+        // aqui basta não quebrar, e o claro é o padrão declarado na spec 0002.
+        if (typeof document === "undefined") return CLARO
+
         const jaAplicado = document.documentElement.getAttribute("data-theme")
         if (jaAplicado === CLARO || jaAplicado === ESCURO) return jaAplicado
 

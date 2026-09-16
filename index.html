@@ -34,6 +34,15 @@
         }
       })()
     </script>
+    <noscript>
+      <!-- O build pré-renderiza a página, então o conteúdo está no documento; mas as
+           entradas ao rolar nascem com opacidade zero e só o JavaScript as revela.
+           Sem script, o visitante leria uma página em branco sobre um texto que já
+           está ali. -->
+      <style>
+        [style*="opacity:0"], [style*="opacity: 0"] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
   </head>
   <body>
     <div id="root" ></div>

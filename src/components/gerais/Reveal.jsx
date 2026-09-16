@@ -16,20 +16,20 @@ import {
  * apareceriam em cascata dentro de um bloco que já está entrando, e as duas animações
  * se somariam.
  *
- * Quem pediu menos movimento recebe o estado final, sem transição — e não uma versão
- * reduzida da animação. `useReducedMotion` do framer-motion assina a media query, então
- * mudar a preferência do sistema durante a visita reflete sem recarregar a página.
+ * Quem pediu menos movimento recebe o estado final sem transição. Isso é feito
+ * zerando a DURAÇÃO, e nunca trocando as variantes ou a marcação: o build
+ * pré-renderiza a página em Node, onde não existe preferência de movimento, e qualquer
+ * diferença de estrutura entre o HTML servido e a primeira renderização no navegador
+ * quebra a hidratação — o React joga fora o documento pronto e redesenha tudo.
+ *
+ * `useReducedMotion` do framer-motion assina a media query, então mudar a preferência
+ * do sistema durante a visita reflete sem recarregar a página.
  */
 
-const entrada = {
+const variantes = (duracao) => ({
     oculto: { opacity: 0, y: DESLOCAMENTO },
-    visivel: { opacity: 1, y: 0, transition: { duration: DURACAO_ENTRADA, ease: EASE } },
-}
-
-const parado = {
-    oculto: { opacity: 1, y: 0 },
-    visivel: { opacity: 1, y: 0 },
-}
+    visivel: { opacity: 1, y: 0, transition: { duration: duracao, ease: EASE } },
+})
 
 export function Reveal({ as = "div", className = "", children, ...resto }) {
     const semMovimento = useReducedMotion()
@@ -40,7 +40,7 @@ export function Reveal({ as = "div", className = "", children, ...resto }) {
             initial="oculto"
             whileInView="visivel"
             viewport={VIEWPORT}
-            variants={semMovimento ? parado : entrada}
+            variants={variantes(semMovimento ? 0 : DURACAO_ENTRADA)}
             className={className}
             {...resto}
         >
@@ -82,7 +82,11 @@ Cascata.Item = function CascataItem({ as = "div", className = "", children, ...r
     const Elemento = motion[as] ?? motion.div
 
     return (
-        <Elemento variants={semMovimento ? parado : entrada} className={className} {...resto}>
+        <Elemento
+            variants={variantes(semMovimento ? 0 : DURACAO_ENTRADA)}
+            className={className}
+            {...resto}
+        >
             {children}
         </Elemento>
     )

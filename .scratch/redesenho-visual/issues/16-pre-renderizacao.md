@@ -12,12 +12,12 @@ ela publica — não é preciso mudar hospedagem.
 
 **Blocked by:** 05 (metadados por rota).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] `npm run build` gera um HTML por rota, incluindo uma por Project
-- [ ] A lista de rotas deriva de `projects.js`, sem lista paralela
-- [ ] O HTML gerado de um Project contém a headline e o texto da página, legíveis sem JavaScript
-- [ ] Cada HTML traz seu `title`, `description`, `canonical` e Open Graph corretos
-- [ ] O JSON-LD de `Organization` está no HTML da home
-- [ ] A página continua funcionando normalmente ao ser carregada e navegada no navegador
-- [ ] Um Project novo no conteúdo passa a gerar HTML sem nenhuma outra mudança
+- [x] `npm run build` gera um HTML por rota, incluindo uma por Project
+- [x] A lista de rotas deriva de `projects.js`, sem lista paralela
+- [x] O HTML gerado de um Project contém a headline e o texto da página, legíveis sem JavaScript
+- [x] Cada HTML traz seu `title`, `description`, `canonical` e Open Graph corretos
+- [x] O JSON-LD de `Organization` está no HTML da home
+- [x] A página continua funcionando normalmente ao ser carregada e navegada no navegador
+- [x] Um Project novo no conteúdo passa a gerar HTML sem nenhuma outra mudança

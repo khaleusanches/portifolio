@@ -12,19 +12,20 @@ import { CASCATA, DESLOCAMENTO, DURACAO_ENTRADA, EASE } from "../../theme/movime
  * anunciaria cada palavra como um item próprio, com pausa entre elas, e a frase
  * chegaria picada.
  *
- * O espaço entre palavras é um NBSP (U+00A0) dentro do span, e não um espaço entre spans:
- * como cada palavra é `inline-block` para poder ser deslocada, um espaço de texto
- * entre elas some no colapso de espaço em branco e a frase sai grudada.
+ * O espaço entre palavras é um NBSP (U+00A0) dentro do span, e não um espaço entre
+ * spans: como cada palavra é `inline-block` para poder ser deslocada, um espaço de
+ * texto entre elas some no colapso de espaço em branco e a frase sai grudada.
+ *
+ * Sob a preferência por menos movimento, o que muda é a duração e não a marcação: o
+ * build pré-renderiza em Node, onde não há preferência nenhuma, e uma estrutura
+ * diferente no navegador quebraria a hidratação da página pronta.
  */
 function SplitText({ children, className = "", as = "span" }) {
     const semMovimento = useReducedMotion()
     const Elemento = motion[as] ?? motion.span
     const texto = String(children ?? "")
     const palavras = texto.split(/\s+/).filter(Boolean)
-
-    if (semMovimento) {
-        return <span className={className}>{texto}</span>
-    }
+    const duracao = semMovimento ? 0 : DURACAO_ENTRADA
 
     return (
         <Elemento
@@ -32,7 +33,10 @@ function SplitText({ children, className = "", as = "span" }) {
             aria-label={texto}
             initial="oculto"
             animate="visivel"
-            variants={{ oculto: {}, visivel: { transition: { staggerChildren: CASCATA } } }}
+            variants={{
+                oculto: {},
+                visivel: { transition: { staggerChildren: semMovimento ? 0 : CASCATA } },
+            }}
         >
             {palavras.map((palavra, indice) => (
                 <motion.span
@@ -41,11 +45,7 @@ function SplitText({ children, className = "", as = "span" }) {
                     className="inline-block"
                     variants={{
                         oculto: { opacity: 0, y: DESLOCAMENTO },
-                        visivel: {
-                            opacity: 1,
-                            y: 0,
-                            transition: { duration: DURACAO_ENTRADA, ease: EASE },
-                        },
+                        visivel: { opacity: 1, y: 0, transition: { duration: duracao, ease: EASE } },
                     }}
                 >
                     {palavra}

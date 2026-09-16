@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# bundle intermediário da pré-renderização (removido pelo próprio build)
+dist-ssr
